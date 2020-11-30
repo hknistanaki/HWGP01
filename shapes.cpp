@@ -26,6 +26,40 @@ const QBrush& Shape::get_brush() const
     return brush;
 }
 
+void Shape::set_shape(ShapeType shape)
+{
+    this->shape = shape;
+}
+
+void Shape::set_pen(Qt::GlobalColor color, int width, Qt::PenStyle penStyle, Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJoinStyle)
+{
+    pen = QPen(color, width, penStyle, penCapStyle, penJoinStyle);
+}
+
+void Shape::set_pen(Qt::GlobalColor color)
+{
+    pen = QPen(color);
+}
+
+void Shape::set_brush(const Qt::GlobalColor color, const Qt::BrushStyle brushStyle)
+{
+    brush = QBrush(color, brushStyle);
+}
+
+void Shape::default_Style()
+{
+    pen = Qt::SolidLine;
+    brush = Qt::NoBrush;
+
+    qpainter.setPen(pen);
+    qpainter.setBrush(brush);
+}
+
+void Shape::draw_rect(int width, int height)
+{
+    qpainter.drawRect(QRect(0, 0, width, height))
+}
+
 void Line::set_points(cosnt QPoint& point_begin, const QPoint& point_end)
 {
     this->point_begin = point_begin;
