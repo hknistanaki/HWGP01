@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     lDialog = nullptr;
     addShapeDialog = nullptr;
     delShapeDialog = nullptr;
+    commentsDialog = nullptr;
 
     shapeCount = 0; // DEBUG TODO remove
 
