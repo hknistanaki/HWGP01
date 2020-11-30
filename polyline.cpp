@@ -1,4 +1,4 @@
-#include "shape.h"
+#include "Shape.h"
 #include "polyline.h"
 
 void Polyline::set_point(const QPoint& point)
