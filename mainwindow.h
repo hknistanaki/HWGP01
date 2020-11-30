@@ -8,6 +8,7 @@
 #include "logindialog.h"
 #include "addshape.h"
 #include "deleteshape.h"
+#include "comments.h"
 
 #include "vector.h"
 
@@ -35,6 +36,8 @@ private slots:
     void on_actionRemove_Shape_triggered();
 
     void on_actiondebug_shapeCount_triggered();
+    
+    void on_actionComments_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -42,6 +45,7 @@ private:
     logindialog *lDialog;
     addShape *addShapeDialog;
     deleteshape *delShapeDialog;
+    comments *commentsDialog;
 
     int shapeCount; // DEBUG: placeholder for vector when shape classes are implemented. TODO remove this
 
