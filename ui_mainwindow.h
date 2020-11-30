@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.0
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,6 +33,7 @@ public:
     QAction *actionList_Shapes;
     QAction *actionMove_Shape;
     QAction *actiondebug_shapeCount;
+    QAction *actionComments;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -76,12 +77,14 @@ public:
         actionMove_Shape->setIcon(icon3);
         actiondebug_shapeCount = new QAction(MainWindow);
         actiondebug_shapeCount->setObjectName(QString::fromUtf8("actiondebug_shapeCount"));
+        actionComments = new QAction(MainWindow);
+        actionComments->setObjectName(QString::fromUtf8("actionComments"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 800, 23));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuHelp = new QMenu(menubar);
@@ -102,6 +105,7 @@ public:
         menuFile->addAction(actionQuit);
         menuHelp->addAction(actionContact_Us);
         menuHelp->addAction(actiondebug_shapeCount);
+        menuHelp->addAction(actionComments);
         toolBar->addAction(actionAdd_Shape);
         toolBar->addAction(actionRemove_Shape);
 
@@ -134,6 +138,7 @@ public:
         actionMove_Shape->setToolTip(QCoreApplication::translate("MainWindow", "Move Shape", nullptr));
 #endif // QT_CONFIG(tooltip)
         actiondebug_shapeCount->setText(QCoreApplication::translate("MainWindow", "debug shapeCount", nullptr));
+        actionComments->setText(QCoreApplication::translate("MainWindow", "Comments", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "About", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
