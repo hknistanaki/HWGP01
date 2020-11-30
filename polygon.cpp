@@ -1,5 +1,5 @@
-#include "shape.h"
-#include "polygon.h"
+#include "Shape.h"
+#include "Polygon.h"
 
 void Polygon::set_point(const QPoint& point)
 {
