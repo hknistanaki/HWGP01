@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "contactUs.h"
 #include "logindialog.h"
+#include "comments.h"
 
 /*!
  * \brief MainWindow::MainWindow
@@ -16,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     lDialog = nullptr;
     addShapeDialog = nullptr;
     delShapeDialog = nullptr;
+    commentsDialog = nullptr;
 
     shapeCount = 0; // DEBUG TODO remove
 
@@ -112,4 +114,12 @@ void MainWindow::on_actionRemove_Shape_triggered()
 void MainWindow::on_actiondebug_shapeCount_triggered()
 {
     qDebug() << "shapeCount in mainWindow: " << shapeCount;
+}
+
+void MainWindow::on_actionComments_triggered()
+{
+    commentsDialog = new comments;
+    commentsDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
+    commentsDialog->exec();
+    delete  commentsDialog;
 }
