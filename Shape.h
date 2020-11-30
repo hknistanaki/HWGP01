@@ -34,7 +34,7 @@ public:
      * \param shapeID Id of shape to add, -1 default value for errors
      * \param shape ShapeType enum value, default ShapeType::NoShape
      */
-    Shape(int shapeID = -1, ShapeType shape = ShapeType::NoShape);
+    Shape(QPaintDevice* device = nullptr, int shapeID = -1, ShapeType shape = ShapeType::NoShape);
 
     /*!
      * \brief ~Shape
@@ -64,12 +64,6 @@ public:
      */
     const QBrush& get_brush() const {return brush;}
     // QString get_text() const {return };
-
-    /*!
-     * \brief get_qpainter
-     * \return qpainter, const QPainter reference
-     */
-    const QPainter& get_qpainter() const {return qpainter;}
 
     /*!
      * \brief set_shapeID sets shape's id
@@ -110,7 +104,9 @@ public:
      * \brief default_style sets the shape to a default style
      */
     void default_style() {pen = Qt::SolidLine;
-                          brush = Qt::NoBrush;}
+                          brush = Qt::NoBrush;
+                          qpainder.setPen(pen);
+                          qpainter.setBrush(brush);}
 
     /*!
      * \brief draw draw event, pure virtual fn
@@ -118,6 +114,13 @@ public:
      * \param translate_y
      */
     virtual void draw(const int translate_x, const int translate_y) = 0;
+
+protected:
+    /*!
+     * \brief get_qpainter
+     * \return qpainter, const QPainter reference
+     */
+    const QPainter& get_qpainter() const {return qpainter;}
 
 private:
     /*!
