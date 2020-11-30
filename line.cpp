@@ -1,5 +1,5 @@
-#include "shape.h"
-#include "line.h"
+#include "Shape.h"
+#include "Line.h"
 
 void Line::set_points(cosnt QPoint& point_begin, const QPoint& point_end)
 {
