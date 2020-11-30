@@ -1,7 +1,7 @@
 #include "Shape.h"
 
 
-Shape::Shape(int shapeID, Shape::ShapeType shape) : id{shapeID}, shapeType{shape}
+Shape::Shape(QPaintDevice* device = nullptr, int shapeID, Shape::ShapeType shape) : id{shapeID}, shapeType{shape}
 {
     pen = Qt::SolidLine;
     brush = Qt::NoBrush;
