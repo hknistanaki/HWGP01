@@ -12,7 +12,6 @@ SOURCES += \
     RenderArea.cpp \
     Shape.cpp \
     addshape.cpp \
-    canvas.cpp \
     comments.cpp \
     contactus.cpp \
     deleteshape.cpp \
@@ -36,7 +35,6 @@ HEADERS += \
     Shape.h \
     Text.h \
     addshape.h \
-    canvas.h \
     comments.h \
     contactus.h \
     deleteshape.h \
