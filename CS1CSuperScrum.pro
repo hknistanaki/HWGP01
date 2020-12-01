@@ -9,23 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    RenderArea.cpp \
     Shape.cpp \
     addshape.cpp \
     canvas.cpp \
     comments.cpp \
     contactus.cpp \
     deleteshape.cpp \
+    ellipse.cpp \
     line.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    shapestorage.cpp
+    polygon.cpp \
+    polyline.cpp \
+    rectangle.cpp \
+    shapestorage.cpp \
+    text.cpp
 
 HEADERS += \
     Ellipse.h \
     Line.h \
     Polygon.h \
     Rectangle.h \
+    RenderArea.h \
     Shape.h \
     Text.h \
     addshape.h \
