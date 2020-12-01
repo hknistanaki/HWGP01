@@ -1,8 +1,6 @@
 #ifndef RenderArea_H
 #define RenderArea_H
 
-
-
 #include <QFile>
 #include <QTextStream>
 #include "Shape.h"
@@ -22,7 +20,7 @@ class RenderArea : public QWidget
         QSize sizeHint() const override;
         QSize minimumSizeHint() const override;
 
-        const Vector<Shape*>& getShapes();
+        const gp::vector<Shape*>& getShapes();
 
         void addShape(Shape* shapeIn);
 
@@ -34,7 +32,7 @@ class RenderArea : public QWidget
 
    private:
         const QImage renderArea;
-        Vector<Shape*> ShapeMagazine;
+        gp::vector<Shape*> ShapeMagazine;
         int numShapesRA;
 
         void readShapeFile();

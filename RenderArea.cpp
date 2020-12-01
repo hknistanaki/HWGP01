@@ -16,7 +16,7 @@ void RenderArea::paintEvent(QPaintEvent *)
         ShapeMagazine[i]->draw(device);
 }
 
-const Vector<Shape *> & RenderArea::getShapes()
+const gp::vector<Shape *> & RenderArea::getShapes()
 {
     return ShapeMagazine;
 }
@@ -28,7 +28,7 @@ void RenderArea::addShape(Shape* shapeIn)
 }
 void RenderArea::chopShape(int indexRemove)
 {
-    Vector<Shape*>::iterator i;
+    gp::vector<Shape*>::iterator i;
     for(i = ShapeMagazine.begin(); i < ShapeMagazine.end(); ++i)
         if((*i)->getID() == indexRemove)
         {
@@ -63,22 +63,23 @@ int RenderArea::getnumShapesRA()
     return numShapesRA;
 }
 
-Shape::Shapes RenderArea::getShapeType(QString shapeStr)
+Shape::ShapeType RenderArea::getShapeType(QString shapeStr)
 {
+
     if(shapeStr == "Line")
-        return Shape::Shapes::LineObj;
+        return Shape::ShapeType::Line;
     else if(shapeStr == "Polyline")
-        return Shape::Shapes::PolylineObj;
+        return Shape::ShapeType::Polyline;
     else if(shapeStr == "Polygon")
-        return Shape::Shapes::PolygonObj;
+        return Shape::ShapeType::Polygon;
     else if(shapeStr == "Rectangle")
-        return Shape::Shapes::RectangleObj;
+        return Shape::ShapeType::Rectangle;
     else if(shapeStr == "Ellipse")
-        return Shape::Shapes::EllipseObj;
+        return Shape::ShapeType::Ellipse;
     else if(shapeStr == "Text")
-        return Shape::Shapes::TextObj;
+        return Shape::ShapeType::Text;
     else
-        return Shape::Shapes::defaultObj;
+        return Shape::ShapeType::NoShape;
 
 }
 
