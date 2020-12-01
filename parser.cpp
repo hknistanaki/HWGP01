@@ -315,25 +315,226 @@ Shape* readPolygon(ifstream &in, int id)
 
 Shape* readRectangle(ifstream& in, int id)
 {
+	
     Rectangle *rectangle = new Rectangle(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, l, w, x, y);
+    
+    int x, y, width;
+    int l, w;
+    string color, style, cap, join, brushStyle, brushColor;
+
+    QColor qtColor, qtBColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y;
+
+
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> l;
+    in.ignore(numeric_limits<streamsize>::max(), ','); // right here
+    in >> w;
+
+    QPoint point(x, y);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, color);
+    qtColor = getColor(color);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
+    qtStyle = getPenStyle(style);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
+    qtCap = getPCStyle(cap);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
+    qtJoin = getPJStyle(join);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushColor);
+    qtBColor = getColor(brushColor);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushStyle);
+    qtBrush = getBrushStyle(brushStyle);
+	
+	
     return rectangle;
 }
 
 Shape* readSquare(ifstream& in, int id)
 {
     Square *square = new Square(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, w, x, y);
+    
+    int x, y, width;
+    int w;
+    string color, style, cap, join, brushStyle, brushColor;
+
+    QColor qtColor, qtBColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush;
+
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    inFile >> x;
+    inFile.ignore(numeric_limits<streamsize>::max(), ',');
+    inFile >> y;
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ',');
+    inFile >> w;
+
+    QPoint point(x, y);
+
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, color);
+    qtColor = getColor(color);
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    inFile >> width;
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, style);
+    qtStyle = getPenStyle(style);
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, cap);
+    qtCap = getPCStyle(cap);
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, join);
+    qtJoin = getPJStyle(join);
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, brushColor);
+    qtBColor = getColor(brushColor);
+
+    inFile.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(inFile, brushStyle);
+    qtBrush = getBrushStyle(brushStyle);
+	
     return square;
 }
 
 Shape* readEllipse(ifstream& in, int id)
 {
-    Ellipse *ellipse = new Ellipse(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, a, b, x, y); // need qtBrushColor as well!!!!
+    Ellipse *ellipse = new Ellipse(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, a, b, x, y); 
+
+    int x, y, width;
+    int a, b;
+    string color, style, cap, join, brushStyle, brushColor;
+
+    QColor qtColor, qtBColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y;
+
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> a;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> b;
+
+    QPoint point(x, y);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, color);
+    qtColor = getColor(color);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
+    qtStyle = getPenStyle(style);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
+    qtCap = getPCStyle(cap);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
+    qtJoin = getPJStyle(join);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushColor);
+    qtBColor = getColor(brushColor);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushStyle);
+    qtBrush = getBrushStyle(brushStyle);
+	
     return ellipse;
 }
 
 Shape* readCircle(ifstream& in, int id)
 {
-    Circle *circle = new Circle(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, r, x, y); // maybe change the little plus things x+ r y+ r??
+    Circle *circle = new Circle(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, r, x, y);
+	
+    int x, y, width;
+    int r;
+    string color, style, cap, join, brushStyle, brushColor;
+
+    QColor qtColor, qtBColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y;
+
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> r;
+
+    //QPoint point(x + r, y + r); idk yet
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, color);
+    qtColor = getColor(color);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
+    qtStyle = getPenStyle(style);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
+    qtCap = getPCStyle(cap);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
+    qtJoin = getPJStyle(join);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushColor);
+    qtBColor = getColor(brushColor);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushStyle);
+    qtBrush = getBrushStyle(brushStyle);
+	
     return circle;
 }
 
@@ -341,35 +542,139 @@ Shape* readCircle(ifstream& in, int id)
 Shape* readText(ifstream& in, int id)
 {
     Text *text = new Text(black, qtColor, SolidLine, FlatCap, MiterJoin, SolidPattern, fontPoint, id, align, fontFamily, fontStyle, fontWeight, textLine, x, y, length, width);
+	
+    int x , y, fontPoint, length, width;
+
+    string color, textLine, align, fontFamily, fontStyle, fontWeight;
+    QColor qtColor;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y;
+
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> length;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> width;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, textLine);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, color);
+    qtColor = getColor(color);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, align);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    inFile >> fontPoint;
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, fontFamily);
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, fontStyle);
+    fontStyle = " StyleNormal";
+
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, fontWeight);
+
     return text;
 }
 
 QColor getColor(string color)
 {
-	Color *color = new Color(blue, green, cyan, yellow, red, black, white, magenta);
-	return color;
+	if(color == " white"){
+        return white;
+    }
+    else if(color == " black"){
+        return black;
+    }
+    else if(color == " red"){
+        return red;
+    }
+    else if(color == " green"){
+        return green;
+    }
+    else if(color == " blue"){
+        return blue;
+    }
+    else if(color == " cyan"){
+        return cyan;
+    }
+    else if(color == " magenta"){
+        return magenta;
+    }
+    else if(color == " yellow"){
+        return yellow;
+    }
+    else if(color == " gray"){
+        return gray;
+    }
 }
 
 PenStyle getPenStyle(string style)
 {
-	Style *style = new Style(DashDotLine, SolidLine, DashLine);
-	return style;
+	if(style == " NoPen"){
+        return NoPen;
+    }
+    else if(style == " SolidLine"){
+        return SolidLine;
+    }
+    else if(style == " DashLine"){
+        return DashLine;
+    }
+    else if(style == " DotLine"){
+        return DotLine;
+    }
+    else if(style == " DashDotLine"){
+        return DashDotLine;
+    }
+    else if(style == " DashDotDotLine"){
+        return DashDotDotLine;
+    }
 }
 
 PenCapStyle getPCStyle(string cap)
 {
-	Cap *cap = new Cap(FlatCap, RoundCap);
-	return cap;
+	if(cap == " FlatCap"){
+        return FlatCap;
+    }
+    else if(cap == " SquareCap"){
+        return SquareCap;
+    }
+    else if(cap == " RoundCap"){
+        return RoundCap;
+    }
 }
 
 PenJoinStyle getPJStyle(string join)
 {
-	Join *join = new Join(MiterJoin, RoundJoin);
-	return join;
+	if(join == " MiterJoin"){
+        return MiterJoin;
+    }
+    else if(join == " BevelJoin"){
+        return BevelJoin;
+    }
+    else if(join == " RoundJoin"){
+        return RoundJoin;
+    }
 }
 
 BrushStyle getBrushStyle(string brush)
 {
-	Brush *brush = new Brush(SolidPattern, VerPattern, HorPattern, NoBrush);
-	return brush;
+	if(brush == " SolidPattern"){
+        return SolidPattern;
+    }
+    else if(brush == " HorPattern"){
+        return HorPattern;
+    }
+    else if(brush == " VerPattern"){
+        return VerPattern;
+    }
+    else if(brush == " NoBrush"){
+        return NoBrush;
+    }
 }
