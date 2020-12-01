@@ -105,7 +105,7 @@ public:
      */
     void default_style() {pen = Qt::SolidLine;
                           brush = Qt::NoBrush;
-                          qpainder.setPen(pen);
+                          qpainter.setPen(pen);
                           qpainter.setBrush(brush);}
 
     /*!
