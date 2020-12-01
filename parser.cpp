@@ -586,7 +586,7 @@ Shape* readText(ifstream& in, int id)
 
 QColor getColor(string color)
 {
-	if(color == " white"){
+    if(color == " white"){
         return white;
     }
     else if(color == " black"){
@@ -617,7 +617,7 @@ QColor getColor(string color)
 
 PenStyle getPenStyle(string style)
 {
-	if(style == " NoPen"){
+    if(style == " NoPen"){
         return NoPen;
     }
     else if(style == " SolidLine"){
@@ -639,7 +639,7 @@ PenStyle getPenStyle(string style)
 
 PenCapStyle getPCStyle(string cap)
 {
-	if(cap == " FlatCap"){
+    if(cap == " FlatCap"){
         return FlatCap;
     }
     else if(cap == " SquareCap"){
@@ -652,7 +652,7 @@ PenCapStyle getPCStyle(string cap)
 
 PenJoinStyle getPJStyle(string join)
 {
-	if(join == " MiterJoin"){
+    if(join == " MiterJoin"){
         return MiterJoin;
     }
     else if(join == " BevelJoin"){
@@ -665,7 +665,7 @@ PenJoinStyle getPJStyle(string join)
 
 BrushStyle getBrushStyle(string brush)
 {
-	if(brush == " SolidPattern"){
+    if(brush == " SolidPattern"){
         return SolidPattern;
     }
     else if(brush == " HorPattern"){
