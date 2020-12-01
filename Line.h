@@ -6,12 +6,12 @@
 class Line : public Shape
 {
 public:
-    Line(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Line} {}
-    ~Line() override { }
+    Line(const QPoint& A = {}, const QPoint& B = {}, const QBrush &brush = {}, const QPen &pen = {}, int id = 0);
+    ~Line() override;
 
     void set_points(const QPoint& point_begin, const QPoint& point_end);
 
-    void draw(const int translate_x = 0, const int translate_y = 0) override;
+    void draw(QPaintDevice* device) const override;
 
 private:
     QPoint point_begin;

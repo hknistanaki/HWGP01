@@ -46,6 +46,8 @@ public:
 
     // getters
 
+    std::unique_ptr<QPainter> getPainter(QPaintDevice* device) const;
+
     /*!
      * \brief get_shape
      * \return shapeType, ShapeType enum value
@@ -109,11 +111,9 @@ public:
                           qpainter.setBrush(brush);}
 
     /*!
-     * \brief draw draw event, pure virtual fn
-     * \param translate_x
-     * \param translate_y
+     * \brief draw draw event, interface only
      */
-    virtual void draw(const int translate_x, const int translate_y) = 0;
+    virtual void draw(QPaintDevice* device) const = 0;
 
 protected:
     /*!

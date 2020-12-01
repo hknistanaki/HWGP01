@@ -19,6 +19,8 @@
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
+#include <canvas.h>
+
 QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow
@@ -40,6 +42,8 @@ public:
     QMenu *menuHelp;
     QStatusBar *statusbar;
     QToolBar *toolBar;
+
+    canvas *Canvas;
 
     void setupUi(QMainWindow *MainWindow)
     {

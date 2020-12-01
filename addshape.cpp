@@ -1,9 +1,12 @@
 #include "addshape.h"
 #include "ui_addshape.h"
 
-addShape::addShape(QWidget *parent, const int &shapeCountFromMain) :
+#include "Line.h"
+
+addShape::addShape(QWidget *parent, const int &shapeCountFromMain, shapeStorage* store) :
     QDialog(parent),
     ui(new Ui::addShape),
+    localStore{store},
     shapeCount {shapeCountFromMain}
 {
     ui->setupUi(this);
@@ -32,7 +35,7 @@ void addShape::initInput() {
  * \return shapeCount number of shapes after adding a shape
  */
 int addShape::getShapeCount() const {
-    return shapeCount;
+    return localStore->shapes.size();
 }
 
 /*!
@@ -51,7 +54,6 @@ void addShape::on_buttonBox_accepted()
     switch (ret) {
     case QMessageBox::Save:
         addShapeToCanvas(); // extract input data and add it to shape vector
-        shapeCount++; // DEBUG: testing only, replace with vector later
         break;
     case QMessageBox::Discard:
         // Don't add shape
@@ -70,6 +72,7 @@ void addShape::addShapeToCanvas() {
     switch(ui->shapeTypeComboBox->currentIndex()){
     case 0:
         // adding Line
+        addLine();
         break;
     case 1:
         // adding polyLine
@@ -93,4 +96,18 @@ void addShape::addShapeToCanvas() {
         // should never be reached
         break;
     }
+}
+
+void addShape::addLine()
+{
+    QPoint tempPoint {ui->posX->value(), ui->posY->value()};
+    QPen tempPen;
+    QBrush tempBrush;
+
+    tempPen.setWidth(ui->penWidthSpinBox->value());
+//    tempPen.setColor();
+//    tempPen.setStyle();
+//    tempPen.setCapStyle();
+//    tempPen.setJoinStyle();
+
 }

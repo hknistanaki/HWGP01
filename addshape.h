@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QDebug>
 
+#include "shapestorage.h"
+
 namespace Ui {
 class addShape;
 }
@@ -14,11 +16,13 @@ class addShape : public QDialog
     Q_OBJECT
 
 public:
-    explicit addShape(QWidget *parent = nullptr, const int &shapeCountFromMain = 0);
+    explicit addShape(QWidget *parent, const int &shapeCountFromMain, shapeStorage* store);
 
     void initInput();
     int getShapeCount() const;
     void addShapeToCanvas();
+
+    void addLine();
 
     ~addShape();
 
@@ -28,6 +32,9 @@ private slots:
 
 private:
     Ui::addShape *ui;
+
+    // points to shape storage in MainWindow
+    shapeStorage* localStore;
 
     int shapeCount; // TEMP, TODO replace with vector later
 };

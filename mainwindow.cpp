@@ -19,9 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     delShapeDialog = nullptr;
     commentsDialog = nullptr;
 
-    shapeCount = 0; // DEBUG TODO remove
+    canvasWidget = new canvas(this, &store);
+    canvasWidget->setObjectName(QString::fromUtf8("canvas"));
+    canvasWidget->setMinimumSize(QSize(1000, 500));
 
     isAdministrator = true;
+    shapeCount = 0;
+
     ui->setupUi(this);
 }
 
@@ -32,6 +36,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete cWindow;
+    delete canvasWidget;
 }
 
 /*!
@@ -82,10 +87,14 @@ void MainWindow::on_actionAdd_Shape_triggered()
     if(!isAdministrator) {
         QMessageBox::information(this, "Error", "You must be logged in to add shapes.");
     }else {
-        addShapeDialog = new addShape(this, shapeCount);
+        addShapeDialog = new addShape(this, shapeCount, &store);
         addShapeDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
         addShapeDialog->exec();
         shapeCount = addShapeDialog->getShapeCount();
+
+        //update the canvas
+        // ?
+
         delete addShapeDialog;
     }
 }

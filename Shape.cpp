@@ -21,3 +21,13 @@ void Shape::set_brush(GlobalColor color, BrushStyle brushStyle)
     brush.setColor(color);
     brush.setStyle(brushStyle);
 }
+
+std::unique_ptr<QPainter> Shape::getPainter(QPaintDevice* device) const
+{
+    std::unique_ptr<QPainter> paint{new QPainter{device}};
+
+    paint->setBrush(brush);
+    paint->setPen(pen);
+
+    return paint;
+}

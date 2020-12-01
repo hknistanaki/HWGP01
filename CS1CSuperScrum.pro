@@ -11,12 +11,15 @@ CONFIG += c++11
 SOURCES += \
     Shape.cpp \
     addshape.cpp \
+    canvas.cpp \
     comments.cpp \
     contactus.cpp \
     deleteshape.cpp \
+    line.cpp \
     logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    shapestorage.cpp
 
 HEADERS += \
     Ellipse.h \
@@ -26,11 +29,13 @@ HEADERS += \
     Shape.h \
     Text.h \
     addshape.h \
+    canvas.h \
     comments.h \
     contactus.h \
     deleteshape.h \
     logindialog.h \
     mainwindow.h \
+    shapestorage.h \
     vector.h
 
 FORMS += \

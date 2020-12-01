@@ -9,7 +9,9 @@
 #include "addshape.h"
 #include "deleteshape.h"
 #include "comments.h"
+#include "canvas.h"
 
+#include "shapestorage.h"
 #include "vector.h"
 
 QT_BEGIN_NAMESPACE
@@ -47,7 +49,11 @@ private:
     deleteshape *delShapeDialog;
     comments *commentsDialog;
 
-    int shapeCount; // DEBUG: placeholder for vector when shape classes are implemented. TODO remove this
+    canvas *canvasWidget;
+
+    shapeStorage store;
+
+    int shapeCount;
 
     bool isAdministrator;
 };
