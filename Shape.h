@@ -24,7 +24,9 @@ public:
         Line, ///< Line object
         Polyline, ///< PolyLine object
         Polygon, ///< Polygon object
+        Square, ///< Square object
         Rectangle, ///< Rectangle object
+        Circle, ///< Circle object
         Ellipse, ///< Ellipse object
         Text ///< Text object
     };
