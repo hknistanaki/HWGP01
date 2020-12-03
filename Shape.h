@@ -101,14 +101,14 @@ public:
      * \brief set_pen only changes pen's color
      * \param color color to change pen to
      */
-    void set_pen(Qt::GlobalColor color) {pen.setColor(color);}
+    void set_pen(QColor color) {pen.setColor(color);}
 
     /*!
      * \brief set_brush sets brush's properties
      * \param color Qt::GlobalColor
      * \param brushStyle Qt::BrushStyle
      */
-    void set_brush(Qt::GlobalColor color, Qt::BrushStyle brushStyle);
+    void set_brush(QColor color, Qt::BrushStyle brushStyle);
 
     /*!
      * \brief default_style sets the shape to a default style
@@ -128,6 +128,8 @@ public:
      * \return nametag (example "Line ID: 1")
      */
     QString nameTag(const QString &shapename =  "NoShape") const;
+
+    virtual QPoint id_pos() const = 0;
 
 
 protected:

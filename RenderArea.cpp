@@ -51,7 +51,7 @@ int RenderArea::getSize()
 
 QSize RenderArea::sizeHint() const
 {
-    return QSize(750,500);
+    return QSize(1000,650);
 }
 
 QSize RenderArea::minimumSizeHint() const

@@ -16,7 +16,7 @@ void Shape::set_pen(QColor color, int penWidth, PenStyle penStyle, PenCapStyle p
     pen.setJoinStyle(penJoinStyle);
 }
 
-void Shape::set_brush(GlobalColor color, BrushStyle brushStyle)
+void Shape::set_brush(QColor color, BrushStyle brushStyle)
 {
     brush.setColor(color);
     brush.setStyle(brushStyle);

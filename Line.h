@@ -13,7 +13,7 @@ public:
 
     void draw(QPaintDevice* device, const int translate_x, const int translate_y) const override;
 
-    QPoint id_pos() const;
+    QPoint id_pos() const override;
 
 private:
     QPoint point_begin;

@@ -17,17 +17,17 @@
 
 // Remove comments below once Shape, Line, Circle... etc is done (Shortcut is Ctrl + /).
 #include "Line.h"
-//#include "Circle.h"
+#include "circle.h"
 #include "Polygon.h"
 #include "polyline.h"
 #include "Rectangle.h"
-//#include "Square.h"
+#include "square.h"
 #include "Ellipse.h"
 #include "Text.h"
 
 using namespace std;
 
-gp::vector<Shape*> ParseFile(int size);
+gp::vector<Shape*> ParseFile();
 Shape* readLine(ifstream &in, int id);
 Shape* readPolyLine(ifstream &in, int id);
 Shape* readPolygon(ifstream &in, int id);
@@ -41,5 +41,7 @@ PenStyle getPenStyle(string style);
 BrushStyle getBrushStyle(string brush);
 PenJoinStyle getPJStyle(string join);
 PenCapStyle getPCStyle(string cap);
+Qt::AlignmentFlag getAlignmentFlag(string flag);
+QFont::Weight getWeight(string weight);
 
 #endif // PARSER_H

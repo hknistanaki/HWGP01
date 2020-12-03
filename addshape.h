@@ -24,6 +24,12 @@ public:
 
     void addLine();
     void addPolyline();
+    void addPolygon();
+    void addRectangle();
+    void addSquare();
+    void addEllipse();
+    void addCircle();
+    void addText();
 
     Shape* getNewShape() const;
 
@@ -40,9 +46,11 @@ private:
     Qt::GlobalColor getStringColor();
     Qt::AlignmentFlag getStringFlag();
     QString getTextFontFamily();
+    Qt::GlobalColor getBrushColor();
 
     Shape::ShapeType  getShapeType(QString shape);
     Qt::GlobalColor   getColor();
+    Qt::GlobalColor getFontColor();
 
     /*!
      * \brief getPenCapStyle

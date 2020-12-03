@@ -3,6 +3,8 @@
 #include "contactUs.h"
 #include "logindialog.h"
 #include "comments.h"
+#include "parser.h"
+#include "vector.h"
 
 /*!
  * \brief MainWindow::MainWindow
@@ -20,6 +22,27 @@ MainWindow::MainWindow(QWidget *parent)
     addShapeDialog = nullptr;
     delShapeDialog = nullptr;
     commentsDialog = nullptr;
+
+    // parse shapes
+    gp::vector<Shape*> temp = ParseFile();
+
+    qDebug() << "reached MainWindow";
+
+    // add to renderWidget's vector
+    for(int i = 0; i < temp.size(); ++i) {
+        ui->renderWidget->addShape(temp[i]);
+    }
+
+    qDebug() << "Finished copy";
+
+    // delete all shapes in temp
+    // this should be an iterator but i couldn't
+    // make it work for some reason
+//    for(int i = 0; i < temp.size(); ++i) {
+//        delete temp[i];
+//    }
+
+    qDebug() << "Finished delete";
 
     isAdministrator = true;
     shapeCount = 0;

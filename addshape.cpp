@@ -2,11 +2,11 @@
 #include "ui_addshape.h"
 
  #include "Line.h"
- //#include "circle.h"
+#include "circle.h"
  #include "Polygon.h"
  #include "polyline.h"
  #include "Rectangle.h"
- //#include "square.h"
+#include "square.h"
  #include "Ellipse.h"
  #include "Text.h"
 
@@ -67,24 +67,35 @@ void addShape::addShapeToCanvas() {
         break;
     case 1:
         // adding polyLine
+        addPolyline();
         break;
     case 2:
         // adding polygon
+        addPolygon();
         break;
     case 3:
         // adding rectangle
+        addRectangle();
         break;
     case 4:
-        // adding ellipse
+        // adding square
+        addSquare();
         break;
     case 5:
-        // adding circle
+        // adding ellipse
+        addEllipse();
         break;
     case 6:
-        // adding text;
+        // adding circle
+        addCircle();
+        break;
+    case 7:
+        // adding text
+        addText();
         break;
     default:
         // should never be reached
+        qDebug() << "Error addShapeToCanvas()";
         break;
     }
 }
@@ -111,7 +122,7 @@ void addShape::addPolyline()
 {
     auto temp = new Polyline();
     temp->set_shapeID(addingShapeID);
-    // add two points initially
+    // add one point to start
     temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
     //temp->set_point(QPoint{ui->posXSpinBox->value()+150, ui->posYSpinBox->value()});
 
@@ -125,6 +136,112 @@ void addShape::addPolyline()
     temp = nullptr;
 }
 
+void addShape::addPolygon()
+{
+    auto temp = new Polygon(nullptr);
+    temp->set_shapeID(addingShapeID);
+    // only add one point to start
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    // set pen
+    temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    // set brush
+    temp->set_brush(getBrushColor(), getBrushStyle());
+    newShape = temp;
+    temp = nullptr;
+}
+
+void addShape::addRectangle()
+{
+    auto temp = new Rectangle(nullptr);
+    temp->set_shapeID(addingShapeID);
+
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    // default dimensions on shape creation
+    temp->set_dimensions(50, 50);
+    // set pen
+    temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    // set brush
+    temp->set_brush(getBrushColor(), getBrushStyle());
+    newShape = temp;
+    temp = nullptr;
+}
+
+void addShape::addSquare()
+{
+    auto temp = new Square(nullptr);
+    temp->set_shapeID(addingShapeID);
+
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    // default dimensions on shape creation
+    temp->set_dimension(50);
+    // set pen
+    temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    // set brush
+    temp->set_brush(getBrushColor(), getBrushStyle());
+    newShape = temp;
+    temp = nullptr;
+}
+
+void addShape::addEllipse()
+{
+    auto temp = new Ellipse(nullptr);
+    temp->set_shapeID(addingShapeID);
+
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    // default dimensions on shape creation
+    temp->set_dimensions(50, 100);
+    // set pen
+    temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    // set brush
+    temp->set_brush(getBrushColor(), getBrushStyle());
+    newShape = temp;
+    temp = nullptr;
+}
+
+void addShape::addCircle()
+{
+    auto temp = new Circle(nullptr);
+    temp->set_shapeID(addingShapeID);
+
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    // default dimensions on shape creation
+    temp->set_radius(50);
+    // set pen
+    temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    // set brush
+    temp->set_brush(getBrushColor(), getBrushStyle());
+    newShape = temp;
+    temp = nullptr;
+}
+
+void addShape::addText()
+{
+    auto temp = new Text(nullptr);
+    temp->set_shapeID(addingShapeID);
+
+    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+
+    temp->set_pen(getStringColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
+
+    temp->set_all_text(ui->textStringLineEdit->text(), getStringColor(), getStringFlag(), ui->sizeSpinBox->value(), getTextFontFamily(), QFont::Style::StyleNormal, getFontWeight());
+
+    // default dimensions on shape creation
+    temp->set_dimensions(50, 300);
+
+    newShape = temp;
+    temp = nullptr;
+}
+
 Shape* addShape::getNewShape() const
 {
     return newShape;
@@ -133,6 +250,41 @@ Shape* addShape::getNewShape() const
 Qt::GlobalColor addShape::getColor()
 {
     switch(ui->penColorComboBox->currentIndex()) {
+    case 0:
+        return Qt::GlobalColor::white;
+        break;
+    case 1:
+        return Qt::GlobalColor::black;
+        break;
+    case 2:
+        return Qt::GlobalColor::red;
+        break;
+    case 3:
+        return Qt::GlobalColor::green;
+        break;
+    case 4:
+        return Qt::GlobalColor::blue;
+        break;
+    case 5:
+        return Qt::GlobalColor::cyan;
+        break;
+    case 6:
+        return Qt::GlobalColor::magenta;
+        break;
+    case 7:
+        return Qt::GlobalColor::yellow;
+        break;
+    case 8:
+        return Qt::GlobalColor::gray;
+        break;
+    default:
+        return Qt::GlobalColor::gray;
+    }
+}
+
+Qt::GlobalColor addShape::getBrushColor()
+{
+    switch(ui->brushColorComboBox->currentIndex()) {
     case 0:
         return Qt::GlobalColor::white;
         break;
@@ -280,6 +432,8 @@ QFont::Weight addShape::getFontWeight()
     case 3:
         return QFont::Bold;
         break;
+    default:
+        return QFont::Normal;
     }
 }
 

@@ -63,12 +63,6 @@ namespace gp{
         // Copies from a temporary obj, temp obj is destroyed after
         // Shallow copy temp obj into new obj
         vector(const vector&& temp): size_v{temp.size_v}, space{temp.space}, elem{temp.elem} {
-
-            // empty out temp value (is this necessary?)
-            temp.size = 0;
-            temp.capacity = 0;
-            temp.elem = nullptr;
-
         };
 
         // Move Assignment

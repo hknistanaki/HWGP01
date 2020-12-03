@@ -23,7 +23,7 @@ void Line::draw(QPaintDevice* device, const int translate_x, const int translate
     auto paint = getPainter(device);
 
     QPoint temp = id_pos();
-    temp.setY(temp.y() - 15);
+    temp.setY(temp.y() - 5);
 
     paint->drawText(temp.x(), temp.y(), nameTag("Line"));
 

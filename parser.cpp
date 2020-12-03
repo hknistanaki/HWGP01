@@ -3,8 +3,9 @@
 #include "parser.h"
 
 
-gp::vector<Shape*> ParseFile(int size){
+gp::vector<Shape*> ParseFile(){
     const QString FILE_NAME = "shapes.txt";
+    bool done = false;
 
     QString shapePath = qApp->applicationDirPath();
     shapePath.append('/' + FILE_NAME);
@@ -21,49 +22,59 @@ gp::vector<Shape*> ParseFile(int size){
     // file exists at this point
     ifstream in(shapePath.toStdString());
 
-    gp::vector<Shape*> rShapes(size);
+    gp::vector<Shape*> rShapes;
 
-    while (in){
+    while (!done){
         string temp;
+        string idStr;
         int id;
+        string dummy;
 
-        in.ignore('\n');
+        getline(in, dummy);
 
-        in.ignore(numeric_limits<streamsize>::max(), ':');
-        in >> id;
-        in.ignore(numeric_limits<streamsize>::max(), ':');
+        in.ignore(9);
+        in >> idStr;
+        in.ignore(11);
         getline(in, temp);
 
-	if (in.eof()) break;
-	    
-        switch(id){
-        case 1:
-            rShapes.push_back(readLine(in, id));
-            break;
-        case 2:
-            rShapes.push_back(readPolyLine(in, id));
-            break;
-        case 3:
-            rShapes.push_back(readPolygon(in, id));
-            break;
-        case 4:
-            rShapes.push_back(readRectangle(in, id));
-            break;
-        case 5:
-            rShapes.push_back(readSquare(in, id));
-            break;
-        case 6:
-            rShapes.push_back(readEllipse(in, id));
-            break;
-        case 7:
-            rShapes.push_back(readCircle(in, id));
-            break;
-        case 8:
-            rShapes.push_back(readText(in, id));
-            break;
-        default:
-            qDebug() << "Parser.cpp: invalid shape detected.";
-            break;
+        qDebug() << QString::fromStdString(idStr);
+
+        if (in.peek() == EOF) {
+            done = true;
+        }
+
+        if(!done) {
+            id = std::stoi(idStr);
+
+            switch(id){
+            case 1:
+                rShapes.push_back(readLine(in, id));
+                break;
+            case 2:
+                rShapes.push_back(readPolyLine(in, id));
+                break;
+            case 3:
+                rShapes.push_back(readPolygon(in, id));
+                break;
+            case 4:
+                rShapes.push_back(readRectangle(in, id));
+                break;
+            case 5:
+                rShapes.push_back(readSquare(in, id));
+                break;
+            case 6:
+                rShapes.push_back(readEllipse(in, id));
+                break;
+            case 7:
+                rShapes.push_back(readCircle(in, id));
+                break;
+            case 8:
+                rShapes.push_back(readText(in, id));
+                break;
+            default:
+                qDebug() << "Parser.cpp: invalid shape detected.";
+                break;
+            }
         }
     }
 
@@ -128,16 +139,14 @@ Shape* readLine(ifstream &in, int id)
 }
 
 Shape* readPolyLine(ifstream &in, int id)
-{
-    Polyline *polyline = new Polyline(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
-	
+{	
     int width;
     string color, style, cap, join;
-    QColor qtColor, qtBColor;
+    QColor qtColor;
     PenStyle qtStyle;
     PenCapStyle qtCap;
     PenJoinStyle qtJoin;
-    BrushStyle qtBrush = NoBrush;
+    //BrushStyle qtBrush = NoBrush;
 
     vector<QPoint> points;
 
@@ -177,13 +186,20 @@ Shape* readPolyLine(ifstream &in, int id)
      getline(in, join);
      qtJoin = getPJStyle(join);
 
+     Polyline *polyline = new Polyline(nullptr, id);
+     polyline->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+     // brush is not applicable here
+
+     // push back all points in points vector into polyline's point vector
+     for(auto point: points) {
+         polyline->set_point(point);
+     }
+
     return polyline;
 }
 
 Shape* readPolygon(ifstream &in, int id)
 {
-    Polygon *polygon = new Polygon(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
-    
     int width;
     string color, style, cap, join, bStyle, bColor;
     vector<QPoint> points;
@@ -236,15 +252,21 @@ Shape* readPolygon(ifstream &in, int id)
     getline(in, bStyle);
     qtBrush = getBrushStyle(bStyle);
 
+    auto polygon = new Polygon(nullptr, id);
+    polygon->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+    polygon->set_brush(qtBColor, qtBrush);
+
+    // push back all points in points vector into polyline's point vector
+    for(auto point: points) {
+        polygon->set_point(point);
+    }
+
     return polygon;
 }
 
 
 Shape* readRectangle(ifstream& in, int id)
-{
-	
-    Rectangle *rectangle = new Rectangle(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, l, w, x, y);
-    
+{   
     int x, y, width;
     int l, w;
     string color, style, cap, join, brushStyle, brushColor;
@@ -295,14 +317,18 @@ Shape* readRectangle(ifstream& in, int id)
     getline(in, brushStyle);
     qtBrush = getBrushStyle(brushStyle);
 	
-	
+    auto rectangle = new Rectangle(nullptr, id);
+    rectangle->set_point(point);
+    rectangle->set_dimensions(l, w);
+
+    rectangle->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+    rectangle->set_brush(qtBColor, qtBrush);
+
     return rectangle;
 }
 
 Shape* readSquare(ifstream& in, int id)
-{
-    Square *square = new Square(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, w, x, y);
-    
+{   
     int x, y, width;
     int w;
     string color, style, cap, join, brushStyle, brushColor;
@@ -352,13 +378,18 @@ Shape* readSquare(ifstream& in, int id)
     getline(in, brushStyle);
     qtBrush = getBrushStyle(brushStyle);
 	
+    auto square = new Square(nullptr, id);
+    square->set_point(point);
+    square->set_dimension(w);
+
+    square->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+    square->set_brush(qtBColor, qtBrush);
+
     return square;
 }
 
 Shape* readEllipse(ifstream& in, int id)
 {
-    Ellipse *ellipse = new Ellipse(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, a, b, x, y); 
-
     int x, y, width;
     int a, b;
     string color, style, cap, join, brushStyle, brushColor;
@@ -408,13 +439,18 @@ Shape* readEllipse(ifstream& in, int id)
     getline(in, brushStyle);
     qtBrush = getBrushStyle(brushStyle);
 	
+    auto ellipse = new Ellipse(nullptr, id);
+    ellipse->set_point(point);
+    ellipse->set_dimensions(a, b);
+
+    ellipse->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+    ellipse->set_brush(qtBColor, qtBrush);
+
     return ellipse;
 }
 
 Shape* readCircle(ifstream& in, int id)
-{
-    Circle *circle = new Circle(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, r, x, y);
-	
+{	
     int x, y, width;
     int r;
     string color, style, cap, join, brushStyle, brushColor;
@@ -433,7 +469,7 @@ Shape* readCircle(ifstream& in, int id)
     in.ignore(numeric_limits<streamsize>::max(), ',');
     in >> r;
 
-    //QPoint point(x + r, y + r); idk yet
+    QPoint point(x, y);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, color);
@@ -462,14 +498,20 @@ Shape* readCircle(ifstream& in, int id)
     getline(in, brushStyle);
     qtBrush = getBrushStyle(brushStyle);
 	
+    auto circle = new Circle(nullptr, id);
+    circle->set_point(point);
+    circle->set_radius(r);
+
+    circle->set_pen(qtColor, width, qtStyle, qtCap, qtJoin);
+    circle->set_brush(qtBColor, qtBrush);
+
+
     return circle;
 }
 
 
 Shape* readText(ifstream& in, int id)
-{
-    Text *text = new Text(black, qtColor, SolidLine, FlatCap, MiterJoin, SolidPattern, fontPoint, id, align, fontFamily, fontStyle, fontWeight, textLine, x, y, length, width);
-	
+{	
     int x , y, fontPoint, length, width;
 
     string color, textLine, align, fontFamily, fontStyle, fontWeight;
@@ -480,6 +522,8 @@ Shape* readText(ifstream& in, int id)
     in.ignore(numeric_limits<streamsize>::max(), ',');
     in >> y;
 
+    QPoint point{x, y};
+
     in.ignore(numeric_limits<streamsize>::max(), ',');
     in >> length;
     in.ignore(numeric_limits<streamsize>::max(), ',');
@@ -487,26 +531,41 @@ Shape* readText(ifstream& in, int id)
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, textLine);
+    QString qTextLine = QString::fromStdString(textLine);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
+    in.ignore(1);
     getline(in, color);
     qtColor = getColor(color);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, align);
+    Qt::AlignmentFlag qtAlign = getAlignmentFlag(align);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     in >> fontPoint;
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
+    in.ignore(1);
     getline(in, fontFamily);
+    QString qtFamily = QString::fromStdString(fontFamily);
 
-    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // Not given?
     getline(in, fontStyle);
-    fontStyle = " StyleNormal";
+    fontStyle = "StyleNormal";
 
-    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // TODO
     getline(in, fontWeight);
+    QFont::Weight qtWeight = getWeight(fontWeight);
+
+    auto text = new Text(nullptr, id);
+
+    text->set_point(point);
+    text->set_dimensions(length, width);
+    text->set_all_text(qTextLine, qtColor, qtAlign, fontPoint, qtFamily, QFont::Style::StyleNormal, qtWeight);
+    text->set_pen(qtColor);
+
+    qDebug() << "Family:" << qtFamily;
 
     return text;
 }
@@ -539,6 +598,8 @@ QColor getColor(string color)
     }
     else if(color == " gray"){
         return gray;
+    } else {
+        return black;
     }
 }
 
@@ -561,6 +622,8 @@ PenStyle getPenStyle(string style)
     }
     else if(style == " DashDotDotLine"){
         return DashDotDotLine;
+    }else {
+        return NoPen;
     }
 }
 
@@ -574,6 +637,8 @@ PenCapStyle getPCStyle(string cap)
     }
     else if(cap == " RoundCap"){
         return RoundCap;
+    }else {
+        return FlatCap;
     }
 }
 
@@ -587,6 +652,8 @@ PenJoinStyle getPJStyle(string join)
     }
     else if(join == " RoundJoin"){
         return RoundJoin;
+    } else {
+        return MiterJoin;
     }
 }
 
@@ -603,5 +670,39 @@ BrushStyle getBrushStyle(string brush)
     }
     else if(brush == " NoBrush"){
         return NoBrush;
+    } else {
+        return SolidPattern;
+    }
+}
+
+Qt::AlignmentFlag getAlignmentFlag(string flag)
+{
+    if(flag == "AlignLeft"){
+        return Qt::AlignmentFlag::AlignLeft;
+    } else if(flag == "AlignRight"){
+        return Qt::AlignmentFlag::AlignRight;
+    }else if(flag == "AlignTop"){
+        return Qt::AlignmentFlag::AlignTop;
+    }else if(flag == "AlignBottom"){
+        return Qt::AlignmentFlag::AlignBottom;
+    } else if(flag == "AlignCenter"){
+        return Qt::AlignmentFlag::AlignCenter;
+    } else {
+        return Qt::AlignmentFlag::AlignLeft;
+    }
+}
+
+QFont::Weight getWeight(string weight)
+{
+    if(weight == "Thin"){
+        return QFont::Thin;
+    } else if(weight == "Light"){
+        return QFont::Light;
+    }else if(weight == "Normal"){
+        return QFont::Normal;
+    }else if(weight == "Bold"){
+        return QFont::Bold;
+    } else {
+        return QFont::Normal;
     }
 }
