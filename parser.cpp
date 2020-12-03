@@ -4,27 +4,22 @@
 
 
 gp::vector<Shape*> ParseFile(int size){
-    ifstream in("shapes.txt"); // change location for needs
-
     const QString FILE_NAME = "shapes.txt";
 
-    if(!in){
+    QString shapePath = qApp->applicationDirPath();
+    shapePath.append('/' + FILE_NAME);
+    qDebug() << "path to shapes.txt: " << shapePath;
+    QFile shapeFile(shapePath);
+
+    if(!shapeFile.exists()){
         QMessageBox fileNotFoundError;
         fileNotFoundError.setText("ERR: \"" + FILE_NAME +"\" not found!");
         fileNotFoundError.exec();
         exit(-1);
     }
-    else
-    {
-        // find path to shapes.txt
-        QString shapePath = qApp->applicationDirPath();
-        shapePath.append('/' + FILE_NAME);
-        qDebug() << "path to shapes.txt: " << shapePath;
-        QTextStream in(&shapePath);
-    }
 
-
-
+    // file exists at this point
+    ifstream in(shapePath.toStdString());
 
     gp::vector<Shape*> rShapes(size);
 
