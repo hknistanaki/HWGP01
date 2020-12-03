@@ -93,7 +93,7 @@ public:
      * \param penCapStyle
      * \param penJoinStyle
      */
-    void set_pen(Qt::GlobalColor color, int penWidth, Qt::PenStyle penStyle, Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJoinStyle);
+    void set_pen(QColor color, int penWidth, Qt::PenStyle penStyle, Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJoinStyle);
 
     /*!
      * \brief set_pen only changes pen's color

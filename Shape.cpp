@@ -7,7 +7,7 @@ Shape::Shape(QPaintDevice* device, int shapeID, Shape::ShapeType shape) : id{sha
     brush = Qt::NoBrush;
 }
 
-void Shape::set_pen(GlobalColor color, int penWidth, PenStyle penStyle, PenCapStyle penCapStyle, PenJoinStyle penJoinStyle)
+void Shape::set_pen(QColor color, int penWidth, PenStyle penStyle, PenCapStyle penCapStyle, PenJoinStyle penJoinStyle)
 {
     pen.setColor(color);
     pen.setWidth(penWidth);

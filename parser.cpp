@@ -1,27 +1,32 @@
 // parser.cpp by Paul Jo
 
 #include "parser.h"
-#include <QDebug>
-#include <QColor>
+
 
 gp::vector<Shape*> ParseFile(int size){
     ifstream in("shapes.txt"); // change location for needs
 
+    const QString FILE_NAME = "shapes.txt";
+
     if(!in){
-        qDebug() << "File didn't open.";
-        exit(1);
+        QMessageBox fileNotFoundError;
+        fileNotFoundError.setText("ERR: \"" + FILE_NAME +"\" not found!");
+        fileNotFoundError.exec();
+        exit(-1);
     }
     else
     {
-    	in.open("shapes.txt");
+        // find path to shapes.txt
+        QString shapePath = qApp->applicationDirPath();
+        shapePath.append('/' + FILE_NAME);
+        qDebug() << "path to shapes.txt: " << shapePath;
+        QTextStream in(&shapePath);
     }
 
-    gp::vector<Shape*> rShapes(size);
 
-    //while (!in.eof())
-    //{
-        //readShapes(in);
-    //}
+
+
+    gp::vector<Shape*> rShapes(size);
 
     while (in){
         string temp;
@@ -73,7 +78,6 @@ gp::vector<Shape*> ParseFile(int size){
 
 Shape* readLine(ifstream &in, int id)
 {
-    Line *line = new Line(qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, front, end);
 	
     int x, y, x2, y2, width;
     string color, style, cap, join;
@@ -81,7 +85,7 @@ Shape* readLine(ifstream &in, int id)
     PenStyle qtStyle;
     PenCapStyle qtCap;
     PenJoinStyle qtJoin;
-    BrushStyle qtBrush = NoBrush;
+    //BrushStyle qtBrush = NoBrush; // not applicable
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     in >> x;
@@ -113,6 +117,17 @@ Shape* readLine(ifstream &in, int id)
     in.ignore(numeric_limits<streamsize>::max(), ':'); // get join
     getline(in, join);
     qtJoin = getPJStyle(join);
+
+    // create a pen obj to add to line
+    QPen temp;
+    temp.setColor(qtColor);
+    temp.setWidth(width);
+    temp.setStyle(qtStyle);
+    temp.setCapStyle(qtCap);
+    temp.setJoinStyle(qtJoin);
+
+    Line* line = new Line(front, end, temp, id);
+
 
     return line;
 }

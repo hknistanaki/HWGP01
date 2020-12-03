@@ -6,7 +6,7 @@
 class Line : public Shape
 {
 public:
-    Line(const QPoint& A = {}, const QPoint& B = {}, const QBrush &brush = {}, const QPen &pen = {}, int id = 0);
+    Line(const QPoint& A = {}, const QPoint& B = {}, const QPen &pen = {}, int id = 0);
     ~Line() override;
 
     void set_points(const QPoint& point_begin, const QPoint& point_end);

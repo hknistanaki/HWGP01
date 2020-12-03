@@ -8,6 +8,13 @@
 #include "vector.h"
 #include "Shape.h"
 
+#include <QFile>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QColor>
+#include <QMessageBox>
+#include <QTextStream>
+
 // Remove comments below once Shape, Line, Circle... etc is done (Shortcut is Ctrl + /).
 #include "Line.h"
 //#include "Circle.h"

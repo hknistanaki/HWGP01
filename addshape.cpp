@@ -113,7 +113,7 @@ void addShape::addPolyline()
     temp->set_shapeID(addingShapeID);
     // add two points initially
     temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
-    temp->set_point(QPoint{ui->posXSpinBox->value()+150, ui->posYSpinBox->value()});
+    //temp->set_point(QPoint{ui->posXSpinBox->value()+150, ui->posYSpinBox->value()});
 
     // Set pen with values from UI elements
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());

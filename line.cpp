@@ -1,13 +1,12 @@
 #include "Shape.h"
 #include "Line.h"
 
-Line::Line(const QPoint& A, const QPoint& B, const QBrush &brush, const QPen &pen, int id) : Shape(nullptr, -1, ShapeType::Line) {
+Line::Line(const QPoint& A, const QPoint& B, const QPen &pen, int id) : Shape(nullptr, -1, ShapeType::Line) {
     set_points(A, B);
-    point_begin = A;
-    point_end = B;
-    // TODO
-//    set_brush(brush.color(), brush.style());
-//    set_pen(pen);
+
+    set_pen(pen.color(), pen.width(), pen.style(), pen.capStyle(), pen.joinStyle());
+
+
     set_shapeID(id);
 }
 
