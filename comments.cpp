@@ -59,4 +59,5 @@ void comments::on_pushButton_clicked()
 void comments::on_pushButton_2_clicked()
 {
     this->isCustomer = true;
+    QMessageBox::information(this, "Thank You!", "Welcome Back!");
 }
