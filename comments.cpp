@@ -30,7 +30,10 @@ void comments::on_pushButton_clicked()
     }
 
     // TXT file address for saving the history of customer comments.
-    QFile inputFile("D://CHEN//Downloads//HWGP01-master//HWGP01-master//CommentsFile//customerComments");
+    QString fileName = "CommentsHistory.txt";
+    
+    //Read the CommentsHistory.txt
+    QFile inputFile(fileName);
     inputFile.open(QIODevice::ReadOnly);
     QTextStream in(&inputFile);
     line = in.readAll();
@@ -46,7 +49,8 @@ void comments::on_pushButton_clicked()
     ui->textBrowser->setText(copyComments);
     ui->textEdit->clear();
 
-    QFile outputFile("D://CHEN//Downloads//HWGP01-master//HWGP01-master//CommentsFile//customerComments");
+    //Write the data to CommentsHisory.txt
+    QFile outputFile(fileName);
     if (outputFile.open(QIODevice::WriteOnly | QIODevice::Text))
     {
     QTextStream out(&outputFile);
