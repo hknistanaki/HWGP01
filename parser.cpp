@@ -68,59 +68,6 @@ gp::vector<Shape*> ParseFile(int size){
     return rShapes;
 }
 
-void readShapes(ifstream &in)
-{
-	int AR_SIZE = 7;
-	int index = 1;
-	int dim_SIZE = 8;
-	shapeAr shapeArray[];
-	textAr textArray[];
-
-	while (in && index <= AR_SIZE)
-	{
-		in >> shapeArray[index].id;
-		getline(in, shapeArray[index].type);
-
-		int dimIndex = 0;
-		while (dimIndex < dim_SIZE)
-		{
-			in >> shapeArray[index].dimensionAr[dimIndex];
-		}
-
-		getline(in, shapeArray[index].qtColor);
-		in >> shapeArray[index].width;
-		getline(in, shapeArray[index].qtStyle);
-		getline(in, shapeArray[index].qtCap);
-		getline(in, shapeArray[index].qtJoin);
-		getline(in, shapeArray[index].qtBColor);
-		getline(in, shapeArray[index].qtBStyle);
-		in.ignore(numeric_limits<streamsize>::max(), ':');
-
-		index++;
-	}
-
-	in >> textArray[index].id;
-	getline(in, textArray[index].type);
-
-	int dimIndex = 0;
-	index = 1;
-	while (dimIndex < dim_SIZE)
-	{
-		in >> shapeArray[index].dimensionAr[dimIndex];
-	}
-
-	getline(in, textArray[index].textString);
-	getline(in, textArray[index].textColor);
-	getline(in, textArray[index].textAlignment);
-	in >> textArray[index].textPointSize;
-	getline(in, textArray[index].textFontFamily);
-	getline(in, textArray[index].textFontStyle);
-	getline(in, textArray[index].textFontWeight);
-	in.ignore(numeric_limits<streamsize>::max(), ':');
-}
-
-// All of the functions below are skeleton works.
-
 Shape* readLine(ifstream &in, int id)
 {
 	int index = 1;
