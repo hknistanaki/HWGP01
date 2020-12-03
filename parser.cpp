@@ -1,7 +1,7 @@
 // parser.cpp by Paul Jo
 
 #include "parser.h"
-//#include <QColor>
+#include <QColor>
 
 gp::vector<Shape*> ParseFile(int size){
     ifstream in("shapes.txt"); // change location for needs
