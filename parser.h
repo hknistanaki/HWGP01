@@ -6,16 +6,17 @@
 #include <iostream>
 #include <fstream>
 #include "vector.h"
-#include "shape.h"
+#include "Shape.h"
+
 // Remove comments below once Shape, Line, Circle... etc is done (Shortcut is Ctrl + /).
-// #include "line.h"
-// #include "circle.h"
-// #include "polygon.h"
-// #include "polyline.h"
-// #include "rectangle.h"
-// #include "square.h"
-// #include "ellipse.h"
-// #include "text.h"
+#include "Line.h"
+//#include "Circle.h"
+#include "Polygon.h"
+#include "polyline.h"
+#include "Rectangle.h"
+//#include "Square.h"
+#include "Ellipse.h"
+#include "Text.h"
 
 using namespace std;
 

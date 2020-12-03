@@ -19,7 +19,7 @@ gp::vector<Shape*> ParseFile(int size){
 
     while (!in.eof())
     {
-    	readShapes(in);
+        readShapes(in);
     }
 
     while (in){
@@ -142,9 +142,10 @@ Shape* readLine(ifstream &in, int id)
 			in >> str;
 			int dimIndex = 0;
 			while(dimIndex < dim_SIZE)
-				if (str == "ShapeDimensions:")
-					in >> line->dimensionAr;
-					in.ignore(numeric_limits<streamsize>::max(), '\n');
+                if (str == "ShapeDimensions:") {
+                    in >> line->dimensionAr;
+                    in.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
 
 			in >> str;
 			if (str == "PenColor:")

@@ -20,10 +20,10 @@ SOURCES += \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
+    parser.cpp \
     polygon.cpp \
     polyline.cpp \
     rectangle.cpp \
-    shapestorage.cpp \
     text.cpp
 
 HEADERS += \
@@ -40,7 +40,8 @@ HEADERS += \
     deleteshape.h \
     logindialog.h \
     mainwindow.h \
-    shapestorage.h \
+    parser.h \
+    polyline.h \
     vector.h
 
 FORMS += \

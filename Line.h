@@ -11,11 +11,14 @@ public:
 
     void set_points(const QPoint& point_begin, const QPoint& point_end);
 
-    void draw(QPaintDevice* device) const override;
+    void draw(QPaintDevice* device, const int translate_x, const int translate_y) const override;
+
+    QPoint id_pos() const;
 
 private:
     QPoint point_begin;
     QPoint point_end;
+
 };
 
 #endif // LINE_H

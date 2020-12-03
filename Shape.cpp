@@ -22,6 +22,18 @@ void Shape::set_brush(GlobalColor color, BrushStyle brushStyle)
     brush.setStyle(brushStyle);
 }
 
+QString Shape::nameTag(const QString &shapename) const
+{
+
+    QString nametag;
+
+    // construct a QString to be drawn above the shape
+    nametag = QString(shapename) + QString(" ID: ") + QString::number(get_shapeID());
+
+    return nametag;
+
+}
+
 std::unique_ptr<QPainter> Shape::getPainter(QPaintDevice* device) const
 {
     std::unique_ptr<QPainter> paint{new QPainter{device}};

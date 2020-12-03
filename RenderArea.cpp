@@ -13,10 +13,10 @@ void RenderArea::paintEvent(QPaintEvent *)
 {
     QPaintDevice* device = this;
     for(int i = 0; i < ShapeMagazine.size(); i++)
-        ShapeMagazine[i]->draw(device);
+        ShapeMagazine[i]->draw(device, 0, 0);
 }
 
-const gp::vector<Shape *> & RenderArea::getShapes()
+const gp::vector<Shape*>& RenderArea::getShapes()
 {
     return ShapeMagazine;
 }
@@ -30,7 +30,7 @@ void RenderArea::chopShape(int indexRemove)
 {
     gp::vector<Shape*>::iterator i;
     for(i = ShapeMagazine.begin(); i < ShapeMagazine.end(); ++i)
-        if((*i)->getID() == indexRemove)
+        if((*i)->get_shapeID() == indexRemove)
         {
             ShapeMagazine.erase(i);
             numShapesRA--;
@@ -40,8 +40,9 @@ void RenderArea::chopShape(int indexRemove)
 void RenderArea::moveShape(int index, int coord, int x, int y)
 {
     for(int i = 0; i < ShapeMagazine.size(); i++)
-        if(ShapeMagazine[i]->getID() == index){
-            ShapeMagazine[i]->move(x,y,coord); break; }
+        if(ShapeMagazine[i]->get_shapeID() == index){
+            //ShapeMagazine[i]->move(x,y,coord); break;
+        }
 }
 int RenderArea::getSize()
 {
@@ -50,7 +51,7 @@ int RenderArea::getSize()
 
 QSize RenderArea::sizeHint() const
 {
-    return QSize(1000,500);
+    return QSize(750,500);
 }
 
 QSize RenderArea::minimumSizeHint() const

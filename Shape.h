@@ -68,6 +68,12 @@ public:
     // QString get_text() const {return };
 
     /*!
+     * \brief get_shapeID
+     * \return id
+     */
+    int get_shapeID() const {return id;}
+
+    /*!
      * \brief set_shapeID sets shape's id
      * \param newId id to assign to shape
      */
@@ -113,7 +119,14 @@ public:
     /*!
      * \brief draw draw event, interface only
      */
-    virtual void draw(QPaintDevice* device) const = 0;
+    virtual void draw(QPaintDevice* device, const int translate_x, const int translate_y) const = 0;
+
+    /*!
+     * \brief nameTag
+     * \return nametag (example "Line ID: 1")
+     */
+    QString nameTag(const QString &shapename =  "NoShape") const;
+
 
 protected:
     /*!
@@ -147,6 +160,7 @@ private:
      * \brief brush QBrush object
      */
     QBrush brush;
+
 
 };
 

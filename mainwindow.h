@@ -9,9 +9,8 @@
 #include "addshape.h"
 #include "deleteshape.h"
 #include "comments.h"
-#include "canvas.h"
+#include "RenderArea.h"
 
-#include "shapestorage.h"
 #include "vector.h"
 
 QT_BEGIN_NAMESPACE
@@ -49,9 +48,7 @@ private:
     deleteshape *delShapeDialog;
     comments *commentsDialog;
 
-    canvas *canvasWidget;
-
-    shapeStorage store;
+    RenderArea *canvas;
 
     int shapeCount;
 
