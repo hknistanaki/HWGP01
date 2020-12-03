@@ -226,8 +226,6 @@ Shape* readPolygon(ifstream &in, int id)
     getline(in, bStyle);
     qtBrush = getBrushStyle(bStyle);
 
-    Polygon *polygon = new Polygon(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
-
     return polygon;
 }
 
