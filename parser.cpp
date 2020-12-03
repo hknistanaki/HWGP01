@@ -199,31 +199,33 @@ Shape* readPolygon(ifstream &in, int id)
     }while(in.peek() == ',');
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(in, polygon-qtColor);
-    //qtColor = getColor(color);
+    getline(in, color);
+    qtColor = getColor(color);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    inFile >> width;
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, style);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
     qtStyle = getPenStyle(style);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, cap);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
     qtCap = getPCStyle(cap);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, join);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
     qtJoin = getPJStyle(join);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, bColor);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, bColor);
     qtBColor = getColor(bColor);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, bStyle);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, bStyle);
     qtBrush = getBrushStyle(bStyle);
+
+    Polygon *polygon = new Polygon(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
 
     return polygon;
 }
