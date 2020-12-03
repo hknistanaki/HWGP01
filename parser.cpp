@@ -2,12 +2,13 @@
 
 #include "parser.h"
 //#include <QColor>
+#include <QDebug>
 
 gp::vector<Shape*> ParseFile(int size){
     ifstream in("shapes.txt"); // change location for needs
 
     if(!in){
-        cout << "File didn't open.";
+        qDebug() << "File didn't open.";
         exit(1);
     }
     else
@@ -61,7 +62,7 @@ gp::vector<Shape*> ParseFile(int size){
             rShapes.push_back(readText(in, id));
             break;
         default:
-            cout << "Error parser.cpp" << endl;
+            qDebug() << "Parser.cpp: invalid shape detected.";
             break;
         }
     }
@@ -202,27 +203,27 @@ Shape* readPolygon(ifstream &in, int id)
     getline(in, polygon-qtColor);
     //qtColor = getColor(color);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    inFile >> width;
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, style);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
     qtStyle = getPenStyle(style);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, cap);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
     qtCap = getPCStyle(cap);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, join);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
     qtJoin = getPJStyle(join);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, bColor);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, bColor);
     qtBColor = getColor(bColor);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, bStyle);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, bStyle);
     qtBrush = getBrushStyle(bStyle);
 
     return polygon;
@@ -303,42 +304,42 @@ Shape* readSquare(ifstream& in, int id)
     BrushStyle qtBrush;
 
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    inFile >> x;
-    inFile.ignore(numeric_limits<streamsize>::max(), ',');
-    inFile >> y;
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in>> y;
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ',');
-    inFile >> w;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> w;
 
     QPoint point(x, y);
 
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, color);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, color);
     qtColor = getColor(color);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    inFile >> width;
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> width;
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, style);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, style);
     qtStyle = getPenStyle(style);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, cap);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, cap);
     qtCap = getPCStyle(cap);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, join);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, join);
     qtJoin = getPJStyle(join);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, brushColor);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushColor);
     qtBColor = getColor(brushColor);
 
-    inFile.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(inFile, brushStyle);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    getline(in, brushStyle);
     qtBrush = getBrushStyle(brushStyle);
 	
     return square;
@@ -485,7 +486,7 @@ Shape* readText(ifstream& in, int id)
     getline(in, align);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
-    inFile >> fontPoint;
+    in >> fontPoint;
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, fontFamily);
