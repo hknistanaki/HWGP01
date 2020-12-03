@@ -17,10 +17,10 @@ gp::vector<Shape*> ParseFile(int size){
 
     gp::vector<Shape*> rShapes(size);
 
-    while (!in.eof())
-    {
-        readShapes(in);
-    }
+    //while (!in.eof())
+    //{
+        //readShapes(in);
+    //}
 
     while (in){
         string temp;
@@ -33,6 +33,8 @@ gp::vector<Shape*> ParseFile(int size){
         in.ignore(numeric_limits<streamsize>::max(), ':');
         getline(in, temp);
 
+	if (in.eof()) break;
+	    
         switch(id){
         case 1:
             rShapes.push_back(readLine(in, id));
@@ -70,133 +72,99 @@ gp::vector<Shape*> ParseFile(int size){
 
 Shape* readLine(ifstream &in, int id)
 {
-	int index = 1;
-	shapeAr shapeArray[];
-	bool found;
-	int dim_SIZE = 8;
-	string str;
+    Line *line = new Line(qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, front, end);
+	
+    int x, y, x2, y2, width;
+    string color, style, cap, join;
+    QColor qtColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush = NoBrush;
 
-	Line *line = new Line(qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, front, end);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
+    in >> x;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> x2;
+    in.ignore(numeric_limits<streamsize>::max(), ',');
+    in >> y2;
 
-	while (in && found == false)
-	{
-		if (shapeArray[index].id == id)
-		{
-			in >> str;
-			if (str == "ShapeType:")
-				getline(in, line->ShapeType);
+    QPoint front(x, y);
+    QPoint end(x2, y2);
 
-			in >> str;
-			int dimIndex = 0;
-			while(dimIndex < dim_SIZE)
-                if (str == "ShapeDimensions:") {
-                    in >> line->dimensionAr;
-                    in.ignore(numeric_limits<streamsize>::max(), '\n');
-                }
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // get color
+    getline(in, color);
+    qtColor = getColor(color);
 
-			in >> str;
-			if (str == "PenColor:")
-				getline(in, line->qtColor);
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // get width
+    in >> width;
 
-			in >> str;
-			if (str == "PenWidth:")
-				in >> line->width;
-        		in.ignore(numeric_limits<streamsize>::max(), '\n');
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // get style
+    getline(in, style);
+    qtStyle = getPenStyle(style);
 
-			in >> str;
-			if (str == "PenStyle:")
-				getline(in, line->qtStyle);
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // get cap
+    getline(in, cap);
+    qtCap = getPCStyle(cap);
 
-			in >> str;
-			if (str == "PenCapStyle:")
-				getline(in, line->qtCap);
-
-			in >> str;
-			if (str == "PenJoinStyle:")
-				getline(in, line->qtJoin);
-
-			in >> str;
-			if (str == "BrushColor:")
-				getline(in, line->gtBColor);
-
-			in >> str;
-			if (str == "BrushStyle:")
-				getline(in, line->gtBrush);
-
-			in.ignore(numeric_limits<streamsize>::max(), ':');
-			found = true;
-		}
-		else
-		{
-			index++;
-		}
-	}
+    in.ignore(numeric_limits<streamsize>::max(), ':'); // get join
+    getline(in, join);
+    qtJoin = getPJStyle(join);
 
     return line;
 }
 
 Shape* readPolyLine(ifstream &in, int id)
 {
-	int index = 1;
-	shapeAr shapeArray[];
-	bool found;
-	int dim_SIZE = 8;
-	string str;
-
     Polyline *polyline = new Polyline(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
+	
+    int width;
+    string color, style, cap, join;
+    QColor qtColor, qtBColor;
+    PenStyle qtStyle;
+    PenCapStyle qtCap;
+    PenJoinStyle qtJoin;
+    BrushStyle qtBrush = NoBrush;
 
-	while (in && found == false)
-	{
-		if (shapeArray[index].id == id)
-		{
-			in >> str;
-			if (str == "ShapeType:")
-				getline(in, line->ShapeType);
+    vector<QPoint> points;
 
-			in >> str;
-			int dimIndex = 0;
-			while(dimIndex < dim_SIZE)
-				if (str == "ShapeDimensions:")
-					in >> line->dimensionAr;
-					in.ignore(numeric_limits<streamsize>::max(), '\n');
 
-			in >> str;
-			if (str == "PenColor:")
-				getline(in, line->qtColor);
+    in.ignore(numeric_limits<streamsize>::max(), ':');
 
-			in >> str;
-			if (str == "PenWidth:")
-				in >> line->width;
-        		in.ignore(numeric_limits<streamsize>::max(), '\n');
+    do{
+        int x, y;
+        QPoint add;
+        in.get();
+        in >> x;
+        in.get();
+        in >> y;
 
-			in >> str;
-			if (str == "PenStyle:")
-				getline(in, line->qtStyle);
+        add.setX(x);
+        add.setY(y);
+        points.push_back(add);
 
-			in >> str;
-			if (str == "PenCapStyle:")
-				getline(in, line->qtCap);
+    }while(in.peek() == ',');
 
-			in >> str;
-			if (str == "PenJoinStyle:")
-				getline(in, line->qtJoin);
+     in.ignore(numeric_limits<streamsize>::max(), ':');
+     getline(in, color);
+     qtColor = getColor(color);
 
-			in >> str;
-			if (str == "BrushColor:")
-				getline(in, line->gtBColor);
+     in.ignore(numeric_limits<streamsize>::max(), ':');
+     in >> width;
 
-			in >> str;
-			if (str == "BrushStyle:")
-				getline(in, line->gtBrush);
+     in.ignore(numeric_limits<streamsize>::max(), ':');
+     getline(in, style);
+     qtStyle = getPenStyle(style);
 
-			in.ignore(numeric_limits<streamsize>::max(), ':');
-			found = true;
-		}
-		else
-		{
-			index++;
-		}
-	}
+     in.ignore(numeric_limits<streamsize>::max(), ':');
+     getline(in, cap);
+     qtCap = getPCStyle(cap);
+
+     in.ignore(numeric_limits<streamsize>::max(), ':');
+     getline(in, join);
+     qtJoin = getPJStyle(join);
 
     return polyline;
 }
