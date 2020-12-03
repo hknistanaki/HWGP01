@@ -1,8 +1,8 @@
 // parser.cpp by Paul Jo
 
 #include "parser.h"
-//#include <QColor>
 #include <QDebug>
+#include <QColor>
 
 gp::vector<Shape*> ParseFile(int size){
     ifstream in("shapes.txt"); // change location for needs
@@ -200,8 +200,8 @@ Shape* readPolygon(ifstream &in, int id)
     }while(in.peek() == ',');
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
-    getline(in, polygon-qtColor);
-    //qtColor = getColor(color);
+    getline(in, color);
+    qtColor = getColor(color);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     in >> width;
@@ -225,6 +225,8 @@ Shape* readPolygon(ifstream &in, int id)
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, bStyle);
     qtBrush = getBrushStyle(bStyle);
+
+    Polygon *polygon = new Polygon(qtBColor, qtColor, qtStyle, qtCap, qtJoin, qtBrush, width, id, points);
 
     return polygon;
 }
