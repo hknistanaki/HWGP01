@@ -46,7 +46,7 @@ class RenderArea : public QWidget
         QString getStringFontStyle(QFont::Style fontStyle);
         QString getStringFontWeight(int fontWeight);
 
-        Shape::Shapes  getShapeType(QString shape);
+        Shape::ShapeType  getShapeType(QString shape);
         Qt::GlobalColor   getColor(QString color);
         Qt::PenCapStyle   getPenCapStyle(QString cap);
         Qt::PenStyle      getPenStyle(QString pen);

@@ -3,6 +3,8 @@
 #include "contactUs.h"
 #include "logindialog.h"
 #include "comments.h"
+#include "parser.h"
+#include "vector.h"
 
 /*!
  * \brief MainWindow::MainWindow
@@ -12,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
+
     // initialize pointer members to nullptr
     cWindow = nullptr;
     lDialog = nullptr;
@@ -19,14 +23,29 @@ MainWindow::MainWindow(QWidget *parent)
     delShapeDialog = nullptr;
     commentsDialog = nullptr;
 
-    canvasWidget = new canvas(this, &store);
-    canvasWidget->setObjectName(QString::fromUtf8("canvas"));
-    canvasWidget->setMinimumSize(QSize(1000, 500));
+    // parse shapes
+    gp::vector<Shape*> temp = ParseFile();
+
+    qDebug() << "reached MainWindow";
+
+    // add to renderWidget's vector
+    for(int i = 0; i < temp.size(); ++i) {
+        ui->renderWidget->addShape(temp[i]);
+    }
+
+    qDebug() << "Finished copy";
+
+    // delete all shapes in temp
+    // this should be an iterator but i couldn't
+    // make it work for some reason
+//    for(int i = 0; i < temp.size(); ++i) {
+//        delete temp[i];
+//    }
+
+    qDebug() << "Finished delete";
 
     isAdministrator = true;
     shapeCount = 0;
-
-    ui->setupUi(this);
 }
 
 /*!
@@ -36,7 +55,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete cWindow;
-    delete canvasWidget;
+    delete canvas;
 }
 
 /*!
@@ -87,13 +106,16 @@ void MainWindow::on_actionAdd_Shape_triggered()
     if(!isAdministrator) {
         QMessageBox::information(this, "Error", "You must be logged in to add shapes.");
     }else {
-        addShapeDialog = new addShape(this, shapeCount, &store);
+        addShapeDialog = new addShape(this, ui->renderWidget->getnumShapesRA());
         addShapeDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
         addShapeDialog->exec();
-        shapeCount = addShapeDialog->getShapeCount();
+        shapeCount = ui->renderWidget->getnumShapesRA();
 
-        //update the canvas
-        // ?
+        // add the shape created previously to vector
+        // if no shape created, pass
+        if (addShapeDialog->getNewShape() != nullptr) {
+            ui->renderWidget->addShape(addShapeDialog->getNewShape());
+        }
 
         delete addShapeDialog;
     }
@@ -122,7 +144,8 @@ void MainWindow::on_actionRemove_Shape_triggered()
 // !!! TEMPORARY !!!
 void MainWindow::on_actiondebug_shapeCount_triggered()
 {
-    qDebug() << "shapeCount in mainWindow: " << shapeCount;
+    qDebug() << "shapeCount in mainWindow: " << ui->renderWidget->getnumShapesRA();
+
 }
 
 void MainWindow::on_actionComments_triggered()

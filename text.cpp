@@ -1,18 +1,39 @@
 #include "Shape.h"
 #include "Text.h"
 
-void Text::set_point(const QPoint& point)
+void Text::draw(QPaintDevice *device, const int translate_x, const int translate_y) const
 {
-    points.push_back(point);
+    auto paint = getPainter(device);
+
+    QPoint temp = id_pos();
+    temp.setY(temp.y() - 15);
+    paint->drawText(temp.x(), temp.y(), nameTag("Text"));
+
+    QFont font{family, pointSize};
+
+    font.setStyle(fontStyle);
+    font.setWeight(weight);
+
+    paint->setFont(font);
+    paint->setPen(get_pen());
+
+    paint->drawText(origin.x(), origin.y(), l, w, alignment, textStr);
+
+    paint->save();
+    paint->translate(translate_x, translate_y);
+
+    paint->restore();
 }
 
-void Text::draw(const int translate_x, const int translate_y)
+void Text::set_all_text(QString text, QColor colorIn, Qt::AlignmentFlag alignmentIn, int sizePtIn,
+                    QString fontFamilyIn, QFont::Style styleIn, QFont::Weight fontWeightIn)
 {
-    get_qpainter().setPen(get_pen());
-    get_qpainter().setBrush(get_brush());
+    textStr = text;
+    color = colorIn;
+    alignment = alignmentIn;
+    pointSize = sizePtIn;
+    family = fontFamilyIn;
+    fontStyle = styleIn;
+    weight = fontWeightIn;
 
-    get_qpainter().save();
-    get_qpainter().translate(translate_x, translate_y);
-
-    get_qpainter().restore();
 }

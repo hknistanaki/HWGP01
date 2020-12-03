@@ -12,6 +12,7 @@ SOURCES += \
     RenderArea.cpp \
     Shape.cpp \
     addshape.cpp \
+    circle.cpp \
     comments.cpp \
     contactus.cpp \
     deleteshape.cpp \
@@ -20,10 +21,11 @@ SOURCES += \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
+    parser.cpp \
     polygon.cpp \
     polyline.cpp \
     rectangle.cpp \
-    shapestorage.cpp \
+    square.cpp \
     text.cpp
 
 HEADERS += \
@@ -35,12 +37,15 @@ HEADERS += \
     Shape.h \
     Text.h \
     addshape.h \
+    circle.h \
     comments.h \
     contactus.h \
     deleteshape.h \
     logindialog.h \
     mainwindow.h \
-    shapestorage.h \
+    parser.h \
+    polyline.h \
+    square.h \
     vector.h
 
 FORMS += \

@@ -24,7 +24,9 @@ public:
         Line, ///< Line object
         Polyline, ///< PolyLine object
         Polygon, ///< Polygon object
+        Square, ///< Square object
         Rectangle, ///< Rectangle object
+        Circle, ///< Circle object
         Ellipse, ///< Ellipse object
         Text ///< Text object
     };
@@ -68,6 +70,12 @@ public:
     // QString get_text() const {return };
 
     /*!
+     * \brief get_shapeID
+     * \return id
+     */
+    int get_shapeID() const {return id;}
+
+    /*!
      * \brief set_shapeID sets shape's id
      * \param newId id to assign to shape
      */
@@ -87,20 +95,20 @@ public:
      * \param penCapStyle
      * \param penJoinStyle
      */
-    void set_pen(Qt::GlobalColor color, int penWidth, Qt::PenStyle penStyle, Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJoinStyle);
+    void set_pen(QColor color, int penWidth, Qt::PenStyle penStyle, Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJoinStyle);
 
     /*!
      * \brief set_pen only changes pen's color
      * \param color color to change pen to
      */
-    void set_pen(Qt::GlobalColor color) {pen.setColor(color);}
+    void set_pen(QColor color) {pen.setColor(color);}
 
     /*!
      * \brief set_brush sets brush's properties
      * \param color Qt::GlobalColor
      * \param brushStyle Qt::BrushStyle
      */
-    void set_brush(Qt::GlobalColor color, Qt::BrushStyle brushStyle);
+    void set_brush(QColor color, Qt::BrushStyle brushStyle);
 
     /*!
      * \brief default_style sets the shape to a default style
@@ -113,7 +121,16 @@ public:
     /*!
      * \brief draw draw event, interface only
      */
-    virtual void draw(QPaintDevice* device) const = 0;
+    virtual void draw(QPaintDevice* device, const int translate_x, const int translate_y) const = 0;
+
+    /*!
+     * \brief nameTag
+     * \return nametag (example "Line ID: 1")
+     */
+    QString nameTag(const QString &shapename =  "NoShape") const;
+
+    virtual QPoint id_pos() const = 0;
+
 
 protected:
     /*!
@@ -147,6 +164,7 @@ private:
      * \brief brush QBrush object
      */
     QBrush brush;
+
 
 };
 

@@ -6,15 +6,44 @@ void Polyline::set_point(const QPoint& point)
     points.push_back(point);
 }
 
-void Polyline::draw(const int translate_x, const int translate_y)
+void Polyline::draw(QPaintDevice *device, const int translate_x, const int translate_y) const
 {
-    get_qpainter().setPen(get_pen());
-    get_qpainter().setBrush(get_brush());
+    auto paint = getPainter(device);
 
-    get_qpainter().save();
-    get_qpainter().translate(translate_x, translate_y);
+    QPoint temp = id_pos();
+    temp.setY(temp.y() - 5);
 
-    get_qpainter().drawPolyline(points.begin(), points.size());
+    paint->setPen(get_pen());
 
-    get_qpainter().restore();
+    paint->save();
+    paint->translate(translate_x, translate_y);
+
+    paint->drawText(temp.x(), temp.y(), nameTag("Polyline"));
+    paint->drawPolyline(&points[0], points.size());
+
+    paint->restore();
+
+}
+
+QPoint Polyline::id_pos() const
+{
+    int x;
+    int y;
+    int highestVal = points[0].y();
+    int highestIndex = 0;
+
+
+    // Determine where to draw the id string
+    for(int i = 0; i < points.size(); ++i) {
+
+        if(points[i].y() < highestVal){
+            highestVal = points[i].y();
+            highestIndex = i;
+        }
+    }
+
+    x = points[highestIndex].x();
+    y = points[highestIndex].y();
+
+    return(QPoint(x,y));
 }

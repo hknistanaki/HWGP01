@@ -11,7 +11,9 @@ public:
 
     void set_point(const QPoint& point);
 
-    void draw(const int translate_x = 0, const int translate_y = 0) override;
+    void draw(QPaintDevice *device, const int translate_x = 0, const int translate_y = 0) const override;
+
+    QPoint id_pos() const override;
 
 private:
     vector<QPoint> points;

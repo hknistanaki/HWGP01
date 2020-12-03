@@ -3,16 +3,31 @@
 
 void Rectangle::set_point(const QPoint& point)
 {
-    points.push_back(point);
+    origin.setX(point.x());
+    origin.setY(point.y());
 }
 
-void Rectangle::draw(const int translate_x, const int translate_y)
+void Rectangle::set_dimensions(const int &lIn, const int &wIn)
 {
-    get_qpainter().setPen(get_pen());
-    get_qpainter().setBrush(get_brush());
+    l = lIn;
+    w = wIn;
+}
 
-    get_qpainter().save();
-    get_qpainter().translate(translate_x, translate_y);
+void Rectangle::draw(QPaintDevice *device, const int translate_x, const int translate_y) const
+{
+    auto paint = getPainter(device);
 
-    get_qpainter().restore();
+    QPoint temp = id_pos();
+    temp.setY(temp.y() - 15);
+
+    paint->setPen(get_pen());
+    paint->setBrush(get_brush());
+
+    paint->save();
+    paint->translate(translate_x, translate_y);
+
+    paint->drawText(temp.x(), temp.y(), nameTag("Rectangle"));
+    paint->drawRect(origin.x(), origin.y(), l, w);
+
+    paint->restore();
 }

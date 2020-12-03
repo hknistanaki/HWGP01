@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Shape">
     <property name="enabled">
@@ -105,6 +105,11 @@
         <item>
          <property name="text">
           <string>Rectangle</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Square</string>
          </property>
         </item>
         <item>
