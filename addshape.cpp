@@ -248,145 +248,114 @@ Qt::BrushStyle addShape::getBrushStyle()
    }
 }
 
-Qt::AlignmentFlag addShape::getFlag(QString flagStr)
+QFont::Style addShape::getFontStyle()
 {
-    if(flagStr == "AlignLeft")
-        return Qt::AlignLeft;
-    else if(flagStr == "AlignRight")
-        return Qt::AlignRight;
-    else if(flagStr == "AlignTop")
-        return Qt::AlignTop;
-    else if(flagStr == "AlignBottom")
-        return Qt::AlignBottom;
-    else
-        return Qt::AlignCenter;
-}
-
-QFont::Style addShape::getFontStyle(QString fontStyleStr)
-{
-    if(fontStyleStr == "StyleNormal")
+    switch(ui->fontStyleComboBox->currentIndex()) {
+    case 0:
         return QFont::StyleNormal;
-    else if(fontStyleStr == "StyleItalic")
+        break;
+    case 1:
         return QFont::StyleItalic;
-    else
+        break;
+    case 2:
         return QFont::StyleOblique;
+        break;
+    default:
+        return QFont::StyleNormal;
+    }
 }
 
-QFont::Weight addShape::getFontWeight(QString fontWeightStr)
+QFont::Weight addShape::getFontWeight()
 {
-    if(fontWeightStr == "Thin")
-        return QFont::Thin;
-    else if(fontWeightStr == "Light")
-        return QFont::Light;
-    else if(fontWeightStr == "Normal")
+    switch(ui->fontWeightComboBox->currentIndex()) {
+    case 0:
         return QFont::Normal;
-    else
+        break;
+    case 1:
+        return QFont::Thin;
+        break;
+    case 2:
+        return QFont::Light;
+        break;
+    case 3:
         return QFont::Bold;
+        break;
+    }
 }
 
-QString addShape::getStringColor(QColor color)
+Qt::GlobalColor addShape::getStringColor()
 {
-    if(color == Qt::blue)
-        return "blue";
-    else if(color == Qt::red)
-        return "red";
-    else if(color == Qt::green)
-        return "green";
-    else if(color == Qt::yellow)
-        return "yellow";
-    else if(color == Qt::black)
-        return "black";
-    else if(color == Qt::white)
-        return "white";
-    else if(color == Qt::cyan)
-        return "cyan";
-    else if(color == Qt::magenta)
-        return "magenta";
-    else
-        return "gray";
+    switch(ui->fontColorComboBox->currentIndex()) {
+    case 0:
+        return Qt::GlobalColor::white;
+        break;
+    case 1:
+        return Qt::GlobalColor::black;
+        break;
+    case 2:
+        return Qt::GlobalColor::red;
+        break;
+    case 3:
+        return Qt::GlobalColor::green;
+        break;
+    case 4:
+        return Qt::GlobalColor::blue;
+        break;
+    case 5:
+        return Qt::GlobalColor::cyan;
+        break;
+    case 6:
+        return Qt::GlobalColor::magenta;
+        break;
+    case 7:
+        return Qt::GlobalColor::yellow;
+        break;
+    case 8:
+        return Qt::GlobalColor::gray;
+        break;
+    default:
+        return Qt::GlobalColor::gray;
+    }
 }
 
-
-QString addShape::getStringPenCap(Qt::PenCapStyle penStyle)
+Qt::AlignmentFlag addShape::getStringFlag()
 {
-    if(penStyle == Qt::FlatCap)
-        return "FlatCap";
-    else if(penStyle == Qt::SquareCap)
-        return "SquareCap";
-    else
-        return "RoundCap";
+    // l r t b c
+    switch(ui->fontAllignmentComboBox->currentIndex()) {
+    case 0:
+        return Qt::AlignmentFlag::AlignLeft;
+        break;
+    case 1:
+        return Qt::AlignmentFlag::AlignRight;
+        break;
+    case 2:
+        return Qt::AlignmentFlag::AlignTop;
+        break;
+    case 3:
+        return Qt::AlignmentFlag::AlignBottom;
+        break;
+    case 4:
+        return Qt::AlignmentFlag::AlignCenter;
+        break;
+    default:
+        return Qt::AlignmentFlag::AlignLeft;
+    }
 }
 
-QString   addShape::getStringPenStyle(Qt::PenStyle penStyle)
+QString addShape::getTextFontFamily()
 {
-    if(penStyle == Qt::NoPen)
-        return "NoPen";
-    else if(penStyle == Qt::SolidLine)
-        return "SolidLine";
-    else if(penStyle == Qt::DashLine)
-        return "DashLine";
-    else if(penStyle == Qt::DotLine)
-        return "DotLine";
-    else if(penStyle == Qt::DashDotLine)
-        return "DashDotLine";
-    else
-        return "DashDotDotLine";
-}
-
-QString addShape::getStringPenJointStyle(Qt::PenJoinStyle penJointStyle)
-{
-    if(penJointStyle == Qt::MiterJoin)
-        return "MiterJoin";
-    else if(penJointStyle == Qt::BevelJoin)
-        return "BevelJoin";
-    else
-        return "RoundJoin";
-}
-
-QString addShape::getStringBrush(Qt::BrushStyle brush)
-{
-    if(brush == Qt::SolidPattern)
-        return "SolidPattern";
-    else if(brush == Qt::HorPattern)
-        return "HorPattern";
-    else if(brush == Qt::VerPattern)
-        return "VerPattern";
-    else
-        return "NoBrush";
-}
-
-QString addShape::getStringFlag(Qt::AlignmentFlag  flag)
-{
-    if(flag == Qt::AlignLeft )
-        return "AlignLeft";
-    else if(flag == Qt::AlignRight)
-        return "AlignRight";
-    else if(flag == Qt::AlignTop)
-        return "AlignTop";
-    else if(flag == Qt::AlignBottom)
-        return "AlignBottom";
-    else
-        return "AlignCenter";
-}
-
- QString addShape::getStringFontStyle(QFont::Style fontStyle)
-{
-    if(fontStyle == QFont::StyleNormal)
-        return "StyleNormal";
-    else if(fontStyle == QFont::StyleItalic)
-        return "StyleItalic";
-    else
-        return "StyleOblique";
-}
-
-QString addShape::getStringFontWeight(int fontWeight)
-{
-    if(fontWeight == 0)
-        return "Thin";
-    else if(fontWeight == 25)
-        return "Light";
-    else if(fontWeight == 50)
-        return "Normal";
-    else
-        return "Bold";
+    switch(ui->fontFamilyComboBox->currentIndex()) {
+    case 0:
+        return "Comic Sans MS";
+        break;
+    case 1:
+        return "Courier";
+        break;
+    case 2:
+        return "Helvetica";
+        break;
+    case 3:
+        return "Times";
+        break;
+    }
 }

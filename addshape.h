@@ -35,16 +35,11 @@ private slots:
 
 private:
 
-    // These functions NOT the same as in RenderArea
+    // These functions are NOT the same as in RenderArea
 
-    QString getStringColor(QColor color);
-    QString getStringPenCap(Qt::PenCapStyle penCapStyle);
-    QString getStringPenStyle(Qt::PenStyle penStyle);
-    QString getStringPenJointStyle(Qt::PenJoinStyle penJointStyle);
-    QString getStringBrush(Qt::BrushStyle brush);
-    QString getStringFlag(Qt::AlignmentFlag  flag);
-    QString getStringFontStyle(QFont::Style fontStyle);
-    QString getStringFontWeight(int fontWeight);
+    Qt::GlobalColor getStringColor();
+    Qt::AlignmentFlag getStringFlag();
+    QString getTextFontFamily();
 
     Shape::ShapeType  getShapeType(QString shape);
     Qt::GlobalColor   getColor();
@@ -78,9 +73,8 @@ private:
      */
     Qt::BrushStyle    getBrushStyle();
 
-    Qt::AlignmentFlag getFlag(QString flag);
-    QFont::Style      getFontStyle(QString fontStyle);
-    QFont::Weight     getFontWeight(QString fontWeight);
+    QFont::Style      getFontStyle();
+    QFont::Weight     getFontWeight();
 
     /*!
      * \brief ui
