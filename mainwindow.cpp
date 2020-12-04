@@ -29,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "reached MainWindow";
 
     // add to renderWidget's vector
+    qDebug() << "adding " << temp.size() << "shapes";
     for(int i = 0; i < temp.size(); ++i) {
+        qDebug() << "added " << i+1;
         ui->renderWidget->addShape(temp[i]);
     }
 
@@ -41,8 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
 //    for(int i = 0; i < temp.size(); ++i) {
 //        delete temp[i];
 //    }
-
-    qDebug() << "Finished delete";
 
     isAdministrator = true;
     shapeCount = 0;

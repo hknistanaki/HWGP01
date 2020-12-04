@@ -41,6 +41,7 @@ gp::vector<Shape*> ParseFile(){
 
         if (in.peek() == EOF) {
             done = true;
+            qDebug() << "Reached EOF";
         }
 
         if(!done) {
@@ -49,27 +50,35 @@ gp::vector<Shape*> ParseFile(){
             switch(id){
             case 1:
                 rShapes.push_back(readLine(in, id));
+                qDebug() << "parsed line";
                 break;
             case 2:
                 rShapes.push_back(readPolyLine(in, id));
+                qDebug() << "parsed polyline";
                 break;
             case 3:
                 rShapes.push_back(readPolygon(in, id));
+                qDebug() << "parsed polygon";
                 break;
             case 4:
                 rShapes.push_back(readRectangle(in, id));
+                qDebug() << "parsed rectangle";
                 break;
             case 5:
                 rShapes.push_back(readSquare(in, id));
+                qDebug() << "parsed square";
                 break;
             case 6:
                 rShapes.push_back(readEllipse(in, id));
+                qDebug() << "parsed ellipse";
                 break;
             case 7:
                 rShapes.push_back(readCircle(in, id));
+                qDebug() << "parsed circle";
                 break;
             case 8:
                 rShapes.push_back(readText(in, id));
+                qDebug() << "parsed text";
                 break;
             default:
                 qDebug() << "Parser.cpp: invalid shape detected.";
@@ -79,13 +88,14 @@ gp::vector<Shape*> ParseFile(){
     }
 
     in.close();
+
     return rShapes;
 }
 
 Shape* readLine(ifstream &in, int id)
 {
 	
-    int x, y, x2, y2, width;
+    int x, y, x2, y2, width = 0;
     string color, style, cap, join;
     QColor qtColor;
     PenStyle qtStyle;
@@ -140,7 +150,7 @@ Shape* readLine(ifstream &in, int id)
 
 Shape* readPolyLine(ifstream &in, int id)
 {	
-    int width;
+    int width = 0;
     string color, style, cap, join;
     QColor qtColor;
     PenStyle qtStyle;
@@ -148,7 +158,7 @@ Shape* readPolyLine(ifstream &in, int id)
     PenJoinStyle qtJoin;
     //BrushStyle qtBrush = NoBrush;
 
-    vector<QPoint> points;
+    gp::vector<QPoint> points;
 
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
@@ -200,9 +210,9 @@ Shape* readPolyLine(ifstream &in, int id)
 
 Shape* readPolygon(ifstream &in, int id)
 {
-    int width;
+    int width = 0;
     string color, style, cap, join, bStyle, bColor;
-    vector<QPoint> points;
+    gp::vector<QPoint> points;
 
     QColor qtColor, qtBColor;
     PenStyle qtStyle;
@@ -257,8 +267,8 @@ Shape* readPolygon(ifstream &in, int id)
     polygon->set_brush(qtBColor, qtBrush);
 
     // push back all points in points vector into polyline's point vector
-    for(auto point: points) {
-        polygon->set_point(point);
+    for(int i = 0; i < points.size(); ++i) {
+        polygon->set_point(points[i]);
     }
 
     return polygon;
@@ -565,7 +575,7 @@ Shape* readText(ifstream& in, int id)
     text->set_all_text(qTextLine, qtColor, qtAlign, fontPoint, qtFamily, QFont::Style::StyleNormal, qtWeight);
     text->set_pen(qtColor);
 
-    qDebug() << "Family:" << qtFamily;
+    // qDebug() << "Family:" << qtFamily;
 
     return text;
 }

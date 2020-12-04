@@ -21,16 +21,16 @@ namespace gp{
     public:
         // Default Constructor
         // Capacity of 1 element on initialization
-        vector(): size_v{0}, space{1}, elem{nullptr} {};
+        vector(): size_v{0}, space{1}, elem{new T[1]} {};
 
         // Alternate Constructor
         // Capacity of s elements on initialization
-        explicit vector(int s): size_v{0}, space{s}, elem{new T[space]} {};
+        explicit vector(const int &newSpace): size_v{0}, space{newSpace}, elem{new T[space]} {};
 
         // Copy constructor
         // !! If T is a pointer type, make sure to delete the data if
         // necessary
-        vector(const vector& oldVec): size_v{oldVec.size_v}, space{oldVec.size_v}, elem{new T[space]} {
+        vector(const vector& oldVec): size_v{oldVec.size()}, space{oldVec.capacity()}, elem{new T[oldVec.capacity()]} {
             for(int i = 0; i < size_v; i++){
                 elem[i] = oldVec.elem[i];
             }
@@ -40,23 +40,24 @@ namespace gp{
         // Copy Assignment (NOT Constructor)
         // Copies data from a vector into an existing vector of the same type.
         vector& operator=(const vector& rhs) {
-            // delete old array
-            delete[] elem;
+            if(this != rhs){
+                // delete old array
+                delete[] elem;
 
-            // create new array with the same capacity as the rhs obj
-            elem = new T[rhs.space];
+                // create new array with the same capacity as the rhs obj
+                elem = new T[rhs.capacity()];
 
-            // copy rhs into lhs (this)
-            for(int i = 0; i < size_v; i++){
-                elem[i] = rhs.elem[i];
+                // copy rhs into lhs (this)
+                for(int i = 0; i < size_v; i++){
+                    elem[i] = rhs.elem[i];
+                }
+
+                // update size and capacity
+                size_v = rhs.size();
+                space = rhs.capacity();
             }
 
-            // update size and capacity
-            size_v = rhs.size_v;
-            space = rhs.space;
-
             return *this;
-
         };
 
         // Move Constructor
@@ -74,13 +75,8 @@ namespace gp{
 
             // shallow copy temp into existing obj
             elem = temp.elem;
-            size_v = temp.size_v;
-            space = temp.space;
-
-            // empty out temp obj
-            temp.elem = nullptr;
-            temp.size = 0;
-            temp.capacity = 0;
+            size_v = temp.size();
+            space = temp.capacity();
 
             return *this;
         };
@@ -133,11 +129,11 @@ namespace gp{
         // grows the vector with uninitialized space
         // !! delete the contents first if T is a pointer type !!
         void reserve(int newalloc) {
+            if(newalloc <= space){
+                return;
+            }
+
             T* temp = new T[newalloc];
-			
-			if(newalloc <= space){
-				return;
-			}
 			
             // copy old array into new array
             for(int i = 0; i < size_v; ++i){

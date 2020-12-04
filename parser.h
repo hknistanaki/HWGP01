@@ -3,7 +3,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <iostream>
+//#include <iostream>
 #include <fstream>
 #include "vector.h"
 #include "Shape.h"
