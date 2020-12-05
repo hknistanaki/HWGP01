@@ -135,7 +135,11 @@ void MainWindow::on_actionRemove_Shape_triggered()
             delShapeDialog = new deleteshape(this, ui->renderWidget->getnumShapesRA(), ui->renderWidget->getShapes());
             delShapeDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
             delShapeDialog->exec();
-            shapeCount = delShapeDialog->getShapeCount();
+
+            // delete the shape from the render area
+            // delete by shape id and not index in vector
+            ui->renderWidget->chopShape(delShapeDialog->getToDelete()+1);
+            shapeCount = ui->renderWidget->getnumShapesRA();
             delete delShapeDialog;
         }
     }

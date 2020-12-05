@@ -6,7 +6,7 @@
 class Square : public Shape
 {
 public:
-    Square(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Rectangle} {}
+    Square(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Square} {}
     ~Square() override { }
 
     void set_point(const QPoint& point);

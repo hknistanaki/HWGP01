@@ -68,7 +68,7 @@ void deleteshape::on_buttonBox_accepted()
 {
     QMessageBox msgBox(this);
     msgBox.setText("The canvas has been modified.");
-    msgBox.setInformativeText(("Are you sure you want to delete shape\n#  ?"));
+    msgBox.setInformativeText(("Are you sure you want to delete\n" + ui->shapeIDcomboBox->currentText() + "?"));
     msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard);
     msgBox.setDefaultButton(QMessageBox::Save);
     int choice = msgBox.exec();
@@ -76,8 +76,7 @@ void deleteshape::on_buttonBox_accepted()
     switch (choice) {
       case QMessageBox::Save:
         // delete shape from vector
-
-
+        toDelete = ui->shapeIDcomboBox->currentIndex();
         break;
       case QMessageBox::Discard:
         qDebug() << "DBG: Shape has NOT been deleted.";

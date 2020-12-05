@@ -36,6 +36,14 @@ void RenderArea::chopShape(int indexRemove)
             numShapesRA--;
             break;
         }
+
+    // reassign shape IDs
+    for(int i = 0; i < int(ShapeMagazine.size()); ++i) {
+        ShapeMagazine[i]->set_shapeID(i+1);
+    }
+
+    // update render area
+    this->update();
 }
 void RenderArea::moveShape(int index, int coord, int x, int y)
 {
