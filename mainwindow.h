@@ -10,6 +10,7 @@
 #include "deleteshape.h"
 #include "comments.h"
 #include "RenderArea.h"
+#include "shapelisting.h"
 
 #include "vector.h"
 
@@ -40,6 +41,8 @@ private slots:
     
     void on_actionComments_triggered();
 
+    void on_actionShape_Report_triggered();
+
 private:
     Ui::MainWindow *ui;
     ContactUs *cWindow;
@@ -47,6 +50,7 @@ private:
     addShape *addShapeDialog;
     deleteshape *delShapeDialog;
     comments *commentsDialog;
+    ShapeListing *sDialog;
 
     RenderArea *canvas;
 

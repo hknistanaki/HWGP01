@@ -25,6 +25,7 @@ SOURCES += \
     polygon.cpp \
     polyline.cpp \
     rectangle.cpp \
+    shapelisting.cpp \
     square.cpp \
     text.cpp
 
@@ -45,6 +46,7 @@ HEADERS += \
     mainwindow.h \
     parser.h \
     polyline.h \
+    shapelisting.h \
     square.h \
     vector.h
 
@@ -54,7 +56,8 @@ FORMS += \
     contactus.ui \
     deleteshape.ui \
     logindialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    shapelisting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

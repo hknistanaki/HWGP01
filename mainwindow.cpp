@@ -159,3 +159,12 @@ void MainWindow::on_actionComments_triggered()
     commentsDialog->exec();
     delete  commentsDialog;
 }
+
+void MainWindow::on_actionShape_Report_triggered()
+{
+    sDialog = new ShapeListing(this, ui->renderWidget->getShapes());
+    sDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
+    sDialog->exec();
+
+    delete sDialog;
+}

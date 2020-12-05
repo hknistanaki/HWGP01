@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>902</width>
-    <height>611</height>
+    <width>1053</width>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>831</width>
-      <height>551</height>
+      <width>1000</width>
+      <height>500</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -49,7 +49,7 @@ border: 3px solid black;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>902</width>
+     <width>1053</width>
      <height>25</height>
     </rect>
    </property>
@@ -66,8 +66,9 @@ border: 3px solid black;</string>
      <string>About</string>
     </property>
     <addaction name="actionContact_Us"/>
-    <addaction name="actiondebug_shapeCount"/>
     <addaction name="actionComments"/>
+    <addaction name="actionShape_Report"/>
+    <addaction name="actiondebug_shapeCount"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
@@ -169,6 +170,11 @@ border: 3px solid black;</string>
   <action name="actionComments">
    <property name="text">
     <string>Comments</string>
+   </property>
+  </action>
+  <action name="actionShape_Report">
+   <property name="text">
+    <string>Shape Report</string>
    </property>
   </action>
  </widget>
