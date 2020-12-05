@@ -18,6 +18,7 @@ void Circle::draw(QPaintDevice *device, const int translate_x, const int transla
     QPoint temp = id_pos();
     temp.setY(temp.y() - 15);
 
+    paint->setPen(Qt::black);
     paint->drawText(temp.x(), temp.y(), nameTag("Circle"));
 
     paint->setPen(get_pen());

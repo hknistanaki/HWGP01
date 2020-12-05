@@ -18,6 +18,8 @@ public:
 
     double perimeter() const override;
 
+    double area() const override;
+
 private:
     vector<QPoint> points;
 };

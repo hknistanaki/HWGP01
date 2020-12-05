@@ -37,11 +37,11 @@ gp::vector<Shape*> ParseFile(){
         in.ignore(11);
         getline(in, temp);
 
-        qDebug() << QString::fromStdString(idStr);
+        //qDebug() << QString::fromStdString(idStr);
 
         if (in.peek() == EOF) {
             done = true;
-            qDebug() << "Reached EOF";
+            //qDebug() << "Reached EOF";
         }
 
         if(!done) {
@@ -50,38 +50,38 @@ gp::vector<Shape*> ParseFile(){
             switch(id){
             case 1:
                 rShapes.push_back(readLine(in, id));
-                qDebug() << "parsed line";
+                //qDebug() << "parsed line";
                 break;
             case 2:
                 rShapes.push_back(readPolyLine(in, id));
-                qDebug() << "parsed polyline";
+                //qDebug() << "parsed polyline";
                 break;
             case 3:
                 rShapes.push_back(readPolygon(in, id));
-                qDebug() << "parsed polygon";
+                //qDebug() << "parsed polygon";
                 break;
             case 4:
                 rShapes.push_back(readRectangle(in, id));
-                qDebug() << "parsed rectangle";
+                //qDebug() << "parsed rectangle";
                 break;
             case 5:
                 rShapes.push_back(readSquare(in, id));
-                qDebug() << "parsed square";
+                //qDebug() << "parsed square";
                 break;
             case 6:
                 rShapes.push_back(readEllipse(in, id));
-                qDebug() << "parsed ellipse";
+                //qDebug() << "parsed ellipse";
                 break;
             case 7:
                 rShapes.push_back(readCircle(in, id));
-                qDebug() << "parsed circle";
+                //qDebug() << "parsed circle";
                 break;
             case 8:
                 rShapes.push_back(readText(in, id));
-                qDebug() << "parsed text";
+                //qDebug() << "parsed text";
                 break;
             default:
-                qDebug() << "Parser.cpp: invalid shape detected.";
+                //qDebug() << "Parser.cpp: invalid shape detected.";
                 break;
             }
         }
@@ -544,9 +544,11 @@ Shape* readText(ifstream& in, int id)
     QString qTextLine = QString::fromStdString(textLine);
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
-    in.ignore(1);
+    //in.ignore(1);
     getline(in, color);
+    //qDebug() << QString::fromStdString(color);
     qtColor = getColor(color);
+    //qDebug() << qtColor;
 
     in.ignore(numeric_limits<streamsize>::max(), ':');
     getline(in, align);

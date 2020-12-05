@@ -20,6 +20,7 @@ void Ellipse::draw(QPaintDevice *device, const int translate_x, const int transl
     QPoint temp = id_pos();
     temp.setY(temp.y() - 15);
 
+    paint->setPen(Qt::black);
     paint->drawText(temp.x(), temp.y(), nameTag("Ellipse"));
 
     paint->setPen(get_pen());

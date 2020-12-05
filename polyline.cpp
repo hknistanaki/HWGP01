@@ -13,12 +13,14 @@ void Polyline::draw(QPaintDevice *device, const int translate_x, const int trans
     QPoint temp = id_pos();
     temp.setY(temp.y() - 5);
 
+    paint->setPen(Qt::black);
+    paint->drawText(temp.x(), temp.y(), nameTag("Polyline"));
+
     paint->setPen(get_pen());
 
     paint->save();
     paint->translate(translate_x, translate_y);
 
-    paint->drawText(temp.x(), temp.y(), nameTag("Polyline"));
     paint->drawPolyline(&points[0], points.size());
 
     paint->restore();

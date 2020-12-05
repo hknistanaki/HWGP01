@@ -26,16 +26,16 @@ MainWindow::MainWindow(QWidget *parent)
     // parse shapes
     gp::vector<Shape*> temp = ParseFile();
 
-    qDebug() << "reached MainWindow";
+    //qDebug() << "reached MainWindow";
 
     // add to renderWidget's vector
-    qDebug() << "adding " << temp.size() << "shapes";
+    //qDebug() << "adding " << temp.size() << "shapes";
     for(int i = 0; i < temp.size(); ++i) {
-        qDebug() << "added " << i+1;
+        //qDebug() << "added " << i+1;
         ui->renderWidget->addShape(temp[i]);
     }
 
-    qDebug() << "Finished copy";
+    //qDebug() << "Finished copy";
 
     // delete all shapes in temp
     // this should be an iterator but i couldn't
@@ -55,7 +55,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete cWindow;
-    delete canvas;
+    //delete canvas;
 }
 
 /*!
@@ -129,10 +129,10 @@ void MainWindow::on_actionRemove_Shape_triggered()
     if(!isAdministrator) {
         QMessageBox::information(this, "Error", "You must be logged in to delete shapes.");
     }else {
-        if(shapeCount == 0) { // TODO change to vector
+        if(ui->renderWidget->getnumShapesRA() == 0) { // TODO change to vector
             QMessageBox::information(this, "Error", "There are no shapes to delete.");
         }else {
-            delShapeDialog = new deleteshape(this, shapeCount);
+            delShapeDialog = new deleteshape(this, ui->renderWidget->getnumShapesRA(), ui->renderWidget->getShapes());
             delShapeDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
             delShapeDialog->exec();
             shapeCount = delShapeDialog->getShapeCount();

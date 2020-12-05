@@ -20,13 +20,15 @@ void Rectangle::draw(QPaintDevice *device, const int translate_x, const int tran
     QPoint temp = id_pos();
     temp.setY(temp.y() - 15);
 
+    paint->setPen(Qt::black);
+    paint->drawText(temp.x(), temp.y(), nameTag("Rectangle"));
+
     paint->setPen(get_pen());
     paint->setBrush(get_brush());
 
     paint->save();
     paint->translate(translate_x, translate_y);
 
-    paint->drawText(temp.x(), temp.y(), nameTag("Rectangle"));
     paint->drawRect(origin.x(), origin.y(), l, w);
 
     paint->restore();

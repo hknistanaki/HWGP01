@@ -7,15 +7,17 @@ void Text::draw(QPaintDevice *device, const int translate_x, const int translate
 
     QPoint temp = id_pos();
     temp.setY(temp.y() - 15);
-    paint->drawText(temp.x(), temp.y(), nameTag("Text"));
-
     QFont font{family, pointSize};
+
+    paint->setPen(Qt::black);
+    paint->drawText(temp.x(), temp.y(), nameTag("Text"));
 
     font.setStyle(fontStyle);
     font.setWeight(weight);
-
     paint->setFont(font);
     paint->setPen(get_pen());
+
+    paint->setPen(color);
 
     paint->drawText(origin.x(), origin.y(), l, w, alignment, textStr);
 

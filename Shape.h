@@ -125,7 +125,7 @@ public:
 
     /*!
      * \brief nameTag
-     * \return nametag (example "Line ID: 1")
+     * \return nametag (example "Lin e ID: 1")
      */
     QString nameTag(const QString &shapename =  "NoShape") const;
 

@@ -9,8 +9,7 @@
 // vector is in gp namespace to avoid any confusion with std::vector
 namespace gp{
 
-    template<class T>
-
+    template<typename T>
     class vector
     {
     private:
@@ -25,37 +24,40 @@ namespace gp{
 
         // Alternate Constructor
         // Capacity of s elements on initialization
-        explicit vector(const int &newSpace): size_v{0}, space{newSpace}, elem{new T[space]} {};
+        explicit vector(const int &newSpace): size_v{0}, space{newSpace}, elem{new T[newSpace]} {};
 
         // Copy constructor
         // !! If T is a pointer type, make sure to delete the data if
         // necessary
-        vector(const vector& oldVec): size_v{oldVec.size()}, space{oldVec.capacity()}, elem{new T[oldVec.capacity()]} {
-            for(int i = 0; i < size_v; i++){
-                elem[i] = oldVec.elem[i];
+        vector(const vector& rhs) : space{ rhs.capacity() }, size_v{ rhs.size() }
+            {
+                elem = new T[rhs.capacity()];
+                for (int i = 0; i < size_v; i++)
+                {
+                    elem[i] = rhs[i];
+                }
             }
-
-        };
 
         // Copy Assignment (NOT Constructor)
         // Copies data from a vector into an existing vector of the same type.
         vector& operator=(const vector& rhs) {
-            if(this != rhs){
-                // delete old array
-                delete[] elem;
-
-                // create new array with the same capacity as the rhs obj
-                elem = new T[rhs.capacity()];
-
-                // copy rhs into lhs (this)
-                for(int i = 0; i < size_v; i++){
-                    elem[i] = rhs.elem[i];
+            if (this != &rhs)
+            {
+                if (size_v <= rhs.size_v) //if vector is less that rhs
+                {
+                    delete[] elem;
+                    elem = new T[rhs.space];
+                    size_v = rhs.size_v;
+                    space = rhs.space;
                 }
-
-                // update size and capacity
-                size_v = rhs.size();
-                space = rhs.capacity();
+                else
+                {
+                    size_v = rhs.size_v;
+                }
+                for (int i = 0; i < size_v; i++)
+                    *(elem + i) = *(rhs.elem + i);
             }
+            return  *this;
 
             return *this;
         };
@@ -63,12 +65,12 @@ namespace gp{
         // Move Constructor
         // Copies from a temporary obj, temp obj is destroyed after
         // Shallow copy temp obj into new obj
-        vector(const vector&& temp): size_v{temp.size_v}, space{temp.space}, elem{temp.elem} {
+        vector(const vector&& temp) noexcept: size_v{temp.size_v}, space{temp.space}, elem{temp.elem}{
         };
 
         // Move Assignment
         // Moves a temp rvalue into an existing obj
-        vector& operator=(const vector&& temp) {
+        vector& operator=(vector&& temp) noexcept {
 
             // delete old array
             delete [] elem;
@@ -116,13 +118,13 @@ namespace gp{
         // adds an element to the vector
         // if there is no room, double the size of the array
         void push_back(T val) {
-			if(size_v == 0) {
-				reserve(8);
-			}else if(size_v == space){
+            if(space == 0) {
+                reserve(8);
+            }else if(size_v == space){
                 reserve(size_v*2);
             }
-			elem[size_v] = val;
-			size_v++;
+            elem[size_v] = val;
+            size_v++;
         };
 
         // reserve
@@ -134,7 +136,7 @@ namespace gp{
             }
 
             T* temp = new T[newalloc];
-			
+
             // copy old array into new array
             for(int i = 0; i < size_v; ++i){
                 temp[i] = elem[i];
@@ -205,8 +207,9 @@ namespace gp{
             }
 
             // move elements down to make room to insert
-            for (iterator pos = end(); pos != p; --pos)
-            *pos  = *(pos - 1);
+            for (iterator pos = end(); pos != p; --pos) {
+                *pos = *(pos - 1);
+            }
 
             // update size
             ++size_v;

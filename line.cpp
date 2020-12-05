@@ -25,9 +25,18 @@ void Line::draw(QPaintDevice* device, const int translate_x, const int translate
     QPoint temp = id_pos();
     temp.setY(temp.y() - 5);
 
+    paint->setPen(Qt::black);
     paint->drawText(temp.x(), temp.y(), nameTag("Line"));
 
+    paint->setPen(get_pen());
+    paint->setBrush(get_brush());
+
+    paint->save();
+    paint->translate(translate_x, translate_y);
+
     paint->drawLine(point_begin, point_end);
+
+    paint->restore();
 }
 
 QPoint Line::id_pos() const

@@ -511,5 +511,7 @@ QString addShape::getTextFontFamily()
     case 3:
         return "Times";
         break;
+    default:
+        return "Comic Sans MS";
     }
 }

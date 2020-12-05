@@ -19,6 +19,8 @@ public:
 
     double perimeter() const override;
 
+    double area() const override;
+
 private:
     QPoint center;
     int l;
