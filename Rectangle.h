@@ -16,6 +16,10 @@ public:
 
     void draw(QPaintDevice *device, const int translate_x = 0, const int translate_y = 0) const override;
 
+    double perimeter() const override {return (2*l)+(2*w);}
+
+    double area() const override {return l*w;}
+
 private:
     QPoint origin;
     int l;

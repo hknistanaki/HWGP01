@@ -30,6 +30,9 @@ void comments::on_pushButton_clicked()
     }
 
     // TXT file address for saving the history of customer comments.
+    //
+    // the path to the file here should be portable. see the code
+    // in parser.cpp for an example.
     QString fileName = "CommentsHistory.txt";
     
     //Read the CommentsHistory.txt

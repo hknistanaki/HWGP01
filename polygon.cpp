@@ -47,3 +47,30 @@ QPoint Polygon::id_pos() const
 
     return(QPoint(x,y));
 }
+
+double Polygon::perimeter() const
+{
+    double perimeter = 0;
+    double temp = 0;
+
+        for (auto it = points.begin(); it != points.end(); ++it) {
+           // find the distance between two points
+            QPoint begin = *it;
+            QPoint end = *(it+1);
+            temp = 0;
+
+            temp = (end.x() - begin.x()) * (end.x() - begin.x()) + (end.y() - begin.y()) * (end.y() - begin.y());
+            perimeter += std::sqrt(temp);
+
+        }
+        // find the distance between the last point and the first point
+        QPoint begin = *(points.end()-1);
+        QPoint end = *(points.begin());
+        temp = 0;
+
+        temp = (end.x() - begin.x()) * (end.x() - begin.x()) + (end.y() - begin.y()) * (end.y() - begin.y());
+        perimeter += std::sqrt(temp);
+
+
+        return perimeter;
+}

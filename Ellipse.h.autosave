@@ -18,6 +18,8 @@ public:
     QPoint id_pos() const override {return center;}
 
     double perimeter() const override;
+    
+    double area() const override;
 
 private:
     QPoint center;

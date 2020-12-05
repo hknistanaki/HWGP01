@@ -2,6 +2,7 @@
 #define POLYGON_H
 
 #include "Shape.h"
+#include <cmath>
 
 class Polygon : public Shape
 {
@@ -14,6 +15,8 @@ public:
     void draw(QPaintDevice *device, const int translate_x = 0, const int translate_y = 0) const override;
 
     QPoint id_pos() const override;
+
+    double perimeter() const override;
 
 private:
     vector<QPoint> points;

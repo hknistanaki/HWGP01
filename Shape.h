@@ -129,7 +129,23 @@ public:
      */
     QString nameTag(const QString &shapename =  "NoShape") const;
 
+    /*!
+     * \brief id_pos (interface only)
+     * \return position to draw nametag
+     */
     virtual QPoint id_pos() const = 0;
+
+    /*!
+     * \brief perimeter
+     * \return integer value perimeter, or 0 if not applicable
+     */
+    virtual double perimeter() const = 0;
+
+    /*!
+     * \brief area
+     * \return integer value area, or 0 if not applicable
+     */
+    virtual double area() const = 0;
 
 
 protected:

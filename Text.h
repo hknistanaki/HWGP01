@@ -20,6 +20,10 @@ public:
 
     QPoint id_pos() const override {return origin;}
 
+    double perimeter() const override {return (2*l)+(2*w);}
+
+    double area() const override {return l*w;}
+
 private:
     QPoint origin;
     QString textStr;

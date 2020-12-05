@@ -15,6 +15,18 @@ public:
 
     QPoint id_pos() const override;
 
+    /*!
+     * \brief perimeter
+     * \return 0 (line does not have a perimeter)
+     */
+    double perimeter() const override {return 0;}
+
+    /*!
+     * \brief area
+     * \return 0 (line does not have an area)
+     */
+    double area() const override {return 0;}
+
 private:
     QPoint point_begin;
     QPoint point_end;

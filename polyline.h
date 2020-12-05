@@ -15,6 +15,10 @@ public:
 
     QPoint id_pos() const override;
 
+    double perimeter() const override {return 0;}
+
+    double area() const override {return 0;}
+
 
 private:
 
