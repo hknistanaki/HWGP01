@@ -9,12 +9,33 @@ ShapeListing::ShapeListing(QWidget *parent, gp::vector<Shape*> shapeVec) :
 
     // Shapes by ID
     // Sort later
-    ui->itemTableWidget->setRowCount(shapeVec.size());
+    ui->shapeIDTable->setRowCount(shapeVec.size());
     for(int i = 0; i < shapeVec.size(); ++i) {
-        ui->itemTableWidget->setItem(i, 0, new QTableWidgetItem(QString::number(shapeVec[i]->get_shapeID())));
-        ui->itemTableWidget->setItem(i, 1, new QTableWidgetItem(getShapeName(shapeVec[i]->get_shape())));
+        ui->shapeIDTable->setItem(i, 0, new QTableWidgetItem(QString::number(shapeVec[i]->get_shapeID())));
+        ui->shapeIDTable->setItem(i, 1, new QTableWidgetItem(getShapeName(shapeVec[i]->get_shape())));
     }
 
+    // copy vector into vectors to sort
+    areaVec = shapeVec;
+    periVec = shapeVec;
+
+    // sort the vectors
+    std::sort(areaVec.begin(), areaVec.end(), compArea);
+    std::sort(periVec.begin(), periVec.end(), compPerimeter);
+
+    // populate the area tab
+    ui->areaTable->setRowCount(shapeVec.size());
+    for(int i = 0; i < shapeVec.size(); ++i) {
+        ui->areaTable->setItem(i, 0, new QTableWidgetItem(QString::number(areaVec[i]->area())));
+        ui->areaTable->setItem(i, 1, new QTableWidgetItem(getShapeName(areaVec[i]->get_shape())));
+    }
+
+    // populate the perimeter tab
+    ui->perimeterTable->setRowCount(periVec.size());
+    for(int i = 0; i < periVec.size(); ++i) {
+        ui->perimeterTable->setItem(i, 0, new QTableWidgetItem(QString::number(periVec[i]->perimeter())));
+        ui->perimeterTable->setItem(i, 1, new QTableWidgetItem(getShapeName(periVec[i]->get_shape())));
+    }
 }
 
 ShapeListing::~ShapeListing()
@@ -58,4 +79,12 @@ QString ShapeListing::getShapeName(Shape::ShapeType shape) const
         return "NoShape";
     }
 
+}
+
+bool compPerimeter(Shape *i, Shape *j) {
+    return i->perimeter() < j->perimeter();
+}
+
+bool compArea(Shape *i, Shape *j) {
+    return i->area() < j->area();
 }

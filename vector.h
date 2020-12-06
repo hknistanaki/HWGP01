@@ -43,7 +43,7 @@ namespace gp{
         vector& operator=(const vector& rhs) {
             if (this != &rhs)
             {
-                if (size_v <= rhs.size_v) //if vector is less that rhs
+                if (size_v <= rhs.size()) // if vector is less than rhs
                 {
                     delete[] elem;
                     elem = new T[rhs.space];
@@ -57,9 +57,8 @@ namespace gp{
                 for (int i = 0; i < size_v; i++)
                     *(elem + i) = *(rhs.elem + i);
             }
-            return  *this;
 
-            return *this;
+            return  *this;
         };
 
         // Move Constructor

@@ -7,7 +7,7 @@ class Circle : public Shape
 {
 public:
 public:
-    Circle(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Ellipse} {}
+    Circle(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Circle} {}
     ~Circle() override { }
 
     void set_point(const QPoint& point);

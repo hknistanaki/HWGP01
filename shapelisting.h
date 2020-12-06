@@ -2,6 +2,7 @@
 #define SHAPELISTING_H
 
 #include <QDialog>
+#include <QDebug>
 #include "vector.h"
 #include "Shape.h"
 
@@ -22,6 +23,14 @@ public:
 
 private:
     Ui::ShapeListing *ui;
+    gp::vector<Shape*> areaVec;
+    gp::vector<Shape*> periVec;
+
 };
+
+bool compPerimeter(Shape* i, Shape* j);
+
+bool compArea(Shape* i, Shape* j);
+
 
 #endif // SHAPELISTING_H

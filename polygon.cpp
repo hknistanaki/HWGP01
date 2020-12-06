@@ -61,7 +61,7 @@ double Polygon::perimeter() const
             QPoint end = *(it+1);
             temp = 0;
 
-            temp = (end.x() - begin.x()) * (end.x() - begin.x()) + (end.y() - begin.y()) * (end.y() - begin.y());
+            temp = std::sqrt(std::pow(end.x() - begin.x(), 2) + std::pow(end.y() - begin.y(), 2));
             perimeter += std::sqrt(temp);
 
         }
@@ -70,7 +70,7 @@ double Polygon::perimeter() const
         QPoint end = *(points.begin());
         temp = 0;
 
-        temp = (end.x() - begin.x()) * (end.x() - begin.x()) + (end.y() - begin.y()) * (end.y() - begin.y());
+        temp = std::sqrt(std::pow(end.x() - begin.x(), 2) + std::pow(end.y() - begin.y(), 2));
         perimeter += std::sqrt(temp);
 
 
@@ -79,14 +79,21 @@ double Polygon::perimeter() const
 
 double Polygon::area() const
 {
-    // from https://brilliant.org/wiki/irregular-polygons/#area-coordinate-geometry
-    double area = 0;
+        // https://www.geeksforgeeks.org/area-of-a-polygon-with-given-n-ordered-vertices/
+        // The formula to find the area of an irregular polygon is above me at this point,
+        // so I'm using a version from geeksforgeeks
 
-    for (auto it = points.begin(); it != points.end(); ++it) {
-        const QPoint &start = *it;
-        const QPoint &end = (it+1 != points.end() ? *(it+1) : points.front());
-        area += (start.x() * end.y()) - (start.y() * end.x());
-    }
+       // Initialze area
+       double area = 0.0;
 
-    return area / 2;
+       // Calculate value of shoelace formula
+       int j = points.size() - 1;
+       for (size_t i = 0; i < points.size(); i++)
+       {
+           area += (points[j].x() + points[i].x()) * (points[j].y() + points[i].y());
+           j = i;  // j is previous vertex to i
+       }
+
+       // Return absolute value
+       return abs(area / 2.0);
 }
