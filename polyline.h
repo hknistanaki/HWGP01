@@ -1,4 +1,5 @@
 #include "Shape.h"
+#include "vector.h"
 
 #ifndef POLYLINE_H
 #define POLYLINE_H
@@ -11,6 +12,8 @@ public:
     
     void set_point(const QPoint& point);
 
+    void set_points(const gp::vector<QPoint> &newPoints);
+
     void draw(QPaintDevice *device, const int translate_x = 0, const int translate_y = 0) const override;
 
     QPoint id_pos() const override;
@@ -22,7 +25,7 @@ public:
 
 private:
 
-    vector<QPoint> points;
+    gp::vector<QPoint> points;
 
     QString shapeName = "Polyline";
 };
