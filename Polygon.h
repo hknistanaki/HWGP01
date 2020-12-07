@@ -3,6 +3,7 @@
 
 #include "Shape.h"
 #include <cmath>
+#include "vector.h"
 
 class Polygon : public Shape
 {
@@ -11,6 +12,12 @@ public:
     ~Polygon() override { }
 
     void set_point(const QPoint& point);
+
+    /*!
+     * \brief set_points replace vector of points with a new one
+     * \param newPointsVec vector of new points to set
+     */
+    void set_points(const gp::vector<QPoint> &newPointsVec);
 
     void draw(QPaintDevice *device, const int translate_x = 0, const int translate_y = 0) const override;
 
@@ -21,7 +28,7 @@ public:
     double area() const override;
 
 private:
-    vector<QPoint> points;
+    gp::vector<QPoint> points;
 };
 
 #endif // POLYGON_H

@@ -1,15 +1,6 @@
 #include "addshape.h"
 #include "ui_addshape.h"
 
- #include "Line.h"
-#include "circle.h"
- #include "Polygon.h"
- #include "polyline.h"
- #include "Rectangle.h"
-#include "square.h"
- #include "Ellipse.h"
- #include "Text.h"
-
 addShape::addShape(QWidget *parent, const int &shapeCountFromMain) :
     QDialog(parent),
     ui(new Ui::addShape),

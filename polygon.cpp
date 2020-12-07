@@ -6,6 +6,11 @@ void Polygon::set_point(const QPoint& point)
     points.push_back(point);
 }
 
+void Polygon::set_points(const gp::vector<QPoint> &newPointsVec)
+{
+    points = newPointsVec;
+}
+
 void Polygon::draw(QPaintDevice *device, const int translate_x, const int translate_y) const
 {
     auto paint = getPainter(device);

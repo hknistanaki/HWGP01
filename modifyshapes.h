@@ -1,9 +1,9 @@
-#ifndef ADDSHAPE_H
-#define ADDSHAPE_H
+#ifndef MODIFYSHAPES_H
+#define MODIFYSHAPES_H
 
 #include <QDialog>
-#include <QMessageBox>
 #include <QDebug>
+#include <QMessageBox>
 
 #include "vector.h"
 #include "Shape.h"
@@ -18,17 +18,56 @@
 
 
 namespace Ui {
-class addShape;
+class ModifyShapes;
 }
 
-class addShape : public QDialog
+class ModifyShapes : public QDialog
 {
     Q_OBJECT
 
 public:
-    addShape(QWidget *parent, const int &shapeCountFromMain);
+    ModifyShapes(QWidget *parent, gp::vector<Shape*> shapeVec);
+    ~ModifyShapes();
 
-    int getShapeCount() const;
+    /*!
+     * \brief getModShape
+     * \return modified shape created in this class
+     */
+    Shape* getModShape() const {return modShape;}
+
+    /*!
+     * \brief getModIndex
+     * \return index of shape to modify in array
+     */
+    int getModIndex() const {return indexModShape;}
+
+
+private slots:
+    void on_shapesComboBox_currentIndexChanged(int index);
+
+    void on_buttonBox_accepted();
+
+private:
+    typedef Shape::ShapeType sType;
+
+    /*!
+     * \brief getShapeName
+     * \param shape Shape::ShapeType enum value
+     * \return QString corresponding to ShapeType value (ex ShapeType::Circle returns "Circle")
+     */
+    QString getShapeName(Shape::ShapeType shape) const;
+
+    /*!
+     * \brief disableAll disables all fields
+     */
+    void disableAll() const;
+
+    /*!
+     * \brief enableShape enables fields in the parameter tabs available to shape
+     * \param shape Shape::ShapeType enum value
+     */
+    void enableAll(Shape::ShapeType shape) const;
+
     void addShapeToCanvas();
 
     void addLine();
@@ -39,18 +78,6 @@ public:
     void addEllipse();
     void addCircle();
     void addText();
-
-    Shape* getNewShape() const;
-
-    ~addShape();
-
-private slots:
-
-    void on_buttonBox_accepted();
-
-private:
-
-    // These functions are NOT the same as in RenderArea
 
     Qt::GlobalColor getStringColor();
     Qt::AlignmentFlag getStringFlag();
@@ -93,17 +120,12 @@ private:
     QFont::Style      getFontStyle();
     QFont::Weight     getFontWeight();
 
-    /*!
-     * \brief ui
-     */
-    Ui::addShape *ui;
+    Shape* modShape;
+    int indexModShape;
 
-    /*!
-     * \brief newShape ptr to new shape created, nullptr if no shape created.
-     */
-    Shape* newShape;
+    Ui::ModifyShapes *ui;
 
-    int addingShapeID;
+    gp::vector<Shape*> localVec;
 };
 
-#endif // ADDSHAPE_H
+#endif // MODIFYSHAPES_H

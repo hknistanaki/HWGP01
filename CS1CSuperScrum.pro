@@ -21,6 +21,7 @@ SOURCES += \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
+    modifyshapes.cpp \
     parser.cpp \
     polygon.cpp \
     polyline.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     deleteshape.h \
     logindialog.h \
     mainwindow.h \
+    modifyshapes.h \
     parser.h \
     polyline.h \
     shapelisting.h \
@@ -57,6 +59,7 @@ FORMS += \
     deleteshape.ui \
     logindialog.ui \
     mainwindow.ui \
+    modifyshapes.ui \
     shapelisting.ui
 
 # Default rules for deployment.

@@ -45,13 +45,16 @@ void RenderArea::chopShape(int indexRemove)
     // update render area
     this->update();
 }
-void RenderArea::moveShape(int index, int coord, int x, int y)
+
+void RenderArea::replaceShape(int index, Shape *shape)
 {
-    for(int i = 0; i < ShapeMagazine.size(); i++)
-        if(ShapeMagazine[i]->get_shapeID() == index){
-            //ShapeMagazine[i]->move(x,y,coord); break;
-        }
+    // delete the old shape and replace it with a new one
+    delete ShapeMagazine[index];
+    ShapeMagazine[index] = shape;
+
+    this->update();
 }
+
 int RenderArea::getSize()
 {
     return ShapeMagazine.size();

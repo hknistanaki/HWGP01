@@ -89,6 +89,7 @@ border: 3px solid black;</string>
    </attribute>
    <addaction name="actionAdd_Shape"/>
    <addaction name="actionRemove_Shape"/>
+   <addaction name="actionModify_Shape"/>
   </widget>
   <action name="actionLogin">
    <property name="text">
@@ -136,30 +137,17 @@ border: 3px solid black;</string>
     <string>Remove Shape</string>
    </property>
   </action>
-  <action name="actionList_Shapes">
+  <action name="actionModify_Shape">
    <property name="icon">
-    <iconset>
-     <normalon>img/003-list.png</normalon>
-    </iconset>
+    <iconset resource="images.qrc">
+     <normaloff>:/new/icons/img/004-edit.png</normaloff>
+     <normalon>img/004-edit.png</normalon>:/new/icons/img/004-edit.png</iconset>
    </property>
    <property name="text">
-    <string>List Shapes</string>
+    <string>Modify Shape</string>
    </property>
    <property name="toolTip">
-    <string>List Shapes</string>
-   </property>
-  </action>
-  <action name="actionMove_Shape">
-   <property name="icon">
-    <iconset>
-     <normalon>img/004-edit.png</normalon>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>Move Shape</string>
-   </property>
-   <property name="toolTip">
-    <string>Move Shape</string>
+    <string>Modify Shape</string>
    </property>
   </action>
   <action name="actiondebug_shapeCount">

@@ -28,7 +28,7 @@ class RenderArea : public QWidget
         int getnumShapesRA();
 
         void chopShape(int indexRemove);//Shape remove
-        void moveShape(int indexMove, int coordMove, int x, int y);
+        void replaceShape(int index, Shape* shape); // can also move shape
 
    private:
         const QImage renderArea;

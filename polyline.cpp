@@ -6,6 +6,11 @@ void Polyline::set_point(const QPoint& point)
     points.push_back(point);
 }
 
+void Polyline::set_points(const gp::vector<QPoint> &newPoints)
+{
+    points = newPoints;
+}
+
 void Polyline::draw(QPaintDevice *device, const int translate_x, const int translate_y) const
 {
     auto paint = getPainter(device);

@@ -138,8 +138,10 @@ void MainWindow::on_actionRemove_Shape_triggered()
 
             // delete the shape from the render area
             // delete by shape id and not index in vector
-            ui->renderWidget->chopShape(delShapeDialog->getToDelete()+1);
-            shapeCount = ui->renderWidget->getnumShapesRA();
+            if(delShapeDialog->getToDelete() > -1) {
+                ui->renderWidget->chopShape(delShapeDialog->getToDelete()+1);
+                shapeCount = ui->renderWidget->getnumShapesRA();
+            }
             delete delShapeDialog;
         }
     }
@@ -167,4 +169,27 @@ void MainWindow::on_actionShape_Report_triggered()
     sDialog->exec();
 
     delete sDialog;
+}
+
+void MainWindow::on_actionModify_Shape_triggered()
+{
+
+    if(!isAdministrator) {
+        QMessageBox::information(this, "Error", "You must be logged in to delete shapes.");
+    }else {
+        if(ui->renderWidget->getnumShapesRA() == 0) {
+            QMessageBox::information(this, "Error", "There are no shapes to modify.");
+        }else {
+            modDialog = new ModifyShapes(this, ui->renderWidget->getShapes());
+            modDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
+            modDialog->exec();
+
+            // if a shape was modified, replace it in the RenderArea vector
+            if(modDialog->getModShape() != nullptr) {
+                ui->renderWidget->replaceShape(modDialog->getModIndex(), modDialog->getModShape());
+            }
+
+            delete modDialog;
+        }
+    }
 }
