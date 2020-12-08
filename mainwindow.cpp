@@ -44,13 +44,11 @@ MainWindow::MainWindow(QWidget *parent)
 //        delete temp[i];
 //    }
 
-    isAdministrator = true;
+    isAdministrator = false;
     shapeCount = 0;
 }
 
-/*!
- * \brief MainWindow::~MainWindow
- */
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -58,9 +56,6 @@ MainWindow::~MainWindow()
     //delete canvas;
 }
 
-/*!
- * \brief MainWindow::on_actionContact_Us_triggered
- */
 void MainWindow::on_actionContact_Us_triggered()
 {
     // Only create one contact us window per program execution
@@ -73,9 +68,6 @@ void MainWindow::on_actionContact_Us_triggered()
 
 }
 
-/*!
- * \brief MainWindow::on_actionLogin_triggered
- */
 void MainWindow::on_actionLogin_triggered()
 {
     lDialog = new logindialog;
@@ -85,9 +77,6 @@ void MainWindow::on_actionLogin_triggered()
     delete lDialog;
 }
 
-/*!
- * \brief MainWindow::on_actionLog_Out_triggered
- */
 void MainWindow::on_actionLog_Out_triggered()
 {
     if(!isAdministrator) {
@@ -98,9 +87,6 @@ void MainWindow::on_actionLog_Out_triggered()
     }
 }
 
-/*!
- * \brief MainWindow::on_actionAdd_Shape_triggered
- */
 void MainWindow::on_actionAdd_Shape_triggered()
 {
     if(!isAdministrator) {
@@ -121,9 +107,6 @@ void MainWindow::on_actionAdd_Shape_triggered()
     }
 }
 
-/*!
- * \brief MainWindow::on_actionRemove_Shape_triggered
- */
 void MainWindow::on_actionRemove_Shape_triggered()
 {
     if(!isAdministrator) {
@@ -145,13 +128,6 @@ void MainWindow::on_actionRemove_Shape_triggered()
             delete delShapeDialog;
         }
     }
-}
-
-// !!! TEMPORARY !!!
-void MainWindow::on_actiondebug_shapeCount_triggered()
-{
-    qDebug() << "shapeCount in mainWindow: " << ui->renderWidget->getnumShapesRA();
-
 }
 
 void MainWindow::on_actionComments_triggered()

@@ -68,7 +68,6 @@ border: 3px solid black;</string>
     <addaction name="actionContact_Us"/>
     <addaction name="actionComments"/>
     <addaction name="actionShape_Report"/>
-    <addaction name="actiondebug_shapeCount"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
@@ -148,11 +147,6 @@ border: 3px solid black;</string>
    </property>
    <property name="toolTip">
     <string>Modify Shape</string>
-   </property>
-  </action>
-  <action name="actiondebug_shapeCount">
-   <property name="text">
-    <string>debug shapeCount</string>
    </property>
   </action>
   <action name="actionComments">

@@ -37,8 +37,6 @@ private slots:
     void on_actionAdd_Shape_triggered();
 
     void on_actionRemove_Shape_triggered();
-
-    void on_actiondebug_shapeCount_triggered();
     
     void on_actionComments_triggered();
 
