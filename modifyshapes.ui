@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Shape">
     <property name="enabled">
@@ -155,7 +155,14 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="x1LineEdit"/>
+         <widget class="QLineEdit" name="x1LineEdit">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_19">
@@ -165,7 +172,14 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="y1LineEdit"/>
+         <widget class="QLineEdit" name="y1LineEdit">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_20">
@@ -175,7 +189,14 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="x2LineEdit"/>
+         <widget class="QLineEdit" name="x2LineEdit">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_23">
@@ -185,7 +206,14 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="y2LineEdit"/>
+         <widget class="QLineEdit" name="y2LineEdit">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -212,7 +240,14 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="lLineEdit"/>
+         <widget class="QLineEdit" name="lLineEdit">
+          <property name="text">
+           <string>1</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_25">
@@ -222,7 +257,14 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="wLineEdit"/>
+         <widget class="QLineEdit" name="wLineEdit">
+          <property name="text">
+           <string>1</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -236,7 +278,14 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="aLineEdit"/>
+         <widget class="QLineEdit" name="aLineEdit">
+          <property name="text">
+           <string>1</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_27">
@@ -246,7 +295,14 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="bLineEdit"/>
+         <widget class="QLineEdit" name="bLineEdit">
+          <property name="text">
+           <string>1</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -260,7 +316,14 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="rLineEdit"/>
+         <widget class="QLineEdit" name="rLineEdit">
+          <property name="text">
+           <string>1</string>
+          </property>
+          <property name="placeholderText">
+           <string>0</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -314,10 +377,24 @@ p, li { white-space: pre-wrap; }
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="addXLineEdit"/>
+       <widget class="QLineEdit" name="addXLineEdit">
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="placeholderText">
+         <string>0</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="addYLineEdit"/>
+       <widget class="QLineEdit" name="addYLineEdit">
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="placeholderText">
+         <string>0</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="addPointPushButton">

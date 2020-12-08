@@ -284,9 +284,17 @@ void ModifyShapes::on_shapesComboBox_currentIndexChanged(int index)
    qDebug() << "index: " << index;
    disableAll();
    if(index != 0) {
+       // fill in origin fields
+       ui->x1LineEdit->setText(QString::number(localVec[index-1]->get_point().x()));
+       ui->y1LineEdit->setText(QString::number(localVec[index-1]->get_point().y()));
+
        enableAll(localVec[index-1]->get_shape()); // index-1 since combo box has a default value at index 0
        ui->idLineEdit->setText(QString::number(localVec[index-1]->get_shapeID()));
        ui->shapeTypeLineEdit->setText(getShapeName(localVec[index-1]->get_shape()));
+
+       indexModShape = index - 1;
+
+
    }else {
        ui->idLineEdit->setText("");
        ui->shapeTypeLineEdit->setText("");
@@ -373,7 +381,9 @@ void ModifyShapes::addPolyline()
     auto temp = new Polyline();
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    // TODO add points
+    // add points
+    pointsVec.insert(pointsVec.begin(), QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
+    temp->set_points(pointsVec);
 
     // Set pen with values from UI elements
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
@@ -390,7 +400,9 @@ void ModifyShapes::addPolygon()
     auto temp = new Polygon(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    // TODO add points
+    // add points
+    pointsVec.insert(pointsVec.begin(), QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
+    temp->set_points(pointsVec);
 
     // set pen
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
@@ -406,10 +418,10 @@ void ModifyShapes::addRectangle()
     auto temp = new Rectangle(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+    temp->set_point(QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
 
     // default dimensions on shape creation
-    temp->set_dimensions(50, 50);
+    temp->set_dimensions(ui->lLineEdit->text().toInt(), ui->wLineEdit->text().toInt());
     // set pen
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
 
@@ -424,10 +436,10 @@ void ModifyShapes::addSquare()
     auto temp = new Square(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+    temp->set_point(QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
 
     // default dimensions on shape creation
-    temp->set_dimension(50);
+    temp->set_dimension(ui->lLineEdit->text().toInt());
     // set pen
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
 
@@ -442,10 +454,10 @@ void ModifyShapes::addEllipse()
     auto temp = new Ellipse(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+    temp->set_point(QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
 
     // default dimensions on shape creation
-    temp->set_dimensions(50, 100);
+    temp->set_dimensions(ui->aLineEdit->text().toInt(), ui->bLineEdit->text().toInt());
     // set pen
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
 
@@ -460,10 +472,10 @@ void ModifyShapes::addCircle()
     auto temp = new Circle(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+    temp->set_point(QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
 
-    // default dimensions on shape creation
-    temp->set_radius(50);
+    // set dimension from form
+    temp->set_radius(ui->rLineEdit->text().toInt());
     // set pen
     temp->set_pen(getColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
 
@@ -478,14 +490,14 @@ void ModifyShapes::addText()
     auto temp = new Text(nullptr);
     temp->set_shapeID(localVec[ui->shapesComboBox->currentIndex()-1]->get_shapeID());
 
-    temp->set_point(QPoint{ui->posXSpinBox->value(), ui->posYSpinBox->value()});
+    temp->set_point(QPoint{ui->x1LineEdit->text().toInt(), ui->y1LineEdit->text().toInt()});
 
     temp->set_pen(getStringColor(), ui->penWidthSpinBox->value(), getPenStyle(), getPenCapStyle(), getPenJointStyle());
 
     temp->set_all_text(ui->textStringLineEdit->text(), getStringColor(), getStringFlag(), ui->sizeSpinBox->value(), getTextFontFamily(), QFont::Style::StyleNormal, getFontWeight());
 
-    // default dimensions on shape creation
-    temp->set_dimensions(50, 300);
+    // dimensions from form
+    temp->set_dimensions(ui->lLineEdit->text().toInt(), ui->wLineEdit->text().toInt());
 
     modShape = temp;
     temp = nullptr;
@@ -757,5 +769,77 @@ QString ModifyShapes::getTextFontFamily()
         break;
     default:
         return "Comic Sans MS";
+    }
+}
+
+void ModifyShapes::on_addPointPushButton_clicked()
+{
+    pointsVec.push_back(QPoint{ui->addXLineEdit->text().toInt(), ui->addYLineEdit->text().toInt()});
+}
+
+void ModifyShapes::populateFields(Shape* shape) const
+{
+
+    switch(shape->get_shape()) {
+    case sType::NoShape:
+        break;
+    case sType::Circle:
+        // Dimensions tab
+
+        // Pen tab
+
+        // Brush tab
+
+        break;
+    case sType::Ellipse:
+        // Dimensions tab
+
+        // Pen tab
+
+        // Brush tab
+
+        break;
+    case sType::Line:
+        // Dimensions tab
+
+        // Pen tab
+
+        break;
+    case sType::Polyline:
+        // Dimensions tab
+
+        // Pen tab
+
+        break;
+    case sType::Square:
+        // Dimensions tab
+
+        // Pen tab
+
+        // Brush tab
+
+        break;
+    case sType::Rectangle:
+        // Dimensions tab
+
+        // Pen tab
+
+        // Brush tab
+
+        break;
+    case sType::Polygon:
+        // Dimensions tab
+
+        // Pen tab
+
+        // Brush tab
+
+        break;
+    case sType::Text:
+        // Dimensions tab
+
+        // Text tab
+
+        break;
     }
 }

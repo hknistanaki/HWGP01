@@ -22,12 +22,12 @@ public:
 
     double area() const override {return 0;}
 
+    QPoint get_point() const override {return points[0];}
+
 
 private:
 
     gp::vector<QPoint> points;
-
-    QString shapeName = "Polyline";
 };
 
 #endif

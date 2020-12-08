@@ -67,7 +67,12 @@ public:
      * \return brush, const QBrush reference
      */
     const QBrush& get_brush() const {return brush;}
-    // QString get_text() const {return };
+
+    /*!
+     * \brief get_point
+     * \return origin of shape. Pure virtual
+     */
+    virtual QPoint get_point() const = 0;
 
     /*!
      * \brief get_shapeID

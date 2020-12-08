@@ -27,6 +27,8 @@ public:
 
     double area() const override;
 
+    QPoint get_point() const override {return points[0];}
+
 private:
     gp::vector<QPoint> points;
 };

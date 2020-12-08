@@ -20,6 +20,8 @@ public:
 
     double area() const override {return l*w;}
 
+    QPoint get_point() const override {return origin;}
+
 private:
     QPoint origin;
     int l;

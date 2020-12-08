@@ -21,6 +21,8 @@ public:
 
     double area() const override;
 
+    QPoint get_point() const override {return center;}
+
 private:
     QPoint center;
     int l;

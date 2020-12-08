@@ -47,8 +47,12 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_addPointPushButton_clicked();
+
 private:
     typedef Shape::ShapeType sType;
+
+    void populateFields(Shape* shape) const;
 
     /*!
      * \brief getShapeName
@@ -126,6 +130,8 @@ private:
     Ui::ModifyShapes *ui;
 
     gp::vector<Shape*> localVec;
+
+    gp::vector<QPoint> pointsVec;
 };
 
 #endif // MODIFYSHAPES_H

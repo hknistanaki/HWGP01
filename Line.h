@@ -27,6 +27,8 @@ public:
      */
     double area() const override {return 0;}
 
+    QPoint get_point() const override {return point_begin;}
+
 private:
     QPoint point_begin;
     QPoint point_end;

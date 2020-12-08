@@ -186,6 +186,7 @@ void MainWindow::on_actionModify_Shape_triggered()
 
             // if a shape was modified, replace it in the RenderArea vector
             if(modDialog->getModShape() != nullptr) {
+
                 ui->renderWidget->replaceShape(modDialog->getModIndex(), modDialog->getModShape());
             }
 
