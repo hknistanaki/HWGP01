@@ -20,11 +20,11 @@ namespace gp{
     public:
         // Default Constructor
         // Capacity of 1 element on initialization
-        vector(): size_v{0}, space{1}, elem{new T[1]} {};
+        vector(): size_v{0}, elem{new T[1]}, space{1}  {};
 
         // Alternate Constructor
         // Capacity of s elements on initialization
-        explicit vector(const int &newSpace): size_v{0}, space{newSpace}, elem{new T[newSpace]} {};
+        vector(const int &newSpace): size_v{0}, elem{new T[newSpace]}, space{newSpace}  {};
 
         // Copy constructor
         // !! If T is a pointer type, make sure to delete the data if
@@ -225,20 +225,21 @@ namespace gp{
         // !! if p is a pointer, data pointed to must be deleted before erasing !!
         iterator erase(iterator p) {
 
-            // end is one past the last element, cannot be erased
-            if (p == end()){
-                return p;
-            }
+                    // end is one past the last element, cannot be erased
+                    if (p == end()){
+                        return p;
+                    }
 
-            // start one after p and move all elements up, overwriting p
-            for(iterator pos = p + 1; pos != end(); ++pos) {
-                *(pos-1) = *pos;
-            }
+                    // start one after p and move all elements up, overwriting p
+                    for(iterator pos = p + 1; pos != end(); ++pos) {
+                        *(pos-1) = *pos;
+                    }
 
-            // update size
-            --size_v;
+                    // update size
+                    --size_v;
 
-        };
+                    return p++;
+                };
 
     }; // end class template vector
 
