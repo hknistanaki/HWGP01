@@ -17,6 +17,11 @@ class ShapeListing : public QDialog
 public:
     explicit ShapeListing(QWidget *parent, gp::vector<Shape*> shapeVec);
 
+    /*!
+     * \brief getShapeName
+     * \param shape Shape::ShapeType enum value
+     * \return QString value corresponding to ShapeType enum value
+     */
     QString getShapeName(Shape::ShapeType shape) const;
 
     ~ShapeListing();
@@ -28,6 +33,7 @@ private:
 
 };
 
+// used with std::sort
 bool compPerimeter(Shape* i, Shape* j);
 
 bool compArea(Shape* i, Shape* j);

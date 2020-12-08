@@ -1,0 +1,230 @@
+\hypertarget{class_text}{}\doxysection{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+Inheritance diagram for Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_text}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_text_a93d3fa0bab86fdfbd57c4f7c89dff3ce}\label{class_text_a93d3fa0bab86fdfbd57c4f7c89dff3ce}} 
+{\bfseries Text} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\item 
+\mbox{\hyperlink{class_text_a93d3fa0bab86fdfbd57c4f7c89dff3ce}{Text}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_text}{Text}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_aa479672c9f681bf12eff6a4a0911da3d}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_a6a527f50ff9b087c10c8545445b51a20}{set\+\_\+str}} (const Q\+String \&new\+Str)
+\begin{DoxyCompactList}\small\item\em set\+\_\+str \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_aa5433e8a9a218ac145c819ddd4dc1c76}{set\+\_\+dimensions}} (const int \&l\+In, const int \&w\+In)
+\begin{DoxyCompactList}\small\item\em set\+\_\+dimensions sets bounding box of text \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_af6f5cbe93eb4c7cd052383516e50eef5}{set\+\_\+all\+\_\+text}} (Q\+String text, Q\+Color color, Qt\+::\+Alignment\+Flag alignment, int point\+Size, Q\+String font\+Family, Q\+Font\+::\+Style style, Q\+Font\+::\+Weight weight)
+\begin{DoxyCompactList}\small\item\em set\+\_\+all\+\_\+text sets text parameters \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_text_a2286ac2bfbd5ba326684679b433382da}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw draws \mbox{\hyperlink{class_text}{Text}} \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_text_ac8f7dc182f4b51a0ac1057cbfcfa2256}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_text_a0df4d872c788b58ca7fd1acd0cee9120}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_text_a7258b84057ebc36e530e04884b847565}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_text_aa62687877bdd038613bc1e7b96963c16}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_a93d3fa0bab86fdfbd57c4f7c89dff3ce}\label{class_text_a93d3fa0bab86fdfbd57c4f7c89dff3ce}} 
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{Text()}{Text()}}
+{\footnotesize\ttfamily Text\+::\+Text (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_text}{Text}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to \mbox{\hyperlink{class_text}{Text}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_a7258b84057ebc36e530e04884b847565}\label{class_text_a7258b84057ebc36e530e04884b847565}} 
+\index{Text@{Text}!area@{area}}
+\index{area@{area}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Text\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+area of bounding box 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_text_a2286ac2bfbd5ba326684679b433382da}\label{class_text_a2286ac2bfbd5ba326684679b433382da}} 
+\index{Text@{Text}!draw@{draw}}
+\index{draw@{draw}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Text\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws \mbox{\hyperlink{class_text}{Text}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO delete \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_text_aa62687877bdd038613bc1e7b96963c16}\label{class_text_aa62687877bdd038613bc1e7b96963c16}} 
+\index{Text@{Text}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Text\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+top left point of boundin gbox 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_text_ac8f7dc182f4b51a0ac1057cbfcfa2256}\label{class_text_ac8f7dc182f4b51a0ac1057cbfcfa2256}} 
+\index{Text@{Text}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Text\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_text_a0df4d872c788b58ca7fd1acd0cee9120}\label{class_text_a0df4d872c788b58ca7fd1acd0cee9120}} 
+\index{Text@{Text}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Text\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+perimeter of bounding box 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_text_af6f5cbe93eb4c7cd052383516e50eef5}\label{class_text_af6f5cbe93eb4c7cd052383516e50eef5}} 
+\index{Text@{Text}!set\_all\_text@{set\_all\_text}}
+\index{set\_all\_text@{set\_all\_text}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{set\_all\_text()}{set\_all\_text()}}
+{\footnotesize\ttfamily void Text\+::set\+\_\+all\+\_\+text (\begin{DoxyParamCaption}\item[{Q\+String}]{text,  }\item[{Q\+Color}]{color,  }\item[{Qt\+::\+Alignment\+Flag}]{alignment,  }\item[{int}]{point\+Size,  }\item[{Q\+String}]{font\+Family,  }\item[{Q\+Font\+::\+Style}]{style,  }\item[{Q\+Font\+::\+Weight}]{weight }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+all\+\_\+text sets text parameters 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string to display \\
+\hline
+{\em color} & color of text \\
+\hline
+{\em alignment} & alignment flag \\
+\hline
+{\em point\+Size} & point size of font \\
+\hline
+{\em font\+Family} & font family \\
+\hline
+{\em style} & font style \\
+\hline
+{\em weight} & font weight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_aa5433e8a9a218ac145c819ddd4dc1c76}\label{class_text_aa5433e8a9a218ac145c819ddd4dc1c76}} 
+\index{Text@{Text}!set\_dimensions@{set\_dimensions}}
+\index{set\_dimensions@{set\_dimensions}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{set\_dimensions()}{set\_dimensions()}}
+{\footnotesize\ttfamily void Text\+::set\+\_\+dimensions (\begin{DoxyParamCaption}\item[{const int \&}]{l\+In,  }\item[{const int \&}]{w\+In }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+\_\+dimensions sets bounding box of text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+In} & length \\
+\hline
+{\em w\+In} & width \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_aa479672c9f681bf12eff6a4a0911da3d}\label{class_text_aa479672c9f681bf12eff6a4a0911da3d}} 
+\index{Text@{Text}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Text\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+\_\+point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & top left point of text bounding box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_text_a6a527f50ff9b087c10c8545445b51a20}\label{class_text_a6a527f50ff9b087c10c8545445b51a20}} 
+\index{Text@{Text}!set\_str@{set\_str}}
+\index{set\_str@{set\_str}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{set\_str()}{set\_str()}}
+{\footnotesize\ttfamily void Text\+::set\+\_\+str (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{new\+Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+\_\+str 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Str} & string value of \mbox{\hyperlink{class_text}{Text}} object \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Shapes.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Text.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/text.\+cpp\end{DoxyCompactItemize}

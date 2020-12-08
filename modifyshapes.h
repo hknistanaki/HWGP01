@@ -43,15 +43,29 @@ public:
 
 
 private slots:
+    /*!
+     * \brief on_shapesComboBox_currentIndexChanged handles shapesComboBox changing index
+     * \param index new index of shapesTypeComboBox
+     */
     void on_shapesComboBox_currentIndexChanged(int index);
 
+    /*!
+     * \brief on_buttonBox_accepted handles OK button
+     */
     void on_buttonBox_accepted();
 
+    /*!
+     * \brief on_addPointPushButton_clicked handles Add Point button
+     */
     void on_addPointPushButton_clicked();
 
 private:
     typedef Shape::ShapeType sType;
 
+    /*!
+     * \brief populateFields populates existing data TODO (probably won't have time to implement)
+     * \param shape Shape ptr
+     */
     void populateFields(Shape* shape) const;
 
     /*!
@@ -72,57 +86,122 @@ private:
      */
     void enableAll(Shape::ShapeType shape) const;
 
+    /*!
+     * \brief addShapeToCanvas adds shape to vector
+     */
     void addShapeToCanvas();
 
+    /*!
+     * \brief addLine creates Line from input data
+     */
     void addLine();
+
+    /*!
+     * \brief addPolyline creates Polyline from input data
+     */
     void addPolyline();
+
+    /*!
+     * \brief addPolygon creates Polygon from input data
+     */
     void addPolygon();
+
+    /*!
+     * \brief addRectangle creates rectangle from input data
+     */
     void addRectangle();
+
+    /*!
+     * \brief addSquare creates Square from input data
+     */
     void addSquare();
+
+    /*!
+     * \brief addEllipse creates Ellipse from input data
+     */
     void addEllipse();
+
+    /*!
+     * \brief addCircle creates Circle from input data
+     */
     void addCircle();
+
+    /*!
+     * \brief addText creates Text from input data
+     */
     void addText();
 
+    /*!
+     * \brief getStringColor
+     * \return Qt:GlobalColor converted from QString input value
+     */
     Qt::GlobalColor getStringColor();
+
+    /*!
+     * \brief getStringFlag
+     * \return Qt::AlignmentFlag converted from input data
+     */
     Qt::AlignmentFlag getStringFlag();
+
+    /*!
+     * \brief getTextFontFamily
+     * \return QString font family converted from input data
+     */
     QString getTextFontFamily();
+
+    /*!
+     * \brief getBrushColor
+     * \return Qt::GlobalColor converted from input data
+     */
     Qt::GlobalColor getBrushColor();
 
-    Shape::ShapeType  getShapeType(QString shape);
-    Qt::GlobalColor   getColor();
+    /*!
+     * \brief getColor
+     * \return Qt::GlobalColor converted from input data
+     */
+    Qt::GlobalColor getColor();
+
+    /*!
+     * \brief getFontColor
+     * \return Qt::GlobalColor converted from input data (text)
+     */
     Qt::GlobalColor getFontColor();
 
     /*!
      * \brief getPenCapStyle
      * \return Qt::PenCapStyle enum value
      */
-    Qt::PenCapStyle   getPenCapStyle();
-
-    /*!
-     * \brief getPenStyle (no param, pulls from ui element)
-     * \return
-     */
+    Qt::PenCapStyle getPenCapStyle();
 
     /*!
      * \brief getPenStyle
      * \return Qt::PenStyle enum value
      */
-    Qt::PenStyle      getPenStyle();
+    Qt::PenStyle getPenStyle();
 
     /*!
      * \brief getPenJointStyle
      * \return Qt::PenJoinStyle enum value
      */
-    Qt::PenJoinStyle  getPenJointStyle();
+    Qt::PenJoinStyle getPenJointStyle();
 
     /*!
      * \brief getBrushStyle
      * \return Qt::BrushStyle enum value
      */
-    Qt::BrushStyle    getBrushStyle();
+    Qt::BrushStyle getBrushStyle();
 
-    QFont::Style      getFontStyle();
-    QFont::Weight     getFontWeight();
+    /*!
+     * \brief getFontStyle
+     * \return QFont::Style converted from input data
+     */
+    QFont::Style getFontStyle();
+
+    /*!
+     * \brief getFontWeight
+     * \return QFont::Weight converted from input data
+     */
+    QFont::Weight getFontWeight();
 
     Shape* modShape;
     int indexModShape;

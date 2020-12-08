@@ -1,0 +1,184 @@
+\hypertarget{class_ellipse}{}\doxysection{Ellipse Class Reference}
+\label{class_ellipse}\index{Ellipse@{Ellipse}}
+Inheritance diagram for Ellipse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ellipse}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ellipse_af31f4f441414671f76c60b03516eb5d6}{Ellipse}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_ellipse}{Ellipse}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ellipse_aca84afb71c5724a83311dac2fc78af1d}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ellipse_a40900c63457f7e0ae714ee8c7394e60d}{set\+\_\+dimensions}} (const int \&l, const int \&w)
+\begin{DoxyCompactList}\small\item\em set\+\_\+dimensions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ellipse_a3ae364c7ee2bd64b99c8b6d793330a60}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_ellipse_ab13103c3e586aa5563a51928c5766424}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_ellipse_af9680b6552fd6d941dabb329075753f1}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_ellipse_add2f8178b1f6ee1ff53158730575d687}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_ellipse_ae5f1688c11a7554c46a28548cecda464}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipse_af31f4f441414671f76c60b03516eb5d6}\label{class_ellipse_af31f4f441414671f76c60b03516eb5d6}} 
+{\bfseries Ellipse} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ellipse_af31f4f441414671f76c60b03516eb5d6}\label{class_ellipse_af31f4f441414671f76c60b03516eb5d6}} 
+\index{Ellipse@{Ellipse}!Ellipse@{Ellipse}}
+\index{Ellipse@{Ellipse}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{Ellipse()}{Ellipse()}}
+{\footnotesize\ttfamily Ellipse\+::\+Ellipse (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_ellipse}{Ellipse}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to \mbox{\hyperlink{class_ellipse}{Ellipse}} obj \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ellipse_add2f8178b1f6ee1ff53158730575d687}\label{class_ellipse_add2f8178b1f6ee1ff53158730575d687}} 
+\index{Ellipse@{Ellipse}!area@{area}}
+\index{area@{area}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Ellipse\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+area of ellipse (math hard) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_ellipse_a3ae364c7ee2bd64b99c8b6d793330a60}\label{class_ellipse_a3ae364c7ee2bd64b99c8b6d793330a60}} 
+\index{Ellipse@{Ellipse}!draw@{draw}}
+\index{draw@{draw}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Ellipse\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO remove \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO remove \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_ellipse_ae5f1688c11a7554c46a28548cecda464}\label{class_ellipse_ae5f1688c11a7554c46a28548cecda464}} 
+\index{Ellipse@{Ellipse}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Ellipse\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+Q\+Point center of \mbox{\hyperlink{class_ellipse}{Ellipse}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_ellipse_ab13103c3e586aa5563a51928c5766424}\label{class_ellipse_ab13103c3e586aa5563a51928c5766424}} 
+\index{Ellipse@{Ellipse}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Ellipse\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_ellipse_af9680b6552fd6d941dabb329075753f1}\label{class_ellipse_af9680b6552fd6d941dabb329075753f1}} 
+\index{Ellipse@{Ellipse}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Ellipse\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+perimeter of \mbox{\hyperlink{class_ellipse}{Ellipse}} note\+: unsure if this is accurate, math is hard \+:( 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_ellipse_a40900c63457f7e0ae714ee8c7394e60d}\label{class_ellipse_a40900c63457f7e0ae714ee8c7394e60d}} 
+\index{Ellipse@{Ellipse}!set\_dimensions@{set\_dimensions}}
+\index{set\_dimensions@{set\_dimensions}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{set\_dimensions()}{set\_dimensions()}}
+{\footnotesize\ttfamily void Ellipse\+::set\+\_\+dimensions (\begin{DoxyParamCaption}\item[{const int \&}]{l,  }\item[{const int \&}]{w }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+dimensions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & new semi minor axis \\
+\hline
+{\em w} & new semi major axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ellipse_aca84afb71c5724a83311dac2fc78af1d}\label{class_ellipse_aca84afb71c5724a83311dac2fc78af1d}} 
+\index{Ellipse@{Ellipse}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Ellipse@{Ellipse}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Ellipse\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & new center point for ellipse \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Ellipse.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Shapes.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/ellipse.\+cpp\end{DoxyCompactItemize}

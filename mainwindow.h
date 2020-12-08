@@ -54,10 +54,9 @@ private:
     ShapeListing *sDialog;
     ModifyShapes *modDialog;
 
-
     RenderArea *canvas;
 
-    int shapeCount;
+    //int shapeCount;
 
     bool isAdministrator;
 };

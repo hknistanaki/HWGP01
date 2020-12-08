@@ -1,0 +1,189 @@
+\hypertarget{class_polyline}{}\doxysection{Polyline Class Reference}
+\label{class_polyline}\index{Polyline@{Polyline}}
+Inheritance diagram for Polyline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_polyline}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_polyline_a2587221692617dcbd2d8cf4e82d1857a}{Polyline}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_polyline}{Polyline}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_polyline_a3dde6eb07f24eeffb8eaa6d99166e26d}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_polyline_a3ffc4a834495b960bbe9fc91bc7d5155}{set\+\_\+points}} (const \mbox{\hyperlink{classgp_1_1vector}{gp\+::vector}}$<$ Q\+Point $>$ \&new\+Points)
+\begin{DoxyCompactList}\small\item\em set\+\_\+points replaces points vector with a new one \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_polyline_a1ec553022b53acc9e82ecb628523d4c0}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw draws the \mbox{\hyperlink{class_polyline}{Polyline}} \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_polyline_a4b847aeaa8705b78a53dca4c7913e3de}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_polyline_a52fedf0d36180c62e07a955c677ee5df}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_polyline_afaaf256f03ad44412aeeb1daab8c07aa}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_polyline_a9bc1ab6445ea9f93aeaa0283fbbef7df}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_polyline_a2587221692617dcbd2d8cf4e82d1857a}\label{class_polyline_a2587221692617dcbd2d8cf4e82d1857a}} 
+{\bfseries Polyline} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\item 
+\mbox{\Hypertarget{class_polyline_a3dde6eb07f24eeffb8eaa6d99166e26d}\label{class_polyline_a3dde6eb07f24eeffb8eaa6d99166e26d}} 
+void {\bfseries set\+\_\+point} (const Q\+Point \&point)
+\item 
+\mbox{\Hypertarget{class_polyline_a479a14a218ff3665d0cdd8313da9ebaf}\label{class_polyline_a479a14a218ff3665d0cdd8313da9ebaf}} 
+void {\bfseries draw} (const int translate\+\_\+x=0, const int translate\+\_\+y=0) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_polyline_a2587221692617dcbd2d8cf4e82d1857a}\label{class_polyline_a2587221692617dcbd2d8cf4e82d1857a}} 
+\index{Polyline@{Polyline}!Polyline@{Polyline}}
+\index{Polyline@{Polyline}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{Polyline()}{Polyline()}}
+{\footnotesize\ttfamily Polyline\+::\+Polyline (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_polyline}{Polyline}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to shape \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_polyline_afaaf256f03ad44412aeeb1daab8c07aa}\label{class_polyline_afaaf256f03ad44412aeeb1daab8c07aa}} 
+\index{Polyline@{Polyline}!area@{area}}
+\index{area@{area}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Polyline\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+0 (not applicable) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_polyline_a1ec553022b53acc9e82ecb628523d4c0}\label{class_polyline_a1ec553022b53acc9e82ecb628523d4c0}} 
+\index{Polyline@{Polyline}!draw@{draw}}
+\index{draw@{draw}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Polyline\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws the \mbox{\hyperlink{class_polyline}{Polyline}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO delete \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_polyline_a9bc1ab6445ea9f93aeaa0283fbbef7df}\label{class_polyline_a9bc1ab6445ea9f93aeaa0283fbbef7df}} 
+\index{Polyline@{Polyline}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Polyline\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+first point of \mbox{\hyperlink{class_polyline}{Polyline}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_polyline_a4b847aeaa8705b78a53dca4c7913e3de}\label{class_polyline_a4b847aeaa8705b78a53dca4c7913e3de}} 
+\index{Polyline@{Polyline}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Polyline\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+Q\+Point location to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_polyline_a52fedf0d36180c62e07a955c677ee5df}\label{class_polyline_a52fedf0d36180c62e07a955c677ee5df}} 
+\index{Polyline@{Polyline}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Polyline\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+0 (not applicable) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_polyline_a3dde6eb07f24eeffb8eaa6d99166e26d}\label{class_polyline_a3dde6eb07f24eeffb8eaa6d99166e26d}} 
+\index{Polyline@{Polyline}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Polyline\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & to add to points vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_polyline_a3ffc4a834495b960bbe9fc91bc7d5155}\label{class_polyline_a3ffc4a834495b960bbe9fc91bc7d5155}} 
+\index{Polyline@{Polyline}!set\_points@{set\_points}}
+\index{set\_points@{set\_points}!Polyline@{Polyline}}
+\doxysubsubsection{\texorpdfstring{set\_points()}{set\_points()}}
+{\footnotesize\ttfamily void Polyline\+::set\+\_\+points (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgp_1_1vector}{gp\+::vector}}$<$ Q\+Point $>$ \&}]{new\+Points }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+points replaces points vector with a new one 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Points} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/polyline.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Shapes.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/polyline.\+cpp\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/shapes.\+cpp\end{DoxyCompactItemize}

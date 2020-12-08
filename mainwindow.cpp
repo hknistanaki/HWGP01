@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    }
 
     isAdministrator = false;
-    shapeCount = 0;
+    //shapeCount = 0;
 }
 
 
@@ -95,7 +95,7 @@ void MainWindow::on_actionAdd_Shape_triggered()
         addShapeDialog = new addShape(this, ui->renderWidget->getnumShapesRA());
         addShapeDialog->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowMinMaxButtonsHint);
         addShapeDialog->exec();
-        shapeCount = ui->renderWidget->getnumShapesRA();
+        //shapeCount = ui->renderWidget->getnumShapesRA();
 
         // add the shape created previously to vector
         // if no shape created, pass
@@ -123,7 +123,7 @@ void MainWindow::on_actionRemove_Shape_triggered()
             // delete by shape id and not index in vector
             if(delShapeDialog->getToDelete() > -1) {
                 ui->renderWidget->chopShape(delShapeDialog->getToDelete()+1);
-                shapeCount = ui->renderWidget->getnumShapesRA();
+                //shapeCount = ui->renderWidget->getnumShapesRA();
             }
             delete delShapeDialog;
         }

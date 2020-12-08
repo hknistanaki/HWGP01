@@ -1,0 +1,178 @@
+\hypertarget{class_circle}{}\doxysection{Circle Class Reference}
+\label{class_circle}\index{Circle@{Circle}}
+Inheritance diagram for Circle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_circle}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_circle_a8f37cf4fce49d3c2227ba544ae8914b5}{Circle}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_circle}{Circle}} \mbox{\hyperlink{class_circle}{Circle}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circle_abd6f2a7532c1e56b840940aa9f61b830}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point sets the \mbox{\hyperlink{class_circle}{Circle}}\textquotesingle{}s center \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circle_abaee39a4d7e048ac8f6657788dcbaeb3}{set\+\_\+radius}} (const int \&r)
+\begin{DoxyCompactList}\small\item\em set\+\_\+radius \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circle_a2f048b760210459c574619271f683437}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw draws the circle \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_circle_a429b98205861231cd40de6e2b7cecbd7}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_circle_ac8c77ece2ee05002c375d6530b9f061d}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_circle_a8a43247b7083d2a2d3000312adeac27d}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_circle_acd5788ee9d54abfc9594081bf4e26244}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_circle_a8f37cf4fce49d3c2227ba544ae8914b5}\label{class_circle_a8f37cf4fce49d3c2227ba544ae8914b5}} 
+\index{Circle@{Circle}!Circle@{Circle}}
+\index{Circle@{Circle}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{Circle()}{Circle()}}
+{\footnotesize\ttfamily Circle\+::\+Circle (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_circle}{Circle}} \mbox{\hyperlink{class_circle}{Circle}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to shape \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_circle_a8a43247b7083d2a2d3000312adeac27d}\label{class_circle_a8a43247b7083d2a2d3000312adeac27d}} 
+\index{Circle@{Circle}!area@{area}}
+\index{area@{area}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Circle\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+3.\+14 $\ast$ r$^\wedge$2 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_circle_a2f048b760210459c574619271f683437}\label{class_circle_a2f048b760210459c574619271f683437}} 
+\index{Circle@{Circle}!draw@{draw}}
+\index{draw@{draw}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Circle\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws the circle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO remove \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO remove \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_circle_acd5788ee9d54abfc9594081bf4e26244}\label{class_circle_acd5788ee9d54abfc9594081bf4e26244}} 
+\index{Circle@{Circle}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Circle\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+circle\textquotesingle{}s center point 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_circle_a429b98205861231cd40de6e2b7cecbd7}\label{class_circle_a429b98205861231cd40de6e2b7cecbd7}} 
+\index{Circle@{Circle}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Circle\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_circle_ac8c77ece2ee05002c375d6530b9f061d}\label{class_circle_ac8c77ece2ee05002c375d6530b9f061d}} 
+\index{Circle@{Circle}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Circle\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+2r $\ast$ 3.\+14 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_circle_abd6f2a7532c1e56b840940aa9f61b830}\label{class_circle_abd6f2a7532c1e56b840940aa9f61b830}} 
+\index{Circle@{Circle}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Circle\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+point sets the \mbox{\hyperlink{class_circle}{Circle}}\textquotesingle{}s center 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Q\+Point value holding the circle\textquotesingle{}s center point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_circle_abaee39a4d7e048ac8f6657788dcbaeb3}\label{class_circle_abaee39a4d7e048ac8f6657788dcbaeb3}} 
+\index{Circle@{Circle}!set\_radius@{set\_radius}}
+\index{set\_radius@{set\_radius}!Circle@{Circle}}
+\doxysubsubsection{\texorpdfstring{set\_radius()}{set\_radius()}}
+{\footnotesize\ttfamily void Circle\+::set\+\_\+radius (\begin{DoxyParamCaption}\item[{const int \&}]{r }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+radius 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & new radius for circle \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/circle.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/circle.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{classgp_1_1vector}{}\doxysection{gp\+::vector$<$ T $>$ Class Template Reference}
+\label{classgp_1_1vector}\index{gp::vector$<$ T $>$@{gp::vector$<$ T $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a07353517ff477ee637a482fff67aab12}\label{classgp_1_1vector_a07353517ff477ee637a482fff67aab12}} 
+using {\bfseries iterator} = T $\ast$
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a8aec3fed40ba930c69b0680c6daa7f87}\label{classgp_1_1vector_a8aec3fed40ba930c69b0680c6daa7f87}} 
+using {\bfseries const\+\_\+iterator} = const T $\ast$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aa13b31e47aed75af7b46977a4125b47f}\label{classgp_1_1vector_aa13b31e47aed75af7b46977a4125b47f}} 
+{\bfseries vector} (const int \&new\+Space)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aea815dd890c58548f8bc9dd8aa89c9a0}\label{classgp_1_1vector_aea815dd890c58548f8bc9dd8aa89c9a0}} 
+{\bfseries vector} (const \mbox{\hyperlink{classgp_1_1vector}{vector}} \&rhs)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aaefeeb4608feeb5e71ba3b2dcfe283da}\label{classgp_1_1vector_aaefeeb4608feeb5e71ba3b2dcfe283da}} 
+\mbox{\hyperlink{classgp_1_1vector}{vector}} \& {\bfseries operator=} (const \mbox{\hyperlink{classgp_1_1vector}{vector}} \&rhs)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a04c005e5aefc14c449579727e30043d8}\label{classgp_1_1vector_a04c005e5aefc14c449579727e30043d8}} 
+{\bfseries vector} (const \mbox{\hyperlink{classgp_1_1vector}{vector}} \&\&temp) noexcept
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a9728b4b2fddfe4494ee160cab31c22cf}\label{classgp_1_1vector_a9728b4b2fddfe4494ee160cab31c22cf}} 
+\mbox{\hyperlink{classgp_1_1vector}{vector}} \& {\bfseries operator=} (\mbox{\hyperlink{classgp_1_1vector}{vector}} \&\&temp) noexcept
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a89c5f0549fec5b1d7fa220e30a922b4f}\label{classgp_1_1vector_a89c5f0549fec5b1d7fa220e30a922b4f}} 
+T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int n)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a86b676ebb758de25a06bdaf6181a13eb}\label{classgp_1_1vector_a86b676ebb758de25a06bdaf6181a13eb}} 
+const T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int n) const
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a33a4f7849bb222dc38d40d7a474ce9ed}\label{classgp_1_1vector_a33a4f7849bb222dc38d40d7a474ce9ed}} 
+int {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a89b7b2484689543e1d50ae87b6605b0b}\label{classgp_1_1vector_a89b7b2484689543e1d50ae87b6605b0b}} 
+int {\bfseries capacity} () const
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aba50bf24a6139d0820e442c684d9bfb2}\label{classgp_1_1vector_aba50bf24a6139d0820e442c684d9bfb2}} 
+void {\bfseries resize} (int newsize)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a17525760e50af7e5803c54136a9e5f07}\label{classgp_1_1vector_a17525760e50af7e5803c54136a9e5f07}} 
+void {\bfseries push\+\_\+back} (T val)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a9d17d460ff68302aa1aac924867ddc4f}\label{classgp_1_1vector_a9d17d460ff68302aa1aac924867ddc4f}} 
+void {\bfseries reserve} (int newalloc)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_afe9c9223766b56d0622b3939730f2da6}\label{classgp_1_1vector_afe9c9223766b56d0622b3939730f2da6}} 
+iterator {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a137f31dadd5275f5f391d4405e933dfd}\label{classgp_1_1vector_a137f31dadd5275f5f391d4405e933dfd}} 
+const\+\_\+iterator {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aed9da8d7f1bcd5417e91d04be1b2e4ec}\label{classgp_1_1vector_aed9da8d7f1bcd5417e91d04be1b2e4ec}} 
+iterator {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a10d234963df151174a766fd4542ce440}\label{classgp_1_1vector_a10d234963df151174a766fd4542ce440}} 
+const\+\_\+iterator {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_a66cd3f4b0a8c9f0fc5204decb6d3c9e6}\label{classgp_1_1vector_a66cd3f4b0a8c9f0fc5204decb6d3c9e6}} 
+iterator {\bfseries insert} (iterator p, const T \&v)
+\item 
+\mbox{\Hypertarget{classgp_1_1vector_aa8092a4f11c1c37ba656a3ec5794faa9}\label{classgp_1_1vector_aa8092a4f11c1c37ba656a3ec5794faa9}} 
+iterator {\bfseries erase} (iterator p)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/vector.\+h\end{DoxyCompactItemize}

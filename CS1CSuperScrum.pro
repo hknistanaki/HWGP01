@@ -26,6 +26,7 @@ SOURCES += \
     polygon.cpp \
     polyline.cpp \
     rectangle.cpp \
+    serializer.cpp \
     shapelisting.cpp \
     square.cpp \
     text.cpp
@@ -48,6 +49,7 @@ HEADERS += \
     modifyshapes.h \
     parser.h \
     polyline.h \
+    serializer.h \
     shapelisting.h \
     square.h \
     vector.h

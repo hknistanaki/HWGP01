@@ -44,10 +44,11 @@ public:
      */
     virtual ~Shape() {}
 
-    // add deleted copy operations
-
-    // getters
-
+    /*!
+     * \brief getPainter
+     * \param device
+     * \return unique_ptr of QPainter
+     */
     std::unique_ptr<QPainter> getPainter(QPaintDevice* device) const;
 
     /*!

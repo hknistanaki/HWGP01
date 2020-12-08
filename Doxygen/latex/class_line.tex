@@ -1,0 +1,176 @@
+\hypertarget{class_line}{}\doxysection{Line Class Reference}
+\label{class_line}\index{Line@{Line}}
+Inheritance diagram for Line\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_line}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_line_a9c21b824766e8a5638314d16e1148c40}{Line}} (const Q\+Point \&A=\{\}, const Q\+Point \&B=\{\}, const Q\+Pen \&pen=\{\}, int id=0)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_line}{Line}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_line_a852c6e9b7de759b93e399fb3fba46330}{set\+\_\+points}} (const Q\+Point \&point\+\_\+begin, const Q\+Point \&point\+\_\+end)
+\begin{DoxyCompactList}\small\item\em set\+\_\+points \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_line_a63b5a267712de6083533ed5a0b1959e2}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x, const int translate\+\_\+y) const override
+\begin{DoxyCompactList}\small\item\em draw draws \mbox{\hyperlink{class_line}{Line}} obj \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_line_ac76e73234101fbd824f08c0d9ef8a4c4}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_line_af59c396abed5414856ed52173b98081e}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_line_ae7f2d34a962426f4a952bceb42bc4743}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_line_ad78dde6f9c048825e64e8d6a60fcdf2b}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_line_abfce044bd32535d51e49ed00d401aee0}\label{class_line_abfce044bd32535d51e49ed00d401aee0}} 
+{\bfseries Line} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\item 
+\mbox{\Hypertarget{class_line_a852c6e9b7de759b93e399fb3fba46330}\label{class_line_a852c6e9b7de759b93e399fb3fba46330}} 
+void {\bfseries set\+\_\+points} (const Q\+Point \&point\+\_\+begin, const Q\+Point \&point\+\_\+end)
+\item 
+\mbox{\Hypertarget{class_line_a8fb80cfb194e2db7806aed20627bfba3}\label{class_line_a8fb80cfb194e2db7806aed20627bfba3}} 
+void {\bfseries draw} (const int translate\+\_\+x=0, const int translate\+\_\+y=0) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_line_a9c21b824766e8a5638314d16e1148c40}\label{class_line_a9c21b824766e8a5638314d16e1148c40}} 
+\index{Line@{Line}!Line@{Line}}
+\index{Line@{Line}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{Line()}{Line()}}
+{\footnotesize\ttfamily Line\+::\+Line (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{A = {\ttfamily \{\}},  }\item[{const Q\+Point \&}]{B = {\ttfamily \{\}},  }\item[{const Q\+Pen \&}]{pen = {\ttfamily \{\}},  }\item[{int}]{id = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_line}{Line}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Q\+Point of first point \\
+\hline
+{\em B} & Q\+Point of second point \\
+\hline
+{\em id} & int id to assign to \mbox{\hyperlink{class_line}{Line}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_line_ae7f2d34a962426f4a952bceb42bc4743}\label{class_line_ae7f2d34a962426f4a952bceb42bc4743}} 
+\index{Line@{Line}!area@{area}}
+\index{area@{area}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Line\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+0 (line does not have an area) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_line_a63b5a267712de6083533ed5a0b1959e2}\label{class_line_a63b5a267712de6083533ed5a0b1959e2}} 
+\index{Line@{Line}!draw@{draw}}
+\index{draw@{draw}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Line\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x,  }\item[{const int}]{translate\+\_\+y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws \mbox{\hyperlink{class_line}{Line}} obj 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device ptr \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO delete \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_line_ad78dde6f9c048825e64e8d6a60fcdf2b}\label{class_line_ad78dde6f9c048825e64e8d6a60fcdf2b}} 
+\index{Line@{Line}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Line\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+first point of line 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_line_ac76e73234101fbd824f08c0d9ef8a4c4}\label{class_line_ac76e73234101fbd824f08c0d9ef8a4c4}} 
+\index{Line@{Line}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Line\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_line_af59c396abed5414856ed52173b98081e}\label{class_line_af59c396abed5414856ed52173b98081e}} 
+\index{Line@{Line}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Line\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+0 (line does not have a perimeter) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_line_a852c6e9b7de759b93e399fb3fba46330}\label{class_line_a852c6e9b7de759b93e399fb3fba46330}} 
+\index{Line@{Line}!set\_points@{set\_points}}
+\index{set\_points@{set\_points}!Line@{Line}}
+\doxysubsubsection{\texorpdfstring{set\_points()}{set\_points()}}
+{\footnotesize\ttfamily void Line\+::set\+\_\+points (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point\+\_\+begin,  }\item[{const Q\+Point \&}]{point\+\_\+end }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+\_\+begin} & new beginning point \\
+\hline
+{\em point\+\_\+end} & new end point \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Line.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Shapes.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/line.\+cpp\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/shapes.\+cpp\end{DoxyCompactItemize}

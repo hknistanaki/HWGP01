@@ -1,0 +1,178 @@
+\hypertarget{class_square}{}\doxysection{Square Class Reference}
+\label{class_square}\index{Square@{Square}}
+Inheritance diagram for Square\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_square}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_square_a98935533394c6a7d9ba870a1df098a02}{Square}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_square}{Square}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_square_ae812957b401518abd99d06cfdd431532}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_square_a3ffe768d1403f5562b2ad8fc35d3a17d}{set\+\_\+dimension}} (const int \&w)
+\begin{DoxyCompactList}\small\item\em set\+\_\+dimension \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_square_a2b54d1dffdb6be86e82f8e6f27119188}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_square_a58e806ac056205496eef66c2f57b03f2}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw draws the \mbox{\hyperlink{class_square}{Square}} \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_square_a7e363e709c2393497fd3ac313c04a192}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_square_ae215569d46f2dedeb3d9f42af2494915}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_square_aa00e2d79f0066ba92c572fb635e07656}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_square_a98935533394c6a7d9ba870a1df098a02}\label{class_square_a98935533394c6a7d9ba870a1df098a02}} 
+\index{Square@{Square}!Square@{Square}}
+\index{Square@{Square}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{Square()}{Square()}}
+{\footnotesize\ttfamily Square\+::\+Square (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_square}{Square}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to \mbox{\hyperlink{class_square}{Square}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_square_ae215569d46f2dedeb3d9f42af2494915}\label{class_square_ae215569d46f2dedeb3d9f42af2494915}} 
+\index{Square@{Square}!area@{area}}
+\index{area@{area}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Square\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+area of square w$^\wedge$2 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_square_a58e806ac056205496eef66c2f57b03f2}\label{class_square_a58e806ac056205496eef66c2f57b03f2}} 
+\index{Square@{Square}!draw@{draw}}
+\index{draw@{draw}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Square\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws the \mbox{\hyperlink{class_square}{Square}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO delete \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_square_aa00e2d79f0066ba92c572fb635e07656}\label{class_square_aa00e2d79f0066ba92c572fb635e07656}} 
+\index{Square@{Square}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Square\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+top left point of rectangle 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_square_a2b54d1dffdb6be86e82f8e6f27119188}\label{class_square_a2b54d1dffdb6be86e82f8e6f27119188}} 
+\index{Square@{Square}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Square\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+Q\+Point position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_square_a7e363e709c2393497fd3ac313c04a192}\label{class_square_a7e363e709c2393497fd3ac313c04a192}} 
+\index{Square@{Square}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Square\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+perimeter of \mbox{\hyperlink{class_square}{Square}} 4w 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_square_a3ffe768d1403f5562b2ad8fc35d3a17d}\label{class_square_a3ffe768d1403f5562b2ad8fc35d3a17d}} 
+\index{Square@{Square}!set\_dimension@{set\_dimension}}
+\index{set\_dimension@{set\_dimension}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{set\_dimension()}{set\_dimension()}}
+{\footnotesize\ttfamily void Square\+::set\+\_\+dimension (\begin{DoxyParamCaption}\item[{const int \&}]{w }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+dimension 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & new width/length of \mbox{\hyperlink{class_square}{Square}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_square_ae812957b401518abd99d06cfdd431532}\label{class_square_ae812957b401518abd99d06cfdd431532}} 
+\index{Square@{Square}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Square@{Square}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Square\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & new top left point of \mbox{\hyperlink{class_square}{Square}} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/square.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/square.\+cpp\end{DoxyCompactItemize}

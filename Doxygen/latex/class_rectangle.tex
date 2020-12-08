@@ -1,0 +1,184 @@
+\hypertarget{class_rectangle}{}\doxysection{Rectangle Class Reference}
+\label{class_rectangle}\index{Rectangle@{Rectangle}}
+Inheritance diagram for Rectangle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rectangle}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rectangle_a0deed87f87e92f3b48621ff91d7e544f}{Rectangle}} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_rectangle}{Rectangle}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle_aeb93ea60338f7c13aae9de31214989b1}{set\+\_\+point}} (const Q\+Point \&point)
+\begin{DoxyCompactList}\small\item\em set\+\_\+point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle_ad1e78ce03175c01dd6e257dc05e24e56}{set\+\_\+dimensions}} (const int \&l, const int \&w)
+\begin{DoxyCompactList}\small\item\em set\+\_\+dimensions \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_rectangle_a1355b2fb1cccdc6ac7b8ae7549bf5c8c}{id\+\_\+pos}} () const override
+\begin{DoxyCompactList}\small\item\em id\+\_\+pos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rectangle_a4cb763a7b9f6920de6646d01b9f7dc11}{draw}} (Q\+Paint\+Device $\ast$device, const int translate\+\_\+x=0, const int translate\+\_\+y=0) const override
+\begin{DoxyCompactList}\small\item\em draw draws \mbox{\hyperlink{class_rectangle}{Rectangle}} \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_rectangle_a87d72ed0c0a889835949ba32cdebc4f5}{perimeter}} () const override
+\begin{DoxyCompactList}\small\item\em perimeter \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_rectangle_aab6845e3b4fc1cf25333ba35b59087d5}{area}} () const override
+\begin{DoxyCompactList}\small\item\em area \end{DoxyCompactList}\item 
+Q\+Point \mbox{\hyperlink{class_rectangle_a9eff536256c91b9208dc7336ed553a93}{get\+\_\+point}} () const override
+\begin{DoxyCompactList}\small\item\em get\+\_\+point \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_rectangle_a0deed87f87e92f3b48621ff91d7e544f}\label{class_rectangle_a0deed87f87e92f3b48621ff91d7e544f}} 
+{\bfseries Rectangle} (Q\+Paint\+Device $\ast$device=nullptr, int id=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_rectangle_a0deed87f87e92f3b48621ff91d7e544f}\label{class_rectangle_a0deed87f87e92f3b48621ff91d7e544f}} 
+\index{Rectangle@{Rectangle}!Rectangle@{Rectangle}}
+\index{Rectangle@{Rectangle}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{Rectangle()}{Rectangle()}}
+{\footnotesize\ttfamily Rectangle\+::\+Rectangle (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device = {\ttfamily nullptr},  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_rectangle}{Rectangle}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em id} & id to assign to \mbox{\hyperlink{class_rectangle}{Rectangle}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_rectangle_aab6845e3b4fc1cf25333ba35b59087d5}\label{class_rectangle_aab6845e3b4fc1cf25333ba35b59087d5}} 
+\index{Rectangle@{Rectangle}!area@{area}}
+\index{area@{area}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Rectangle\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+area 
+
+\begin{DoxyReturn}{Returns}
+area of \mbox{\hyperlink{class_rectangle}{Rectangle}} lw 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_afeee6df3afb921a347db5faa1349af4d}{Shape}}.
+
+\mbox{\Hypertarget{class_rectangle_a4cb763a7b9f6920de6646d01b9f7dc11}\label{class_rectangle_a4cb763a7b9f6920de6646d01b9f7dc11}} 
+\index{Rectangle@{Rectangle}!draw@{draw}}
+\index{draw@{draw}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Rectangle\+::draw (\begin{DoxyParamCaption}\item[{Q\+Paint\+Device $\ast$}]{device,  }\item[{const int}]{translate\+\_\+x = {\ttfamily 0},  }\item[{const int}]{translate\+\_\+y = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+draw draws \mbox{\hyperlink{class_rectangle}{Rectangle}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Q\+Paint\+Device \\
+\hline
+{\em translate\+\_\+x} & unused T\+O\+DO delete \\
+\hline
+{\em translate\+\_\+y} & unused T\+O\+DO delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_shape_a2ad03e49c2563c7caed8e14b597f9d02}{Shape}}.
+
+\mbox{\Hypertarget{class_rectangle_a9eff536256c91b9208dc7336ed553a93}\label{class_rectangle_a9eff536256c91b9208dc7336ed553a93}} 
+\index{Rectangle@{Rectangle}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily Q\+Point Rectangle\+::get\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+get\+\_\+point 
+
+\begin{DoxyReturn}{Returns}
+top left point of \mbox{\hyperlink{class_rectangle}{Rectangle}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a077d18b8ab199265eca8d5c012cb4fbd}{Shape}}.
+
+\mbox{\Hypertarget{class_rectangle_a1355b2fb1cccdc6ac7b8ae7549bf5c8c}\label{class_rectangle_a1355b2fb1cccdc6ac7b8ae7549bf5c8c}} 
+\index{Rectangle@{Rectangle}!id\_pos@{id\_pos}}
+\index{id\_pos@{id\_pos}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{id\_pos()}{id\_pos()}}
+{\footnotesize\ttfamily Q\+Point Rectangle\+::id\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+id\+\_\+pos 
+
+\begin{DoxyReturn}{Returns}
+Q\+Point position to draw nametag 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_ad4a7c10fbc99512133d7d58830e44eb7}{Shape}}.
+
+\mbox{\Hypertarget{class_rectangle_a87d72ed0c0a889835949ba32cdebc4f5}\label{class_rectangle_a87d72ed0c0a889835949ba32cdebc4f5}} 
+\index{Rectangle@{Rectangle}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Rectangle\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+perimeter 
+
+\begin{DoxyReturn}{Returns}
+perimeter of \mbox{\hyperlink{class_rectangle}{Rectangle}} 2l+2w 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a56921fb8e6d0ad51dc38060fd22acfc5}{Shape}}.
+
+\mbox{\Hypertarget{class_rectangle_ad1e78ce03175c01dd6e257dc05e24e56}\label{class_rectangle_ad1e78ce03175c01dd6e257dc05e24e56}} 
+\index{Rectangle@{Rectangle}!set\_dimensions@{set\_dimensions}}
+\index{set\_dimensions@{set\_dimensions}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{set\_dimensions()}{set\_dimensions()}}
+{\footnotesize\ttfamily void Rectangle\+::set\+\_\+dimensions (\begin{DoxyParamCaption}\item[{const int \&}]{l,  }\item[{const int \&}]{w }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+dimensions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & new length \\
+\hline
+{\em w} & new width \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_rectangle_aeb93ea60338f7c13aae9de31214989b1}\label{class_rectangle_aeb93ea60338f7c13aae9de31214989b1}} 
+\index{Rectangle@{Rectangle}!set\_point@{set\_point}}
+\index{set\_point@{set\_point}!Rectangle@{Rectangle}}
+\doxysubsubsection{\texorpdfstring{set\_point()}{set\_point()}}
+{\footnotesize\ttfamily void Rectangle\+::set\+\_\+point (\begin{DoxyParamCaption}\item[{const Q\+Point \&}]{point }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & new rectangle top left point \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Rectangle.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/Shapes.\+h\item 
+C\+:/\+Users/\+Ethan/\+Documents/\+Git\+Hub/\+H\+W\+G\+P01/rectangle.\+cpp\end{DoxyCompactItemize}
