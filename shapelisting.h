@@ -33,9 +33,20 @@ private:
 
 };
 
-// used with std::sort
+/*!
+ * \brief compPerimeter predicate, compares perimeters of Shape
+ * \param i Shape*
+ * \param j Shape*
+ * \return true if i's perimeter is greater than j's perimeter
+ */
 bool compPerimeter(Shape* i, Shape* j);
 
+/*!
+ * \brief compArea predicate, compares area of Shape
+ * \param i Shape*
+ * \param j Shape*
+ * \return true if i's area is greater than j's area
+ */
 bool compArea(Shape* i, Shape* j);
 
 
