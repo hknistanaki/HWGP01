@@ -151,7 +151,7 @@ void MainWindow::on_actionModify_Shape_triggered()
 {
 
     if(!isAdministrator) {
-        QMessageBox::information(this, "Error", "You must be logged in to delete shapes.");
+        QMessageBox::information(this, "Error", "You must be logged in to modify shapes.");
     }else {
         if(ui->renderWidget->getnumShapesRA() == 0) {
             QMessageBox::information(this, "Error", "There are no shapes to modify.");
