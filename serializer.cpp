@@ -38,9 +38,9 @@ gp::vector<Shape*> SerializerFile(){
 //    	BrushStyle brushStyle = wShapes.get_brush();
 //    	wShapes.get_text();
 
-    	int id = wShapes.get_shapeID();
-    	QPen *qPen = wShapes.get_pen();
-    	QBrush *qBrush = wShapes.get_brush();
+        int id = (*it)->get_shapeID();
+        QPen qPen = (*it)->get_pen();
+        QBrush qBrush = (*it)->get_brush();
 
     	// We need to add the qPen class. Class not added yet.
     	qPen.get_penColor();

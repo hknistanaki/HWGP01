@@ -8,6 +8,29 @@ comments::comments(QWidget *parent) :
 {
     ui->setupUi(this);
     isCustomer = false;
+
+    QString line = "";
+    QString customerType ="";
+
+    // TXT file address for saving the history of customer comments.
+    QString fileName = "CommentsHistory.txt";
+
+    //Read the CommentsHistory.txt
+    QFile inputFile(fileName);
+    inputFile.open(QIODevice::ReadOnly);
+    QTextStream in(&inputFile);
+    line = in.readAll();
+    ui->textBrowser->setText(line);
+    inputFile.close();
+
+    ui->textBrowser->setText(line);
+    QString textString = ui->textEdit->toHtml();
+    QString textPlain = ui->textEdit->toPlainText();
+
+    ui->textBrowser->setText(line + textPlain + customerType);
+    QString copyComments = ui->textBrowser->toHtml();
+    ui->textBrowser->setText(copyComments);
+    ui->textEdit->clear();
 }
 
 comments::~comments()
@@ -30,9 +53,6 @@ void comments::on_pushButton_clicked()
     }
 
     // TXT file address for saving the history of customer comments.
-    //
-    // the path to the file here should be portable. see the code
-    // in parser.cpp for an example.
     QString fileName = "CommentsHistory.txt";
     
     //Read the CommentsHistory.txt
