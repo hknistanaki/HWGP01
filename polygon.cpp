@@ -93,7 +93,7 @@ double Polygon::area() const
 
        // Calculate value of shoelace formula
        int j = points.size() - 1;
-       for (size_t i = 0; i < points.size(); i++)
+       for (int i = 0; i < points.size(); i++)
        {
            area += (points[j].x() + points[i].x()) * (points[j].y() + points[i].y());
            j = i;  // j is previous vertex to i

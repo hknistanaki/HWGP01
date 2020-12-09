@@ -15,7 +15,7 @@ namespace gp{
     private:
         int size_v;     // the size
         T* elem;        // a pointer to the elements
-        int space;      // size+free_space
+        int space;      // size_v+free_space
 
     public:
         // Default Constructor
@@ -29,7 +29,7 @@ namespace gp{
         // Copy constructor
         // !! If T is a pointer type, make sure to delete the data if
         // necessary
-        vector(const vector& rhs) : space{ rhs.capacity() }, size_v{ rhs.size() }
+        vector(const vector& rhs) :  size_v{ rhs.size() }, space{ rhs.capacity() }
             {
                 elem = new T[rhs.capacity()];
                 for (int i = 0; i < size_v; i++)
@@ -64,7 +64,7 @@ namespace gp{
         // Move Constructor
         // Copies from a temporary obj, temp obj is destroyed after
         // Shallow copy temp obj into new obj
-        vector(const vector&& temp) noexcept: size_v{temp.size_v}, space{temp.space}, elem{temp.elem}{
+        vector(const vector&& temp) noexcept: size_v{temp.size_v}, elem{temp.elem}, space{temp.space}{
         };
 
         // Move Assignment
@@ -183,7 +183,7 @@ namespace gp{
             if(size_v == 0) {
                 return nullptr;
             }
-            return &elem[size_v];
+            return elem + size_v;
         };
 
         // end
