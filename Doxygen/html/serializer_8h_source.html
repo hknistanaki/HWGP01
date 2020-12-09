@@ -46,6 +46,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,14 +61,9 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_a3e151a07aacd0177458d406b4f81781.html">Ethan</a></li><li class="navelem"><a class="el" href="dir_c9d958e7c83a8552b8ac88710bc24140.html">Documents</a></li><li class="navelem"><a class="el" href="dir_c700f6a3823d76bf43824f40326c92a3.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_1bfaed67e0ef24164954827b0243351d.html">HWGP01</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">serializer.h</div>  </div>
+<div class="title">C:/Users/Ethan/Documents/GitHub/HWGP01/serializer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SERIALIZER_H</span></div>
@@ -84,39 +80,40 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QColor&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QMessageBox&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QTextStream&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QPen&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QBrush&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// Remove comments below once Shape, Line, Circle... etc is done (Shortcut is Ctrl + /).</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;Line.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;circle.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;Polygon.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;polyline.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;Rectangle.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;square.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;Ellipse.h&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;Text.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="classgp_1_1vector.html">gp::vector&lt;Shape*&gt;</a> ParseFile();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeLine(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writePolyLine(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writePolygon(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeRectangle(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeSquare(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeEllipse(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeCircle(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeText(ifstream&amp; in,<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;QColor setColor(<span class="keywordtype">string</span> color);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;PenStyle setPenStyle(<span class="keywordtype">string</span> style);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;BrushStyle setBrushStyle(<span class="keywordtype">string</span> brush);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;PenJoinStyle setPJStyle(<span class="keywordtype">string</span> join);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;PenCapStyle setPCStyle(<span class="keywordtype">string</span> cap);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;Qt::AlignmentFlag setAlignmentFlag(<span class="keywordtype">string</span> flag);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;QFont::Weight setWeight(<span class="keywordtype">string</span> weight);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERIALIZER_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QPaint&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QPen&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QBrush&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Remove comments below once Shape, Line, Circle... etc is done (Shortcut is Ctrl + /).</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;Line.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;circle.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;Polygon.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;polyline.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;Rectangle.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;square.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;Ellipse.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;Text.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="classgp_1_1vector.html">gp::vector&lt;Shape*&gt;</a> ParseFile();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeLine(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writePolyLine(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writePolygon(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeRectangle(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeSquare(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeEllipse(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeCircle(ifstream &amp;in, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<a class="code" href="class_shape.html">Shape</a>* writeText(ifstream&amp; in,<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;QColor setColor(<span class="keywordtype">string</span> color);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;PenStyle setPenStyle(<span class="keywordtype">string</span> style);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;BrushStyle setBrushStyle(<span class="keywordtype">string</span> brush);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;PenJoinStyle setPJStyle(<span class="keywordtype">string</span> join);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;PenCapStyle setPCStyle(<span class="keywordtype">string</span> cap);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;Qt::AlignmentFlag setAlignmentFlag(<span class="keywordtype">string</span> flag);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;QFont::Weight setWeight(<span class="keywordtype">string</span> weight);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERIALIZER_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> Shape.h:17</div></div>
 <div class="ttc" id="aclassgp_1_1vector_html"><div class="ttname"><a href="classgp_1_1vector.html">gp::vector&lt; Shape * &gt;</a></div></div>
