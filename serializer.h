@@ -12,6 +12,7 @@
 #include <QColor>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QPaint>
 #include <QPen>
 #include <QBrush>
 
